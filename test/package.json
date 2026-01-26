@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "pareto-core-command": "^0.3.2",
+    "pareto-standard-operations": "^0.4.2",
+    "pareto-test": "^0.13.63",
+    "pub": "file:../pub"
+  },
+  "devDependencies": {
+    "c8": "^8.0.1"
+  },
+  "scripts": {
+    "test": "node ./dist/bin/test.js",
+    "test:coverage": "cd .. && npx c8 --all --src pub/src --exclude '**/test/**' --exclude '**/node_modules/**' --reports-dir test/coverage --reporter html --reporter text --reporter lcov node ./test/dist/bin/test.js",
+    "test:coverage-report": "c8 report --reporter=html",
+    "coverage:open": "xdg-open ./coverage/index.html"
+  }
+}

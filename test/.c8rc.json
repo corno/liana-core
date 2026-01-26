@@ -1,0 +1,15 @@
+{
+  "reporter": [
+    "html",
+    "text",
+    "lcov"
+  ],
+  "reports-dir": "./coverage",
+  "temp-directory": "./coverage/.nyc_output",
+  "check-coverage": false,
+  "lines": 80,
+  "functions": 80,
+  "branches": 80,
+  "statements": 80,
+  "all": true
+}
