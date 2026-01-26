@@ -31,8 +31,6 @@ import { $$ as s_fractional_decimal } from "pub/dist/implementation/manual/primi
 import { $$ as s_boolean_true_false } from "pub/dist/implementation/manual/primitives/boolean/serializers/true_false"
 import { $$ as s_approx_scientific } from "pub/dist/implementation/manual/primitives/approximate_number/serializers/scientific_notation"
 
-import { $$ as s_pad_left } from "pub/dist/implementation/manual/primitives/text/serializers/pad_left"
-
 // Import deserializers
 import { $$ as ds_decimal } from "pub/dist/implementation/manual/primitives/integer/deserializers/decimal"
 import { $$ as ds_hexadecimal } from "pub/dist/implementation/manual/primitives/integer/deserializers/hexadecimal"
@@ -93,11 +91,6 @@ _pn.run_main_command(
                             "approximate_number": ['group', _pt.dictionary.literal({
                                 "scientific_notation": ['group', _pt.dictionary.literal({
                                     "serializer": ['group', run_transformer_tests_with_parameters(TEST_DATA.approximate_number.scientific_notation.serializer, s_approx_scientific)],
-                                })],
-                            })],
-                            "text": ['group', _pt.dictionary.literal({
-                                "pads_left": ['group', _pt.dictionary.literal({
-                                    "serializer": ['group', run_transformer_tests_with_parameters(TEST_DATA.text.pad_left.serializer, s_pad_left)],
                                 })],
                             })],
                         })

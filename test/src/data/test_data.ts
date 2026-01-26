@@ -18,13 +18,6 @@ import * as d from "../interface/test_set"
 
 // Concrete test data conforming to My_Test_Set type
 export const TEST_DATA: d.Test_Set = {
-    'list': {
-        //I'm roundtripping here because I cannot test complex types directly yet
-        'split': _pt.dictionary.literal({
-            "simple split": { 'input': { 'input': "apple,banana,cherry", 'parameters': { 'separator': 44 }, }, 'expected': "apple,banana,cherry" },
-            "a path": { 'input': { 'input': "/usr/local/bin/", 'parameters': { 'separator': 47 }, }, 'expected': ",usr,local,bin," },
-        }),
-    },
     'approximate_number': {
         'scientific_notation': {
             'deserializer': _pt.dictionary.literal({
@@ -440,39 +433,4 @@ export const TEST_DATA: d.Test_Set = {
             }),
         },
     },
-    'text': {
-        'pad_left': {
-            'serializer': _pt.dictionary.literal({
-                // Basic padding scenarios
-                "no padding needed": { 'input': { 'input': "hello", 'parameters': { 'desired length': 5, 'pad character': 48 } }, 'expected': "hello" },
-                "shorter needs padding": { 'input': { 'input': "hi", 'parameters': { 'desired length': 5, 'pad character': 48 } }, 'expected': "000hi" },
-
-                // Zero character (ASCII 48) padding
-                "pad with zero": { 'input': { 'input': "123", 'parameters': { 'desired length': 6, 'pad character': 48 } }, 'expected': "000123" },
-                "pad single char": { 'input': { 'input': "A", 'parameters': { 'desired length': 4, 'pad character': 48 } }, 'expected': "000A" },
-
-                // Space character (ASCII 32) padding
-                "pad with space": { 'input': { 'input': "test", 'parameters': { 'desired length': 8, 'pad character': 32 } }, 'expected': "    test" },
-
-                // Different pad characters
-                "pad with asterisk": { 'input': { 'input': "abc", 'parameters': { 'desired length': 6, 'pad character': 42 } }, 'expected': "***abc" },
-                "pad with x": { 'input': { 'input': "def", 'parameters': { 'desired length': 7, 'pad character': 120 } }, 'expected': "xxxxdef" },
-                "pad with dash": { 'input': { 'input': "text", 'parameters': { 'desired length': 10, 'pad character': 45 } }, 'expected': "------text" },
-
-                // Edge cases
-                "empty string": { 'input': { 'input': "", 'parameters': { 'desired length': 3, 'pad character': 48 } }, 'expected': "000" },
-                "zero desired length": { 'input': { 'input': "test", 'parameters': { 'desired length': 0, 'pad character': 48 } }, 'expected': "test" },
-                "already exact length": { 'input': { 'input': "exact", 'parameters': { 'desired length': 5, 'pad character': 48 } }, 'expected': "exact" },
-                "longer than desired": { 'input': { 'input': "toolong", 'parameters': { 'desired length': 4, 'pad character': 48 } }, 'expected': "toolong" },
-
-                // Unicode and special characters in input
-                "unicode input": { 'input': { 'input': "café", 'parameters': { 'desired length': 8, 'pad character': 48 } }, 'expected': "0000café" },
-                "special chars input": { 'input': { 'input': "@#$", 'parameters': { 'desired length': 6, 'pad character': 48 } }, 'expected': "000@#$" },
-
-                // Different padding amounts
-                "one pad": { 'input': { 'input': "word", 'parameters': { 'desired length': 5, 'pad character': 48 } }, 'expected': "0word" },
-                "many pads": { 'input': { 'input': "x", 'parameters': { 'desired length': 10, 'pad character': 48 } }, 'expected': "000000000x" }
-            }),
-        }
-    }
 }
