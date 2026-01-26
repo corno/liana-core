@@ -3,7 +3,7 @@ import * as _ps from 'pareto-core/dist/serializer'
 
 import * as signatures from "../../../../../interface/signatures"
 
-export const $$: signatures.serializers.primitives.integer.decimal = ($) => _ps.text.deprecated_build(($i) => {
+export const serialize: signatures.serializers.primitives.integer.decimal = ($) => _ps.text.deprecated_build(($i) => {
     if ($ < 0) {
         $i.add_character(45) // '-'
         $ = -$

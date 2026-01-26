@@ -2,7 +2,7 @@ import * as _p from 'pareto-core/dist/deserializer'
 
 import * as signatures from "../../../../../interface/signatures"
 
-export const $$: signatures.deserializers.primitives.integer.decimal = ($, abort) => {
+export const deserialize: signatures.deserializers.primitives.integer.decimal = ($, abort) => {
     const characters = _p.list.from_text($, ($) => $)
     let result = 0
     let isNegative = false

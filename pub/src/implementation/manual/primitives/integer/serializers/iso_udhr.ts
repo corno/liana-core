@@ -2,7 +2,7 @@ import * as _p from 'pareto-core/dist/transformer'
 import * as _pi from 'pareto-core/dist/interface'
 import * as _ps from 'pareto-core/dist/serializer'
 
-import { $$ as s_decimal } from "./decimal"
+import { serialize as s_decimal } from "./decimal"
 
 import * as signatures from "../../../../../interface/signatures"
 
