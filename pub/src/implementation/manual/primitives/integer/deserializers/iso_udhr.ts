@@ -35,7 +35,7 @@ export const $$: signatures.deserializers.primitives.integer.iso_udhr = ($, abor
 
 
         const get_certain_character_at = (characters: _pi.List<number>, index: number): number => {
-            return characters.__get_possible_element_at(index).__decide(
+            return characters.__get_possible_item_at(index).__decide(
                 ($) => $,
                 () => abort(`index out of bounds`)
             )
@@ -53,7 +53,7 @@ export const $$: signatures.deserializers.primitives.integer.iso_udhr = ($, abor
         const dash = 45
 
         //validate format
-        if (characters.__get_number_of_elements() !== 10) { // YYYY-MM-DD
+        if (characters.__get_number_of_items() !== 10) { // YYYY-MM-DD
             return abort(`invalid date format`)
         }
         if (get_certain_character_at(characters, 4) !== dash) { // -

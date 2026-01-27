@@ -16,14 +16,14 @@ export const $$: signatures.serializers.primitives.integer.binary = ($) => _ps.t
     const digits = _p.list.deprecated_build<number>(($i) => {
         do {
             const digit = $ % 2
-            $i['add element'](digit)
+            $i['add item'](digit)
             $ = _p.integer.divide($, 2, () => _p.unreachable_code_path())
         } while ($ > 0)
 
     })
 
-    for (let j = digits.__get_number_of_elements() - 1; j >= 0; j--) {
-        const digit = digits.__get_possible_element_at(j).__decide(
+    for (let j = digits.__get_number_of_items() - 1; j >= 0; j--) {
+        const digit = digits.__get_possible_item_at(j).__decide(
             ($) => $,
             () => _p.unreachable_code_path()
         )
