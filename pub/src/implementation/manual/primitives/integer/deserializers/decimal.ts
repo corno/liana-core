@@ -18,8 +18,8 @@ export const deserialize: signatures.deserializers.primitives.integer.decimal = 
     }
     
     const get_character_at = (index: number): number => {
-        return characters.__get_possible_item_at(index).__decide(
-            ($) => $,
+        return characters.__deprecated_get_item_at(
+            index,
             () => abort(`index out of bounds`)
         )
     }

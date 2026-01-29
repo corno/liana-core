@@ -1,6 +1,7 @@
 import * as _p from 'pareto-core/dist/refiner'
 import * as _pi from 'pareto-core/dist/interface'
 import * as _pd from 'pareto-core/dist/deserializer'
+import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
 
 import * as signatures from "../../../../../interface/signatures"
 
@@ -35,7 +36,7 @@ export const $$: signatures.deserializers.primitives.integer.iso_udhr = ($, abor
 
 
         const get_certain_character_at = (characters: _pi.List<number>, index: number): number => {
-            return characters.__get_possible_item_at(index).__decide(
+            return characters.__deprecated_get_possible_item_at(index).__decide(
                 ($) => $,
                 () => abort(`index out of bounds`)
             )
@@ -97,9 +98,9 @@ export const $$: signatures.deserializers.primitives.integer.iso_udhr = ($, abor
 
     const full_years = iso_date.year - 1
     const leap_days_before_current_year =
-        + _p.integer.divide(full_years, 4, () =>_p.unreachable_code_path())
-        - _p.integer.divide(full_years, 100, () => _p.unreachable_code_path())
-        + _p.integer.divide(full_years, 400, () => _p.unreachable_code_path())
+        + _p.integer.divide(full_years, 4, () =>_p_unreachable_code_path())
+        - _p.integer.divide(full_years, 100, () => _p_unreachable_code_path())
+        + _p.integer.divide(full_years, 400, () => _p_unreachable_code_path())
 
     const total_days_before_current_year = full_years * 365 + leap_days_before_current_year
 

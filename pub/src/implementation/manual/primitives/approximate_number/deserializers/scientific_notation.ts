@@ -14,8 +14,8 @@ export const $$: signatures.deserializers.primitives.approximate_number.scientif
     let hasDecimal = false
     let inExponent = false
 
-    const get_character_at = (index: number): number => characters.__get_possible_item_at(index).__decide(
-        ($) => $,
+    const get_character_at = (index: number): number => characters.__deprecated_get_item_at(
+        index,
         () => abort(`index out of bounds`)
     )
 

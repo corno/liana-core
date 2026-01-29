@@ -1,5 +1,6 @@
 import * as _p from 'pareto-core/dist/transformer'
 import * as _ps from 'pareto-core/dist/serializer'
+import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
 
 import * as signatures from "../../../../../interface/signatures"
 
@@ -17,15 +18,15 @@ export const $$: signatures.serializers.primitives.integer.binary = ($) => _ps.t
         do {
             const digit = $ % 2
             $i['add item'](digit)
-            $ = _p.integer.divide($, 2, () => _p.unreachable_code_path())
+            $ = _p.integer.divide($, 2, () => _p_unreachable_code_path())
         } while ($ > 0)
 
     })
 
     for (let j = digits.__get_number_of_items() - 1; j >= 0; j--) {
-        const digit = digits.__get_possible_item_at(j).__decide(
+        const digit = digits.__deprecated_get_possible_item_at(j).__decide(
             ($) => $,
-            () => _p.unreachable_code_path()
+            () => _p_unreachable_code_path()
         )
         $i.add_character(48 + digit) // '0'-'1'
     }

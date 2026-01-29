@@ -2,7 +2,7 @@
   "dependencies": {
     "pareto-core-command": "^0.3.2",
     "pareto-standard-operations": "^0.4.2",
-    "pareto-test": "^0.13.65",
+    "pareto-test": "^0.13.66",
     "pub": "file:../pub"
   },
   "devDependencies": {
