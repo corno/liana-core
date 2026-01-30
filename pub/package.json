@@ -7,6 +7,6 @@
     "dist"
   ],
   "dependencies": {
-    "pareto-core": "^0.1.16"
+    "pareto-core": "^0.1.17"
   }
 }
