@@ -1,14 +1,15 @@
-import * as _p from 'pareto-core/dist/transformer'
-import * as _ps from 'pareto-core/dist/serializer'
-import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
+import * as _p from 'pareto-core/dist/expression'
+import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
+import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 
 import * as signatures from "../../../../../interface/signatures"
 
 export const $$: signatures.serializers.primitives.integer.fractional_decimal = ($, $p) => {
     const fractionalDigits = $p['number of fractional digits']
 
-    return _ps.text.from_list(
-        _p.list.deprecated_build<number>(($i) => {
+    return _p_text_from_list(
+        _p_list_build_deprecated<number>(($i) => {
             let value = $
 
             // Handle negative numbers
@@ -28,7 +29,7 @@ export const $$: signatures.serializers.primitives.integer.fractional_decimal = 
             const fractionalPart = value % divisor
 
             // Generate integer part digits
-            const integerDigits = _p.list.deprecated_build<number>(($i) => {
+            const integerDigits = _p_list_build_deprecated<number>(($i) => {
                 let temp = integerPart
                 if (temp === 0) {
                     $i['add item'](0)
@@ -53,7 +54,7 @@ export const $$: signatures.serializers.primitives.integer.fractional_decimal = 
             $i['add item'](46) // '.'
 
             // Generate fractional part digits
-            const fractionalDigits_list = _p.list.deprecated_build<number>(($i) => {
+            const fractionalDigits_list = _p_list_build_deprecated<number>(($i) => {
                 let temp = fractionalPart
                 for (let i = 0; i < fractionalDigits; i++) {
                     const digit = temp % 10

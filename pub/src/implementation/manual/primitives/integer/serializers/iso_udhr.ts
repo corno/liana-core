@@ -1,7 +1,7 @@
-import * as _p from 'pareto-core/dist/transformer'
+import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
-import * as _ps from 'pareto-core/dist/serializer'
-import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
+import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import _p_text_build_deprecated from 'pareto-core/dist/_p_text_build_deprecated'
 
 import { serialize as s_decimal } from "./decimal"
 
@@ -9,7 +9,7 @@ import * as signatures from "../../../../../interface/signatures"
 
 export const $$: signatures.serializers.primitives.integer.iso_udhr = (udhr_day) => {
 
-    const pad_left: _pi.Text_Serializer_With_Parameters<{ 'desired length': number, 'pad character': number }> = ($, $p) => _ps.text.deprecated_build(($i) => {
+    const pad_left: _pi.Text_Serializer_With_Parameters<{ 'desired length': number, 'pad character': number }> = ($, $p) => _p_text_build_deprecated(($i) => {
     // Add padding characters if current length is less than desired length
     for (let i = _p.natural.text_length($); i < $p['desired length']; i++) {
         $i.add_character($p['pad character'])

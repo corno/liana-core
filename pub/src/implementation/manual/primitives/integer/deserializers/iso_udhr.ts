@@ -1,7 +1,7 @@
-import * as _p from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
-import * as _pd from 'pareto-core/dist/deserializer'
-import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
+import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import * as signatures from "../../../../../interface/signatures"
 
@@ -28,7 +28,7 @@ export const $$: signatures.deserializers.primitives.integer.iso_udhr = ($, abor
         (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)
 
 
-    const characters = _pd.list.from_text($, ($) => $)
+    const characters = _p_list_from_text($, ($) => $)
 
     const parse_iso_date = (
         characters: _pi.List<number>

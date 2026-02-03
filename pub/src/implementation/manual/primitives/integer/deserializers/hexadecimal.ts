@@ -1,9 +1,9 @@
-import * as _p from 'pareto-core/dist/deserializer'
+import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import * as signatures from "../../../../../interface/signatures"
 
 export const $$: signatures.deserializers.primitives.integer.hexadecimal = ($, abort) => {
-    const characters = _p.list.from_text($, ($) => $)
+    const characters = _p_list_from_text($, ($) => $)
     let result = 0
     let isNegative = false
     let startIndex = 0

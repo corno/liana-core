@@ -7,7 +7,7 @@
     "dist"
   ],
   "dependencies": {
-    "astn-core": "^0.5.15",
-    "pareto-core": "^0.1.23"
+    "astn-core": "^0.5.17",
+    "pareto-core": "^0.1.29"
   }
 }

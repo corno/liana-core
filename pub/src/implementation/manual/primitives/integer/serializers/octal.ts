@@ -1,11 +1,14 @@
-import * as _p from 'pareto-core/dist/transformer'
-import * as _ps from 'pareto-core/dist/serializer'
-import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
+import * as _p from 'pareto-core/dist/expression'
+
+import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
+import _p_text_build_deprecated from 'pareto-core/dist/_p_text_build_deprecated'
+
+import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 
 import * as signatures from "../../../../../interface/signatures"
 
 export const $$: signatures.serializers.primitives.integer.octal = ($) => {
-    return _ps.text.deprecated_build(($i) => {
+    return _p_text_build_deprecated(($i) => {
         if ($ < 0) {
             $i.add_character(45) // '-'
             $ = -$
@@ -15,7 +18,7 @@ export const $$: signatures.serializers.primitives.integer.octal = ($) => {
         $i.add_character(48) // '0'
         $i.add_character(111) // 'o'
         
-        const digits = _p.list.deprecated_build<number>(($i) => {
+        const digits = _p_list_build_deprecated<number>(($i) => {
             do {
                 const digit = $ % 8
                 $i['add item'](digit)

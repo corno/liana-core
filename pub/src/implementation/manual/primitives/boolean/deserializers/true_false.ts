@@ -1,4 +1,3 @@
-import * as _pds from 'pareto-core/dist/deserializer'
 
 import * as signatures from "../../../../../interface/signatures"
 

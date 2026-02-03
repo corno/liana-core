@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "pareto-test": "^0.13.68",
+    "pareto-test": "^0.13.69",
     "pub": "file:../pub"
   },
   "devDependencies": {

@@ -1,11 +1,12 @@
-import * as _p from 'pareto-core/dist/transformer'
-import * as _ps from 'pareto-core/dist/serializer'
-import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
+import * as _p from 'pareto-core/dist/expression'
+import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import _p_text_build_deprecated from 'pareto-core/dist/_p_text_build_deprecated'
+import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
 
 import * as signatures from "../../../../../interface/signatures"
 
 export const $$: signatures.serializers.primitives.approximate_number.scientific_notation = ($, $p) => {
-    return _ps.text.deprecated_build(($i) => {
+    return _p_text_build_deprecated(($i) => {
         // Handle special case for zero in scientific notation
         if ($ === 0) {
             $i.add_character(48) // '0'
@@ -60,7 +61,7 @@ export const $$: signatures.serializers.primitives.approximate_number.scientific
         const mantissa_scaled = _p.integer.divide(mantissa * scale_factor + 0.5, 1, () => _p_unreachable_code_path())
 
         // Convert mantissa to string
-        const digits = _p.list.deprecated_build<number>(($i) => {
+        const digits = _p_list_build_deprecated<number>(($i) => {
             let temp = mantissa_scaled
             // temp is always > 0 here since mantissa_scaled = integer_division(mantissa * scale_factor + 0.5, 1)
             // where mantissa >= 1.0 (normalized) and scale_factor >= 1, so result >= 1
@@ -102,7 +103,7 @@ export const $$: signatures.serializers.primitives.approximate_number.scientific
         }
 
         // Convert exponent to string
-        const exp_digits = _p.list.deprecated_build<number>(($i) => {
+        const exp_digits = _p_list_build_deprecated<number>(($i) => {
             if (exponent === 0) {
                 $i['add item'](0)
             } else {
