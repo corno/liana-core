@@ -3,7 +3,7 @@ import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 import * as signatures from "../../../../../interface/signatures"
 
 export const deserialize: signatures.deserializers.primitives.integer.decimal = ($, abort) => {
-    const characters = _p_list_from_text($, ($) => $)
+    const characters = $
     let result = 0
     let isNegative = false
     let startIndex = 0

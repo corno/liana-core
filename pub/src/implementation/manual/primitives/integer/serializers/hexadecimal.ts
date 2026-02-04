@@ -1,20 +1,19 @@
 import * as _p from 'pareto-core/dist/expression'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
-import _p_text_build_deprecated from 'pareto-core/dist/_p_text_build_deprecated'
 
 import * as signatures from "../../../../../interface/signatures"
 
 export const $$: signatures.serializers.primitives.integer.hexadecimal = ($) => {
-    return _p_text_build_deprecated(($i) => {
+    return _p_list_build_deprecated(($i) => {
         if ($ < 0) {
-            $i.add_character(45) // '-'
+            $i['add item'](45) // '-'
             $ = -$
         }
         
         // Add "0x" prefix
-        $i.add_character(48) // '0'
-        $i.add_character(120) // 'x'
+        $i['add item'](48) // '0'
+        $i['add item'](120) // 'x'
         
         const digits = _p_list_build_deprecated<number>(($i) => {
             do {
@@ -31,9 +30,9 @@ export const $$: signatures.serializers.primitives.integer.hexadecimal = ($) => 
                 () => _p_unreachable_code_path() // index cannot be out of bounds
             )
             if (digit < 10) {
-                $i.add_character(48 + digit) // '0'-'9'
+                $i['add item'](48 + digit) // '0'-'9'
             } else {
-                $i.add_character(65 + digit - 10) // 'A'-'F'
+                $i['add item'](65 + digit - 10) // 'A'-'F'
             }
         }
     })

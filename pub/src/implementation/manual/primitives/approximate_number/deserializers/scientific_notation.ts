@@ -4,7 +4,7 @@ import * as signatures from "../../../../../interface/signatures"
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 export const $$: signatures.deserializers.primitives.approximate_number.scientific_notation = ($, abort) => {
-    const characters = _p_list_from_text($, ($) => $)
+    const characters = $
     let result = 0
     let isNegative = false
     let startIndex = 0

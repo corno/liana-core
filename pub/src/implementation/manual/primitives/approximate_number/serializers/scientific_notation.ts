@@ -1,36 +1,35 @@
 import * as _p from 'pareto-core/dist/expression'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
-import _p_text_build_deprecated from 'pareto-core/dist/_p_text_build_deprecated'
 import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
 
 import * as signatures from "../../../../../interface/signatures"
 
 export const $$: signatures.serializers.primitives.approximate_number.scientific_notation = ($, $p) => {
-    return _p_text_build_deprecated(($i) => {
+    return _p_list_build_deprecated(($i) => {
         // Handle special case for zero in scientific notation
         if ($ === 0) {
-            $i.add_character(48) // '0'
+            $i['add item'](48) // '0'
 
             // Add decimal point if we have more than 1 digit
             if ($p.digits > 1) {
-                $i.add_character(46) // '.'
+                $i['add item'](46) // '.'
 
                 // Add the required number of zeros after decimal point
                 for (let i = 0; i < $p.digits - 1; i++) {
-                    $i.add_character(48) // '0'
+                    $i['add item'](48) // '0'
                 }
             }
 
             // Add exponent part for zero: e+0
-            $i.add_character(101) // 'e'
-            $i.add_character(43)  // '+'
-            $i.add_character(48)  // '0'
+            $i['add item'](101) // 'e'
+            $i['add item'](43)  // '+'
+            $i['add item'](48)  // '0'
             return
         }
 
         // Handle negative numbers
         if ($ < 0) {
-            $i.add_character(45) // '-'
+            $i['add item'](45) // '-'
             $ = -$
         }
 
@@ -77,11 +76,11 @@ export const $$: signatures.serializers.primitives.approximate_number.scientific
             digits.__get_number_of_items() - 1,
             () => _p_unreachable_code_path() // index cannot be out of bounds
         )
-        $i.add_character(48 + first_digit) // First digit
+        $i['add item'](48 + first_digit) // First digit
 
         // Add decimal point if we have more digits
         if ($p.digits > 1 && digits.__get_number_of_items() > 1) {
-            $i.add_character(46) // '.'
+            $i['add item'](46) // '.'
 
             // Add remaining digits in reverse order
             for (let j = digits.__get_number_of_items() - 2; j >= 0; j--) {
@@ -89,17 +88,17 @@ export const $$: signatures.serializers.primitives.approximate_number.scientific
                     j,
                     () => _p_unreachable_code_path() // index cannot be out of bounds
                 )
-                $i.add_character(48 + digit)
+                $i['add item'](48 + digit)
             }
         }
 
         // Add exponent part
-        $i.add_character(101) // 'e'
+        $i['add item'](101) // 'e'
         if (exponent < 0) {
-            $i.add_character(45) // '-'
+            $i['add item'](45) // '-'
             exponent = -exponent
         } else {
-            $i.add_character(43) // '+'
+            $i['add item'](43) // '+'
         }
 
         // Convert exponent to string
@@ -121,7 +120,7 @@ export const $$: signatures.serializers.primitives.approximate_number.scientific
                 j,
                 () => _p_unreachable_code_path() // index cannot be out of bounds
             )
-            $i.add_character(48 + digit)
+            $i['add item'](48 + digit)
         }
     })
 }

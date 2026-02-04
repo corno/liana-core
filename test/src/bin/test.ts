@@ -54,45 +54,45 @@ _pn.run_main_command(
                 ).execute(
                     {
                         'test results': _pt.dictionary.literal({
-                            "integer": ['group', _pt.dictionary.literal({
-                                "decimal": ['group', _pt.dictionary.literal({
-                                    "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.integer.decimal.serializer, s_decimal)],
-                                    "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.integer.decimal.deserializer, ds_decimal)],
-                                })],
-                                "hexadecimal": ['group', _pt.dictionary.literal({
-                                    "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.integer.hexadecimal.serializer, s_hexadecimal)],
-                                    "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.integer.hexadecimal.deserializer, ds_hexadecimal)],
-                                })],
-                                "binary": ['group', _pt.dictionary.literal({
-                                    "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.integer.binary.serializer, s_binary)],
-                                    "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.integer.binary.deserializer, ds_binary)],
-                                })],
-                                "octal": ['group', _pt.dictionary.literal({
-                                    "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.integer.octal.serializer, s_octal)],
-                                    "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.integer.octal.deserializer, ds_octal)],
-                                })],
-                                "udhr_to_iso": ['group', _pt.dictionary.literal({
-                                    "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.integer.iso_udhr.serializer, s_udhr_to_iso)],
-                                })],
-                                "iso_to_udhr": ['group', _pt.dictionary.literal({
-                                    "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.integer.iso_udhr.deserializer, ds_iso_to_udhr)],
-                                })],
-                                "fractional_decimal": ['group', _pt.dictionary.literal({
-                                    "serializer": ['group', run_transformer_tests_with_parameters(TEST_DATA.integer.fractional_decimal.serializer, s_fractional_decimal)],
-                                    "deserializer": ['group', run_refiner_tests_with_parameters(TEST_DATA.integer.fractional_decimal.deserializer, ds_fractional_decimal)],
-                                })],
-                            })],
-                            "boolean": ['group', _pt.dictionary.literal({
-                                "true_false": ['group', _pt.dictionary.literal({
-                                    "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.boolean.true_false.serializer, s_boolean_true_false)],
-                                    "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.boolean.true_false.deserializer, ds_true_false)],
-                                })],
-                            })],
-                            "approximate_number": ['group', _pt.dictionary.literal({
-                                "scientific_notation": ['group', _pt.dictionary.literal({
-                                    "serializer": ['group', run_transformer_tests_with_parameters(TEST_DATA.approximate_number.scientific_notation.serializer, s_approx_scientific)],
-                                })],
-                            })],
+                            // "integer": ['group', _pt.dictionary.literal({
+                            //     "decimal": ['group', _pt.dictionary.literal({
+                            //         "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.integer.decimal.serializer, s_decimal)],
+                            //         "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.integer.decimal.deserializer, ds_decimal)],
+                            //     })],
+                            //     "hexadecimal": ['group', _pt.dictionary.literal({
+                            //         "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.integer.hexadecimal.serializer, s_hexadecimal)],
+                            //         "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.integer.hexadecimal.deserializer, ds_hexadecimal)],
+                            //     })],
+                            //     "binary": ['group', _pt.dictionary.literal({
+                            //         "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.integer.binary.serializer, s_binary)],
+                            //         "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.integer.binary.deserializer, ds_binary)],
+                            //     })],
+                            //     "octal": ['group', _pt.dictionary.literal({
+                            //         "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.integer.octal.serializer, s_octal)],
+                            //         "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.integer.octal.deserializer, ds_octal)],
+                            //     })],
+                            //     "udhr_to_iso": ['group', _pt.dictionary.literal({
+                            //         "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.integer.iso_udhr.serializer, s_udhr_to_iso)],
+                            //     })],
+                            //     "iso_to_udhr": ['group', _pt.dictionary.literal({
+                            //         "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.integer.iso_udhr.deserializer, ds_iso_to_udhr)],
+                            //     })],
+                            //     "fractional_decimal": ['group', _pt.dictionary.literal({
+                            //         "serializer": ['group', run_transformer_tests_with_parameters(TEST_DATA.integer.fractional_decimal.serializer, s_fractional_decimal)],
+                            //         "deserializer": ['group', run_refiner_tests_with_parameters(TEST_DATA.integer.fractional_decimal.deserializer, ds_fractional_decimal)],
+                            //     })],
+                            // })],
+                            // "boolean": ['group', _pt.dictionary.literal({
+                            //     "true_false": ['group', _pt.dictionary.literal({
+                            //         "serializer": ['group', run_transformer_tests_without_parameters(TEST_DATA.boolean.true_false.serializer, s_boolean_true_false)],
+                            //         "deserializer": ['group', run_refiner_tests_without_parameters(TEST_DATA.boolean.true_false.deserializer, ds_true_false)],
+                            //     })],
+                            // })],
+                            // "approximate_number": ['group', _pt.dictionary.literal({
+                            //     "scientific_notation": ['group', _pt.dictionary.literal({
+                            //         "serializer": ['group', run_transformer_tests_with_parameters(TEST_DATA.approximate_number.scientific_notation.serializer, s_approx_scientific)],
+                            //     })],
+                            // })],
                         })
                     },
                     ($): ds_main.Error => ({

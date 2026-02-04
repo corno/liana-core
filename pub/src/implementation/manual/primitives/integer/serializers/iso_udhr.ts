@@ -1,21 +1,26 @@
 import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
-import _p_text_build_deprecated from 'pareto-core/dist/_p_text_build_deprecated'
-
-import { serialize as s_decimal } from "./decimal"
+import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
+import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import * as signatures from "../../../../../interface/signatures"
 
+//data types
+import * as d_out from "pareto-fountain-pen/dist/interface/to_be_generated/text"
+
+//dependencies
+import { serialize as s_decimal } from "./decimal"
+
 export const $$: signatures.serializers.primitives.integer.iso_udhr = (udhr_day) => {
 
-    const pad_left: _pi.Text_Serializer_With_Parameters<{ 'desired length': number, 'pad character': number }> = ($, $p) => _p_text_build_deprecated(($i) => {
-    // Add padding characters if current length is less than desired length
-    for (let i = _p.natural.text_length($); i < $p['desired length']; i++) {
-        $i.add_character($p['pad character'])
-    }
-    $i.add_snippet($)
-})
+    const pad_left: _pi.Transformer_With_Parameters<d_out.Text, d_out.Text, { 'desired length': number, 'pad character': number }> = ($, $p) => _p_list_build_deprecated(($i) => {
+        // Add padding characters if current length is less than desired length
+        for (let i = _p.natural.amount_of_list_items($); i < $p['desired length']; i++) {
+            $i['add item']($p['pad character'])
+        }
+        $i['add list']($)
+    })
 
     const iso_day_0_offset = - 711471 // the number of days that iso day 1 (0001-01-01) is offset relative to udhr day 0 (1948-12-10)
 
@@ -38,7 +43,7 @@ export const $$: signatures.serializers.primitives.integer.iso_udhr = (udhr_day)
         const number_of_days_in_4_years = 365 * 4 + 1
         const number_of_days_in_1_year = 365
 
-        const number_of_400_year_blocks = _p.integer.divide(total_days, number_of_days_in_400_years,  () => _p_unreachable_code_path())
+        const number_of_400_year_blocks = _p.integer.divide(total_days, number_of_days_in_400_years, () => _p_unreachable_code_path())
         const remaining_days_in_the_last_400_years = total_days % number_of_days_in_400_years
 
         const number_of_100_year_blocks = _p.integer.divide(remaining_days_in_the_last_400_years, number_of_days_in_100_years, () => _p_unreachable_code_path())
@@ -114,6 +119,16 @@ export const $$: signatures.serializers.primitives.integer.iso_udhr = (udhr_day)
     const month_str = pad_left(s_decimal(iso_date.month), { 'desired length': 2, 'pad character': 48 }) // '0'  
     const day_str = pad_left(s_decimal(iso_date.day), { 'desired length': 2, 'pad character': 48 }) // '0'
 
-    return `${year_str}-${month_str}-${day_str}`
+    return _p.list.nested_literal_old([
+        year_str,
+        [
+            45 // '-'
+        ],
+        month_str,
+        [
+            45 // '-'
+        ],
+        day_str
+    ])
 }
 

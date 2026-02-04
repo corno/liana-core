@@ -3,7 +3,7 @@ import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 import * as signatures from "../../../../../interface/signatures"
 
 export const $$: signatures.deserializers.primitives.integer.fractional_decimal = ($, abort, $p) => {
-    const characters = _p_list_from_text($, ($) => $)
+    const characters = $
     let isNegative = false
     let startIndex = 0
     let decimalPointIndex = -1
