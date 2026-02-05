@@ -9,7 +9,7 @@ import * as t_deserialize_parse_tree_to_fountain_pen from "astn-core/dist/implem
 import * as t_resolve_to_fountain_pen from "../../resolve/transformers/fountain_pen"
 import * as t_unmarshall_to_fountain_pen from "astn-core/dist/implementation/manual/schemas/unmarshall/transformers/fountain_pen"
 
-export const Liana_Error = ($: d_in.Error): d_out.Phrase => _p.decide.state($, ($) => {
+export const Error = ($: d_in.Error): d_out.Phrase => _p.decide.state($, ($) => {
     switch ($[0]) {
 
         case 'parse error': return _p.ss($, ($) => t_deserialize_parse_tree_to_fountain_pen.Error($, { 'position info': ['zero based', null] }))
