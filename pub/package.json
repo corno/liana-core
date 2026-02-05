@@ -8,6 +8,6 @@
   ],
   "dependencies": {
     "astn-core": "^0.5.23",
-    "pareto-core": "^0.1.31"
+    "pareto-core": "^0.1.32"
   }
 }
