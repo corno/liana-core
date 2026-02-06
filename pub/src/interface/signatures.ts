@@ -1,7 +1,7 @@
 import *as _pi from 'pareto-core/dist/interface'
 
 import * as d_serializer_parameters from "./to_be_generated/serializer_parameters"
-import * as d_deserializer_errors from "./to_be_generated/deserializer_errors"
+import * as d_deserializer_errors from "./to_be_generated/primitive_deserializer_errors"
 import * as d_text from "pareto-fountain-pen/dist/interface/to_be_generated/list_of_characters"
 export namespace deserializers {
 
