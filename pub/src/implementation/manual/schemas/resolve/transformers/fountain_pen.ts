@@ -49,7 +49,7 @@ export const Error: Error = ($) => sh.ph.composed([
             case 'missing required entries': return _p.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("missing required entries:"),
                 sh.ph.indent(
-                    sh.pg.sentences($.__to_list(($, id) => sh.ph.composed([
+                    sh.pg.sentences($.__to_list(($, id) => sh.sentence([
                         sh.ph.literal("- "),
                         sh.ph.literal(id)
                     ])))
