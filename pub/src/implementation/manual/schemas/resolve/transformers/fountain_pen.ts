@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import * as d_in from "../../../../../interface/to_be_generated/resolve"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
@@ -50,7 +50,7 @@ export const Error: Error = ($) => sh.ph.composed([
                 sh.ph.literal("missing required entries:"),
                 sh.ph.indent(
                     sh.pg.sentences($.__to_list(($, id) => sh.ph.composed([
-                        sh.ph.literal(`- `),
+                        sh.ph.literal("- "),
                         sh.ph.literal(id)
                     ])))
                 )

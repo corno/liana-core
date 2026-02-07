@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
 
@@ -21,7 +21,7 @@ export const $$: signatures.serializers.primitives.integer.octal = ($) => {
             do {
                 const digit = $ % 8
                 $i['add item'](digit)
-                $ = _p.integer.divide($, 8, () => _p_unreachable_code_path())
+                $ = _p.number.integer.divide($, 8, () => _p_unreachable_code_path("the divisor is hardcoded to 8"))
             } while ($ > 0)
 
         })
@@ -29,7 +29,7 @@ export const $$: signatures.serializers.primitives.integer.octal = ($) => {
         for (let j = digits.__get_number_of_items() - 1; j >= 0; j--) {
             const digit = digits.__deprecated_get_possible_item_at(j).__decide(
                 ($) => $,
-                () => _p_unreachable_code_path() // index cannot be out of bounds
+                () => _p_unreachable_code_path("index cannot be out of bounds")
             )
             $i['add item'](48 + digit) // '0'-'7'
         }

@@ -10,12 +10,12 @@ export const $$: signatures.deserializers.primitives.integer.octal = ($, abort) 
 
     // Check for empty string
     if (characters.__get_number_of_items() === 0) {
-        abort(`Empty string is not a valid octal number`)
+        abort("Empty string is not a valid octal number")
     }
 
     const get_character_at = (index: number): number => characters.__deprecated_get_possible_item_at(index).__decide(
         ($) => $,
-        () => abort(`index out of bounds`)
+        () => abort("index out of bounds")
     )
 
     // Check for negative sign
@@ -28,13 +28,13 @@ export const $$: signatures.deserializers.primitives.integer.octal = ($, abort) 
     if (characters.__get_number_of_items() <= startIndex + 1 ||
         get_character_at(startIndex) !== 48 || // '0'
         get_character_at(startIndex + 1) !== 111) { // 'o'
-        abort(`Octal number must have '0o' prefix`)
+        abort("Octal number must have '0o' prefix")
     }
     startIndex += 2
 
     // Check if there are digits after the prefix
     if (startIndex >= characters.__get_number_of_items()) {
-        abort(`Octal number must have digits after '0o' prefix`)
+        abort("Octal number must have digits after '0o' prefix")
     }
 
     // Parse octal digits from left to right
@@ -47,7 +47,7 @@ export const $$: signatures.deserializers.primitives.integer.octal = ($, abort) 
             result = result * 8 + digit
         } else {
             // Invalid character
-            abort(`Invalid character in octal string`)
+            abort("Invalid character in octal string")
         }
     }
 

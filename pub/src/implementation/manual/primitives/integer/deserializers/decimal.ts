@@ -14,13 +14,13 @@ export const deserialize: signatures.deserializers.primitives.integer.decimal = 
     
     // Check for empty string
     if (characters.__get_number_of_items() === 0) {
-        abort(`Empty string is not a valid decimal number`)
+        abort("Empty string is not a valid decimal number")
     }
     
     const get_character_at = (index: number): number => {
         return characters.__deprecated_get_item_at(
             index,
-            () => abort(`index out of bounds`)
+            () => abort("index out of bounds")
         )
     }
     
@@ -40,7 +40,7 @@ export const deserialize: signatures.deserializers.primitives.integer.decimal = 
             result = result * 10 + digit
         } else {
             // Invalid character
-            abort(`Invalid character in decimal string`)
+            abort("Invalid character in decimal string")
         }
     }
     

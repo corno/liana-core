@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
@@ -38,7 +38,7 @@ export const $$: signatures.deserializers.primitives.integer.iso_udhr = ($, abor
         const get_certain_character_at = (characters: _pi.List<number>, index: number): number => {
             return characters.__deprecated_get_possible_item_at(index).__decide(
                 ($) => $,
-                () => abort(`index out of bounds`)
+                () => abort("index out of bounds")
             )
         }
 
@@ -46,7 +46,7 @@ export const $$: signatures.deserializers.primitives.integer.iso_udhr = ($, abor
             let result = 0
             for (let i = start; i < end; i++) {
                 const digit = get_certain_character_at(characters, i) - 48
-                if (digit < 0 || digit > 9) return abort(`invalid date format`)
+                if (digit < 0 || digit > 9) return abort("invalid date format")
                 result = result * 10 + digit
             }
             return result
@@ -55,13 +55,13 @@ export const $$: signatures.deserializers.primitives.integer.iso_udhr = ($, abor
 
         //validate format
         if (characters.__get_number_of_items() !== 10) { // YYYY-MM-DD
-            return abort(`invalid date format`)
+            return abort("invalid date format")
         }
         if (get_certain_character_at(characters, 4) !== dash) { // -
-            return abort(`invalid date format`)
+            return abort("invalid date format")
         }
         if (get_certain_character_at(characters, 7) !== dash) { // -
-            return abort(`invalid date format`)
+            return abort("invalid date format")
         }
         return {
             year: string_to_number(characters, 0, 4),
@@ -98,9 +98,9 @@ export const $$: signatures.deserializers.primitives.integer.iso_udhr = ($, abor
 
     const full_years = iso_date.year - 1
     const leap_days_before_current_year =
-        + _p.integer.divide(full_years, 4, () =>_p_unreachable_code_path())
-        - _p.integer.divide(full_years, 100, () => _p_unreachable_code_path())
-        + _p.integer.divide(full_years, 400, () => _p_unreachable_code_path())
+        + _p.number.integer.divide(full_years, 4, () =>_p_unreachable_code_path("the divisor is hardcoded to 4"))
+        - _p.number.integer.divide(full_years, 100, () => _p_unreachable_code_path("the divisor is hardcoded to 100"))
+        + _p.number.integer.divide(full_years, 400, () => _p_unreachable_code_path("the divisor is hardcoded to 400"))
 
     const total_days_before_current_year = full_years * 365 + leap_days_before_current_year
 

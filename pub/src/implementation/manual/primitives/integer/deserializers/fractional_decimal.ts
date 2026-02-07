@@ -10,13 +10,13 @@ export const $$: signatures.deserializers.primitives.integer.fractional_decimal 
     
     // Check for empty string
     if (characters.__get_number_of_items() === 0) {
-        abort(`Empty string is not a valid fractional decimal number`)
+        abort("Empty string is not a valid fractional decimal number")
     }
     
     const get_character_at = (index: number): number => {
         return characters.__deprecated_get_item_at(
             index,
-            () => abort(`index out of bounds`)
+            () => abort("index out of bounds")
         )
     }
     
@@ -32,22 +32,22 @@ export const $$: signatures.deserializers.primitives.integer.fractional_decimal 
         
         if (charCode === 46) { // '.'
             if (decimalPointIndex !== -1) {
-                abort(`Multiple decimal points found`)
+                abort("Multiple decimal points found")
             }
             decimalPointIndex = i
         } else if (!(charCode >= 48 && charCode <= 57)) {
-            abort(`Invalid character in fractional decimal string`)
+            abort("Invalid character in fractional decimal string")
         }
     }
     
     // Must have a decimal point
     if (decimalPointIndex === -1) {
-        abort(`No decimal point found in fractional decimal string`)
+        abort("No decimal point found in fractional decimal string")
     }
     
     // Check that we have digits before decimal point
     if (decimalPointIndex === startIndex) {
-        abort(`No digits before decimal point`)
+        abort("No digits before decimal point")
     }
     
     // Calculate number of fractional digits in input

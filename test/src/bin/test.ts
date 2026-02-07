@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as _pt from 'pareto-core/dist/expression'
+import * as _pt from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 import * as _pc from 'pareto-core/dist/command'
 

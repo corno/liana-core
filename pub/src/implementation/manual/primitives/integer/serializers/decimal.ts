@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
@@ -14,7 +14,7 @@ export const serialize: signatures.serializers.primitives.integer.decimal = ($) 
         do {
             const digit = $ % 10
             $i['add item'](digit)
-            $ = _p.integer.divide($, 10, () => _p_unreachable_code_path())
+            $ = _p.number.integer.divide($, 10, () => _p_unreachable_code_path("the divisor is hardcoded to 10"))
         } while ($ > 0)
 
     })
@@ -22,7 +22,7 @@ export const serialize: signatures.serializers.primitives.integer.decimal = ($) 
     for (let j = digits.__get_number_of_items() - 1; j >= 0; j--) {
         $i['add item'](48 + digits.__deprecated_get_item_at(
             j,
-            () => _p_unreachable_code_path() // index cannot be out of bounds
+            () => _p_unreachable_code_path("index cannot be out of bounds")
         ))
     }
 })

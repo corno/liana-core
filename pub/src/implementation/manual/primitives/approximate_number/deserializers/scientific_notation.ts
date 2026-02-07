@@ -17,7 +17,7 @@ export const $$: signatures.deserializers.primitives.approximate_number.scientif
 
     const get_character_at = (index: number): number => characters.__deprecated_get_item_at(
         index,
-        () => abort(`index out of bounds`)
+        () => abort("index out of bounds")
     )
 
     // Check for negative sign
@@ -32,12 +32,12 @@ export const $$: signatures.deserializers.primitives.approximate_number.scientif
 
         if (charCode === 46) { // '.'
             if (hasDecimal || inExponent) {
-                abort(`Invalid decimal format: multiple decimal points or decimal in exponent`)
+                abort("Invalid decimal format: multiple decimal points or decimal in exponent")
             }
             hasDecimal = true
         } else if (charCode === 101 || charCode === 69) { // 'e' or 'E'
             if (inExponent) {
-                abort(`Invalid decimal format: multiple exponent markers`)
+                abort("Invalid decimal format: multiple exponent markers")
             }
             inExponent = true
             // Check for exponent sign
@@ -62,7 +62,7 @@ export const $$: signatures.deserializers.primitives.approximate_number.scientif
                 result = result * 10 + digit
             }
         } else {
-            abort(`Invalid character in decimal string`)
+            abort("Invalid character in decimal string")
         }
     }
 

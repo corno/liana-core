@@ -9,12 +9,12 @@ export const $$: signatures.deserializers.primitives.integer.binary = ($, abort)
 
     // Check for empty string
     if (characters.__get_number_of_items() === 0) {
-        abort(`Empty string is not a valid binary number`)
+        abort("Empty string is not a valid binary number")
     }
 
     const get_character_at = (index: number): number => characters.__deprecated_get_item_at(
         index,
-        () => abort(`index out of bounds`)
+        () => abort("index out of bounds")
     )
 
     // Check for negative sign
@@ -27,13 +27,13 @@ export const $$: signatures.deserializers.primitives.integer.binary = ($, abort)
     if (characters.__get_number_of_items() <= startIndex + 1 ||
         get_character_at(startIndex) !== 48 || // '0'
         get_character_at(startIndex + 1) !== 98) { // 'b'
-        abort(`Binary number must have '0b' prefix`)
+        abort("Binary number must have '0b' prefix")
     }
     startIndex += 2
 
     // Check if there are digits after the prefix
     if (startIndex >= characters.__get_number_of_items()) {
-        abort(`Binary number must have digits after '0b' prefix`)
+        abort("Binary number must have digits after '0b' prefix")
     }
 
     // Parse binary digits from left to right
@@ -46,7 +46,7 @@ export const $$: signatures.deserializers.primitives.integer.binary = ($, abort)
             result = result * 2 + digit
         } else {
             // Invalid character
-            abort(`Invalid character in binary string`)
+            abort("Invalid character in binary string")
         }
     }
 

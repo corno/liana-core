@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
 import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
@@ -24,7 +24,7 @@ export const $$: signatures.serializers.primitives.integer.fractional_decimal = 
         }
 
         // Split into integer and fractional parts
-        const integerPart = _p.integer.divide(value, divisor, () => _p_unreachable_code_path())
+        const integerPart = _p.number.integer.divide(value, divisor, () => _p_unreachable_code_path("the divisor is hardcoded to 10^fractionalDigits"))
         const fractionalPart = value % divisor
 
         // Generate integer part digits
@@ -36,7 +36,7 @@ export const $$: signatures.serializers.primitives.integer.fractional_decimal = 
                 while (temp > 0) {
                     const digit = temp % 10
                     $i['add item'](digit)
-                    temp = _p.integer.divide(temp, 10, () => _p_unreachable_code_path())
+                    temp = _p.number.integer.divide(temp, 10, () => _p_unreachable_code_path("the divisor is hardcoded to 10"))
                 }
             }
         })
@@ -45,7 +45,7 @@ export const $$: signatures.serializers.primitives.integer.fractional_decimal = 
         for (let j = integerDigits.__get_number_of_items() - 1; j >= 0; j--) {
             $i['add item'](48 + integerDigits.__deprecated_get_possible_item_at(j).__decide(
                 ($) => $,
-                () => _p_unreachable_code_path() // index cannot be out of bounds
+                () => _p_unreachable_code_path("index cannot be out of bounds")
             ))
         }
 
@@ -58,7 +58,7 @@ export const $$: signatures.serializers.primitives.integer.fractional_decimal = 
             for (let i = 0; i < fractionalDigits; i++) {
                 const digit = temp % 10
                 $i['add item'](digit)
-                temp = _p.integer.divide(temp, 10, () => _p_unreachable_code_path())
+                temp = _p.number.integer.divide(temp, 10, () => _p_unreachable_code_path("the divisor is hardcoded to 10"))
             }
         })
 
@@ -66,7 +66,7 @@ export const $$: signatures.serializers.primitives.integer.fractional_decimal = 
         for (let j = fractionalDigits_list.__get_number_of_items() - 1; j >= 0; j--) {
             $i['add item'](48 + fractionalDigits_list.__deprecated_get_possible_item_at(j).__decide(
                 ($) => $,
-                () => _p_unreachable_code_path() // index cannot be out of bounds
+                () => _p_unreachable_code_path("index cannot be out of bounds")
             ))
         }
     })

@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 //data types
 import * as d_in from "../../../../../interface/to_be_generated/unmarshall"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
