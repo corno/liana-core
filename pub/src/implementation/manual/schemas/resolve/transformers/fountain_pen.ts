@@ -27,7 +27,10 @@ export const Error: Error = ($) => sh.ph.composed([
                         sh.ph.literal("'"),
                     ]))
                     case 'optional value is not set': return _p.ss($, ($) => sh.ph.literal("expected parameter/optional value to be set"))
-                    case 'same node': return _p.ss($, ($) => sh.ph.literal("${$}, not the same node"))
+                    case 'same node': return _p.ss($, ($) => sh.ph.composed([
+                        sh.ph.literal($),
+                        sh.ph.literal(", not the same node")
+                    ]))
                     default: return _p.au($[0])
                 }
             }))
