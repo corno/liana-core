@@ -27,8 +27,8 @@ export type Test_Set = {
             'deserializer': _pi.Dictionary<d_generic.Refiner_Without_Parameters<number, string, string>>
         }
         'fractional_decimal': {
-            'serializer': _pi.Dictionary<d_generic.Transformer_With_Parameters<number, string, d_serializer_parameters.fractional_decimal>>
-            'deserializer': _pi.Dictionary<d_generic.Refiner_With_Parameters<number, string, string, d_serializer_parameters.fractional_decimal>>
+            'serializer': _pi.Dictionary<d_generic.Transformer_With_Parameter<number, string, d_serializer_parameters.fractional_decimal>>
+            'deserializer': _pi.Dictionary<d_generic.Refiner_With_Parameter<number, string, string, d_serializer_parameters.fractional_decimal>>
         }
     }
     'boolean': {
@@ -39,8 +39,8 @@ export type Test_Set = {
     }
     'approximate_number': {
         'scientific_notation': {
-            'serializer': _pi.Dictionary<d_generic.Transformer_With_Parameters<number, string, d_serializer_parameters.scientific_notation>>
-            'deserializer': _pi.Dictionary<d_generic.Refiner_With_Parameters<string, number, string, d_serializer_parameters.scientific_notation>>
+            'serializer': _pi.Dictionary<d_generic.Transformer_With_Parameter<number, string, d_serializer_parameters.scientific_notation>>
+            'deserializer': _pi.Dictionary<d_generic.Refiner_With_Parameter<string, number, string, d_serializer_parameters.scientific_notation>>
         }
     }
 }

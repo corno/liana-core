@@ -44,7 +44,7 @@ type Tester_for_Refiner =
     | ['without error without parameter', Tester_for_Refiner_Without_Error_Without_Parameter]
 
 export const create_tester_for_transformer_with_parameter = <Input, Result, Parameter>(
-    transformer: _pi.Transformer_With_Parameters<Input, Result, Parameter>,
+    transformer: _pi.Transformer_With_Parameter<Input, Result, Parameter>,
     text_to_input: (input: string) => Input,
     text_to_parameter: (parameter: string) => Parameter,
     result_to_text: (result: Result) => string,
@@ -69,7 +69,7 @@ export const create_tester_for_transformer_with_parameter = <Input, Result, Para
 
 
 export const create_tester_for_serializer_with_parameter = <Input, Parameter>(
-    transformer: _pi.Transformer_With_Parameters<Input, string, Parameter>,
+    transformer: _pi.Transformer_With_Parameter<Input, string, Parameter>,
     text_to_input: (input: string) => Input,
     text_to_parameter: (parameter: string) => Parameter,
 ): Tester_for_Transformer => ['with parameter', (input, parameter) => transformer(
@@ -88,7 +88,7 @@ export const create_tester_for_transformer_without_parameter = <Input, Result>(
 
 
 // export const create_tester_for_refiner_with_error_with_parameter = <Input, Result, Parameter, Error>(
-//     refiner: _pi.Refiner_With_Parameters<Input, Result, Error, Parameter>,
+//     refiner: _pi.Refiner_With_Parameter<Input, Result, Error, Parameter>,
 //     text_to_input: (input: string) => Input,
 //     text_to_parameter: (parameter: string) => Parameter,
 //     result_to_text: (result: Result) => string,

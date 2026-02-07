@@ -20,7 +20,7 @@ export namespace deserializers {
             export type octal = _pi.Refiner<number, d_deserializer_errors.octal, d_text.List_of_Characters>
             export type decimal = _pi.Refiner<number, d_deserializer_errors.decimal, d_text.List_of_Characters>
             export type hexadecimal = _pi.Refiner<number, d_deserializer_errors.hexadecimal, d_text.List_of_Characters>
-            export type fractional_decimal = _pi.Refiner_With_Parameters<number, d_deserializer_errors.fractional_decimal, d_text.List_of_Characters, d_serializer_parameters.fractional_decimal>
+            export type fractional_decimal = _pi.Refiner_With_Parameter<number, d_deserializer_errors.fractional_decimal, d_text.List_of_Characters, d_serializer_parameters.fractional_decimal>
 
         }
 
@@ -39,7 +39,7 @@ export namespace serializers {
 
         export namespace approximate_number {
 
-            export type scientific_notation = _pi.Transformer_With_Parameters<number, d_text.List_of_Characters, d_serializer_parameters.scientific_notation>
+            export type scientific_notation = _pi.Transformer_With_Parameter<number, d_text.List_of_Characters, d_serializer_parameters.scientific_notation>
 
         }
 
@@ -56,7 +56,7 @@ export namespace serializers {
             export type octal = _pi.Transformer<number, d_text.List_of_Characters>
             export type decimal = _pi.Transformer<number, d_text.List_of_Characters>
             export type hexadecimal = _pi.Transformer<number, d_text.List_of_Characters>
-            export type fractional_decimal = _pi.Transformer_With_Parameters<number, d_text.List_of_Characters, d_serializer_parameters.fractional_decimal>
+            export type fractional_decimal = _pi.Transformer_With_Parameter<number, d_text.List_of_Characters, d_serializer_parameters.fractional_decimal>
         }
 
         export namespace boolean {

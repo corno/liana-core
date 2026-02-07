@@ -14,7 +14,7 @@ import { serialize as s_decimal } from "./decimal"
 
 export const $$: signatures.serializers.primitives.integer.iso_udhr = (udhr_day) => {
 
-    const pad_left: _pi.Transformer_With_Parameters<d_out.List_of_Characters, d_out.List_of_Characters, { 'desired length': number, 'pad character': number }> = ($, $p) => _p_list_build_deprecated(($i) => {
+    const pad_left: _pi.Transformer_With_Parameter<d_out.List_of_Characters, d_out.List_of_Characters, { 'desired length': number, 'pad character': number }> = ($, $p) => _p_list_build_deprecated(($i) => {
         // Add padding characters if current length is less than desired length
         for (let i = _p.natural.amount_of_list_items($); i < $p['desired length']; i++) {
             $i['add item']($p['pad character'])
