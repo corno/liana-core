@@ -1,13 +1,13 @@
 {
   "name": "liana-core",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "dependencies": {
-    "astn-core": "^0.5.30",
+    "astn-core": "^0.5.31",
     "pareto-core": "^0.1.41"
   }
 }

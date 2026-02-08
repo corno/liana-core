@@ -13,9 +13,11 @@ export const $$: signatures.deserializers.primitives.integer.octal = ($, abort) 
         abort("Empty string is not a valid octal number")
     }
 
-    const get_character_at = (index: number): number => characters.__deprecated_get_possible_item_at(index).__decide(
-        ($) => $,
-        () => abort("index out of bounds")
+    const get_character_at = (index: number): number => characters.__deprecated_get_item_at(
+        index,
+        {
+            out_of_bounds: () => abort("Index out of bounds while parsing octal string"),
+        }
     )
 
     // Check for negative sign
