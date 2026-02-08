@@ -11,3 +11,5 @@ export type Error_ =
 export { 
     Error_ as Error, 
 }
+
+export type Parameters = d_deserialized_parse_tree.Parameters
