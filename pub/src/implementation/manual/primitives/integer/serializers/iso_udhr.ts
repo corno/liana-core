@@ -43,16 +43,40 @@ export const $$: signatures.serializers.primitives.integer.iso_udhr = (udhr_day)
         const number_of_days_in_4_years = 365 * 4 + 1
         const number_of_days_in_1_year = 365
 
-        const number_of_400_year_blocks = _p.number.integer.divide(total_days, number_of_days_in_400_years, () => _p_unreachable_code_path("the divisor is hardcoded to 400-year block"))
+        const number_of_400_year_blocks = _p.number.integer.divide(
+            total_days,
+            number_of_days_in_400_years,
+            {
+                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 400-year block")
+            }
+        )
         const remaining_days_in_the_last_400_years = total_days % number_of_days_in_400_years
 
-        const number_of_100_year_blocks = _p.number.integer.divide(remaining_days_in_the_last_400_years, number_of_days_in_100_years, () => _p_unreachable_code_path("the divisor is hardcoded to 100-year block"))
+        const number_of_100_year_blocks = _p.number.integer.divide(
+            remaining_days_in_the_last_400_years,
+            number_of_days_in_100_years,
+            {
+                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 100-year block")
+            }
+        )
         const remaining_days_in_the_last_100_years = remaining_days_in_the_last_400_years % number_of_days_in_100_years
 
-        const number_of_4_year_blocks = _p.number.integer.divide(remaining_days_in_the_last_100_years, number_of_days_in_4_years, () => _p_unreachable_code_path("the divisor is hardcoded to 4-year block"))
+        const number_of_4_year_blocks = _p.number.integer.divide(
+            remaining_days_in_the_last_100_years,
+            number_of_days_in_4_years,
+            {
+                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 4-year block")
+            }
+        )
         const remaining_days_in_the_last_4_years = remaining_days_in_the_last_100_years % number_of_days_in_4_years
 
-        const number_of_1_year_blocks = _p.number.integer.divide(remaining_days_in_the_last_4_years, number_of_days_in_1_year, () => _p_unreachable_code_path("the divisor is hardcoded to 1-year block"))
+        const number_of_1_year_blocks = _p.number.integer.divide(
+            remaining_days_in_the_last_4_years,
+            number_of_days_in_1_year,
+            {
+                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 1-year block")
+            }
+        )
         const remaining_days_in_the_last_year = remaining_days_in_the_last_4_years % number_of_days_in_1_year
 
         const base_years = number_of_400_year_blocks * 400 + number_of_100_year_blocks * 100 + number_of_4_year_blocks * 4 + number_of_1_year_blocks * 1

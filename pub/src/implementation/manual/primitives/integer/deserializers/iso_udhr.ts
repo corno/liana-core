@@ -86,21 +86,39 @@ export const $$: signatures.deserializers.primitives.integer.iso_udhr = ($, abor
     // Check days per month
     const days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     let max_day = days_in_month[iso_date.month - 1]
-    
+
     // Adjust for leap year in February
     if (iso_date.month === 2 && is_leap_year(iso_date.year)) {
         max_day = 29
     }
-    
+
     if (iso_date.day > max_day) {
         abort(`Invalid day: ${iso_date.day}. Month ${iso_date.month} has at most ${max_day} days`)
     }
 
     const full_years = iso_date.year - 1
     const leap_days_before_current_year =
-        + _p.number.integer.divide(full_years, 4, () =>_p_unreachable_code_path("the divisor is hardcoded to 4"))
-        - _p.number.integer.divide(full_years, 100, () => _p_unreachable_code_path("the divisor is hardcoded to 100"))
-        + _p.number.integer.divide(full_years, 400, () => _p_unreachable_code_path("the divisor is hardcoded to 400"))
+        + _p.number.integer.divide(
+            full_years,
+            4,
+            {
+                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 4")
+            }
+        )
+        - _p.number.integer.divide(
+            full_years,
+            100,
+            {
+                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 100")
+            }
+        )
+        + _p.number.integer.divide(
+            full_years,
+            400,
+            {
+                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 400")
+            }
+        )
 
     const total_days_before_current_year = full_years * 365 + leap_days_before_current_year
 

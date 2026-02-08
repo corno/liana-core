@@ -12,16 +12,22 @@ export const $$: signatures.serializers.primitives.integer.octal = ($) => {
             $i['add item'](45) // '-'
             $ = -$
         }
-        
+
         // Add "0o" prefix
         $i['add item'](48) // '0'
         $i['add item'](111) // 'o'
-        
+
         const digits = _p_list_build_deprecated<number>(($i) => {
             do {
                 const digit = $ % 8
                 $i['add item'](digit)
-                $ = _p.number.integer.divide($, 8, () => _p_unreachable_code_path("the divisor is hardcoded to 8"))
+                $ = _p.number.integer.divide(
+                    $,
+                    8,
+                    {
+                        divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 8")
+                    }
+                )
             } while ($ > 0)
 
         })

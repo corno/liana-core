@@ -18,7 +18,13 @@ export const $$: signatures.serializers.primitives.integer.binary = ($) => _p_li
         do {
             const digit = $ % 2
             $i['add item'](digit)
-            $ = _p.number.integer.divide($, 2, () => _p_unreachable_code_path("the divisor is hardcoded to 2"))
+            $ = _p.number.integer.divide(
+                $,
+                2,
+                {
+                    divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 2")
+                }
+            )
         } while ($ > 0)
 
     })

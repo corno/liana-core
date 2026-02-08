@@ -14,7 +14,13 @@ export const serialize: signatures.serializers.primitives.integer.decimal = ($) 
         do {
             const digit = $ % 10
             $i['add item'](digit)
-            $ = _p.number.integer.divide($, 10, () => _p_unreachable_code_path("the divisor is hardcoded to 10"))
+            $ = _p.number.integer.divide(
+                $,
+                10,
+                {
+                    divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
+                }
+            )
         } while ($ > 0)
 
     })
@@ -22,7 +28,9 @@ export const serialize: signatures.serializers.primitives.integer.decimal = ($) 
     for (let j = digits.__get_number_of_items() - 1; j >= 0; j--) {
         $i['add item'](48 + digits.__deprecated_get_item_at(
             j,
-            () => _p_unreachable_code_path("index cannot be out of bounds")
+            {
+                out_of_bounds: () => _p_unreachable_code_path("index cannot be out of bounds")
+            }
         ))
     }
 })

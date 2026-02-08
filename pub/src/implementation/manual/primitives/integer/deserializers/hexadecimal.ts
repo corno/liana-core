@@ -16,7 +16,9 @@ export const $$: signatures.deserializers.primitives.integer.hexadecimal = ($, a
     const get_character_at = (index: number): number => {
         return characters.__deprecated_get_item_at(
             index,
-            () => abort("index out of bounds")
+            {
+                out_of_bounds: () => abort("index out of bounds")
+            }
         )
     }
 

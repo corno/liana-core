@@ -23,7 +23,13 @@ export const $$: signatures.serializers.primitives.integer.fractional_decimal = 
         }
 
         // Split into integer and fractional parts
-        const integerPart = _p.number.integer.divide(value, divisor, () => _p_unreachable_code_path("the divisor is hardcoded to 10^fractionalDigits"))
+        const integerPart = _p.number.integer.divide(
+            value,
+            divisor,
+            {
+                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10^fractionalDigits")
+            }
+        )
         const fractionalPart = value % divisor
 
         // Generate integer part digits
@@ -35,7 +41,13 @@ export const $$: signatures.serializers.primitives.integer.fractional_decimal = 
                 while (temp > 0) {
                     const digit = temp % 10
                     $i['add item'](digit)
-                    temp = _p.number.integer.divide(temp, 10, () => _p_unreachable_code_path("the divisor is hardcoded to 10"))
+                    temp = _p.number.integer.divide(
+                        temp,
+                        10,
+                        {
+                            divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
+                        }
+                    )
                 }
             }
         })
@@ -57,7 +69,13 @@ export const $$: signatures.serializers.primitives.integer.fractional_decimal = 
             for (let i = 0; i < fractionalDigits; i++) {
                 const digit = temp % 10
                 $i['add item'](digit)
-                temp = _p.number.integer.divide(temp, 10, () => _p_unreachable_code_path("the divisor is hardcoded to 10"))
+                temp = _p.number.integer.divide(
+                    temp,
+                    10,
+                    {
+                        divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
+                    }
+                )
             }
         })
 

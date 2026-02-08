@@ -57,7 +57,13 @@ export const $$: signatures.serializers.primitives.approximate_number.scientific
         }
 
         // Simple rounding using integer operations
-        const mantissa_scaled = _p.number.integer.divide(mantissa * scale_factor + 0.5, 1, () => _p_unreachable_code_path("the divisor is hardcoded to 1"))
+        const mantissa_scaled = _p.number.integer.divide(
+            mantissa * scale_factor + 0.5,
+            1,
+            {
+                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 1")
+            }
+        )
 
         // Convert mantissa to string
         const digits = _p_list_build_deprecated<number>(($i) => {
@@ -67,14 +73,22 @@ export const $$: signatures.serializers.primitives.approximate_number.scientific
             do {
                 const digit = temp % 10
                 $i['add item'](digit)
-                temp = _p.number.integer.divide(temp, 10, () => _p_unreachable_code_path("the divisor is hardcoded to 10"))
+                temp = _p.number.integer.divide(
+                    temp,
+                    10,
+                    {
+                        divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
+                    }
+                )
             } while (temp > 0)
         })
 
         // Add leading digit
         const first_digit = digits.__deprecated_get_item_at(
             digits.__get_number_of_items() - 1,
-            () => _p_unreachable_code_path("index cannot be out of bounds")
+            {
+                out_of_bounds: () => _p_unreachable_code_path("index cannot be out of bounds")
+            }
         )
         $i['add item'](48 + first_digit) // First digit
 
@@ -86,7 +100,9 @@ export const $$: signatures.serializers.primitives.approximate_number.scientific
             for (let j = digits.__get_number_of_items() - 2; j >= 0; j--) {
                 const digit = digits.__deprecated_get_item_at(
                     j,
-                    () => _p_unreachable_code_path("index cannot be out of bounds")
+                    {
+                        out_of_bounds: () => _p_unreachable_code_path("index cannot be out of bounds")
+                    }
                 )
                 $i['add item'](48 + digit)
             }
@@ -109,7 +125,13 @@ export const $$: signatures.serializers.primitives.approximate_number.scientific
                 do {
                     const digit = exponent % 10
                     $i['add item'](digit)
-                    exponent = _p.number.integer.divide(exponent, 10, () => _p_unreachable_code_path("the divisor is hardcoded to 10"))
+                    exponent = _p.number.integer.divide(
+                        exponent,
+                        10,
+                        {
+                            divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
+                        }
+                    )
                 } while (exponent > 0)
             }
         })
@@ -118,7 +140,9 @@ export const $$: signatures.serializers.primitives.approximate_number.scientific
         for (let j = exp_digits.__get_number_of_items() - 1; j >= 0; j--) {
             const digit = exp_digits.__deprecated_get_item_at(
                 j,
-                () => _p_unreachable_code_path("index cannot be out of bounds")
+                {
+                    out_of_bounds: () => _p_unreachable_code_path("index cannot be out of bounds")
+                }
             )
             $i['add item'](48 + digit)
         }

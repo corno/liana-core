@@ -10,16 +10,22 @@ export const $$: signatures.serializers.primitives.integer.hexadecimal = ($) => 
             $i['add item'](45) // '-'
             $ = -$
         }
-        
+
         // Add "0x" prefix
         $i['add item'](48) // '0'
         $i['add item'](120) // 'x'
-        
+
         const digits = _p_list_build_deprecated<number>(($i) => {
             do {
                 const digit = $ % 16
                 $i['add item'](digit)
-                $ = _p.number.integer.divide($, 16, () => _p_unreachable_code_path("the divisor is hardcoded to 16"))
+                $ = _p.number.integer.divide(
+                    $,
+                    16,
+                    {
+                        divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 16")
+                    }
+                )
             } while ($ > 0)
 
         })
@@ -27,7 +33,9 @@ export const $$: signatures.serializers.primitives.integer.hexadecimal = ($) => 
         for (let j = digits.__get_number_of_items() - 1; j >= 0; j--) {
             const digit = digits.__deprecated_get_item_at(
                 j,
-                () => _p_unreachable_code_path("index cannot be out of bounds")
+                {
+                    out_of_bounds: () => _p_unreachable_code_path("index cannot be out of bounds")
+                }
             )
             if (digit < 10) {
                 $i['add item'](48 + digit) // '0'-'9'
