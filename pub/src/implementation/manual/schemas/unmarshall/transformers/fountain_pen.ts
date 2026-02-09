@@ -1,10 +1,10 @@
 import * as _p from 'pareto-core/dist/assign'
 //data types
 import * as d_in from "../../../../../interface/to_be_generated/unmarshall"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/block"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error = ($: d_in.Error): d_out.Phrase => _p.decide.state($, ($) => {
     switch ($[0]) {

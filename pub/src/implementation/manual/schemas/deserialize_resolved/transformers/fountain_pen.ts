@@ -2,7 +2,7 @@ import * as _p from 'pareto-core/dist/assign'
 
 //data types
 import * as d_in from "../../../../../interface/to_be_generated/deserialize_resolved"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 //dependencies
 import * as t_resolve_to_fountain_pen from "../../resolve/transformers/fountain_pen"

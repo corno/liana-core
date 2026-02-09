@@ -1,12 +1,12 @@
 import * as _p from 'pareto-core/dist/assign'
 
 import * as d_in from "../../../../../interface/to_be_generated/resolve"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 export type Error = ($: d_in.Error) => d_out.Phrase
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/block"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: Error = ($) => sh.ph.composed([
     sh.ph.literal($.location['document resource identifier']),

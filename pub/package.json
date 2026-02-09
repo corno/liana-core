@@ -1,13 +1,15 @@
 {
   "name": "liana-core",
-  "version": "0.0.18",
+  "version": "0.0.19",
+  "author": "Corno",
+  "license": "Apache-2.0",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "dependencies": {
-    "astn-core": "^0.5.33",
+    "astn-core": "^0.5.34",
     "pareto-core": "^0.1.42"
   }
 }
