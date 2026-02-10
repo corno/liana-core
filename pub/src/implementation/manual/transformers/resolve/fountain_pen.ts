@@ -1,6 +1,6 @@
 import * as _p from 'pareto-core/dist/assign'
 
-import * as d_in from "../../../../../interface/to_be_generated/resolve"
+import * as d_in from "../../../../interface/to_be_generated/resolve"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 export type Error = ($: d_in.Error) => d_out.Phrase
