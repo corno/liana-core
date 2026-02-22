@@ -12,5 +12,23 @@ export type Error =
             'expected format': string
         }]
         | readonly ['unknown option', string]
+        | readonly ['unknown option', string]
+        | ['state', State_Error]
+        | ['dictionary', Dictionary_Error]
+        | ['type', Type_Error]
+
         'range': d_location.Range
     }]
+
+
+
+export type State_Error =
+    | ['unknown option', string]
+
+export type Dictionary_Error =
+    | ['entry not set', string]
+
+
+export type Type_Error = 
+    | ['property not set', string]
+    | ['missing property', string]
