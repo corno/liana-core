@@ -1,82 +1,82 @@
 import * as _pi from 'pareto-core/dist/interface'
 import * as _p from 'pareto-core/dist/assign'
 
-import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
+// import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 import * as d_out from "../../../../interface/to_be_generated/primitives"
 import * as d_function from "../../../../interface/to_be_generated/unmarshall"
 import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
 //dependencies
-import * as t_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/location"
-import * as r_astn_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
+// import * as t_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/location"
+// import * as r_astn_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 
-export type Decimal = _pi.Refiner<d_out.Decimal, d_function.Error, d_in.Value>
+// export type Decimal = _pi.Refiner<d_out.Decimal, d_function.Error, d_in.Value>
 
-export const Decimal: Decimal = ($, abort) => {
-    const value = $
-    const deserialize_decimal: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
-        const characters = $
-        let result = 0
-        let isNegative = false
-        let startIndex = 0
+// export const Decimal: Decimal = ($, abort) => {
+//     const value = $
+//     const deserialize_decimal: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+//         const characters = $
+//         let result = 0
+//         let isNegative = false
+//         let startIndex = 0
 
-        // _p.iterate(characters, (iterator) => {
+//         // _p.iterate(characters, (iterator) => {
 
-        // })
+//         // })
 
-        // Check for empty string
-        if (characters.__get_number_of_items() === 0) {
-            abort("Empty string is not a valid decimal number")
-        }
+//         // Check for empty string
+//         if (characters.__get_number_of_items() === 0) {
+//             abort("Empty string is not a valid decimal number")
+//         }
 
-        const get_character_at = (index: number): number => {
-            return characters.__deprecated_get_item_at(
-                index,
-                {
-                    out_of_bounds: () => abort("index out of bounds")
-                }
-            )
-        }
+//         const get_character_at = (index: number): number => {
+//             return characters.__deprecated_get_item_at(
+//                 index,
+//                 {
+//                     out_of_bounds: () => abort("index out of bounds")
+//                 }
+//             )
+//         }
 
-        // Check for negative sign
-        if (characters.__get_number_of_items() > 0 && get_character_at(0) === 45) { // '-'
-            isNegative = true
-            startIndex = 1
-        }
+//         // Check for negative sign
+//         if (characters.__get_number_of_items() > 0 && get_character_at(0) === 45) { // '-'
+//             isNegative = true
+//             startIndex = 1
+//         }
 
-        // Parse digits from left to right
-        for (let i = startIndex; i < characters.__get_number_of_items(); i++) {
-            const charCode = get_character_at(i)
+//         // Parse digits from left to right
+//         for (let i = startIndex; i < characters.__get_number_of_items(); i++) {
+//             const charCode = get_character_at(i)
 
-            // Check if character is a digit (48-57 for '0'-'9')
-            if (charCode >= 48 && charCode <= 57) {
-                const digit = charCode - 48
-                result = result * 10 + digit
-            } else {
-                // Invalid character
-                abort("Invalid character in decimal string")
-            }
-        }
+//             // Check if character is a digit (48-57 for '0'-'9')
+//             if (charCode >= 48 && charCode <= 57) {
+//                 const digit = charCode - 48
+//                 result = result * 10 + digit
+//             } else {
+//                 // Invalid character
+//                 abort("Invalid character in decimal string")
+//             }
+//         }
 
-        return isNegative ? -result : result
-    }
-    return deserialize_decimal(
-        _p_list_from_text(
-            r_astn_unmarshalled_from_parse_tree.Text(
-                $,
-                ($) => abort(['astn', $])
-            ).value,
-            ($) => $
-        ),
-        ($) => abort(['liana', {
-            'type': ['not a valid number', $],
-            range: t_parse_tree_to_location.Value(value)
-        }]),
-    )
-}
+//         return isNegative ? -result : result
+//     }
+//     return deserialize_decimal(
+//         _p_list_from_text(
+//             r_astn_unmarshalled_from_parse_tree.Text(
+//                 $,
+//                 ($) => abort(['astn', $])
+//             ).value,
+//             ($) => $
+//         ),
+//         ($) => abort(['liana', {
+//             'type': ['not a valid number', $],
+//             range: t_parse_tree_to_location.Value(value)
+//         }]),
+//     )
+// }
 
 
 export const scientific_notation: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
