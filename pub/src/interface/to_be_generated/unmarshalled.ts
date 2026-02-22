@@ -10,7 +10,7 @@ export type Boolean = boolean
 
 export type Dictionary = {
     'value': d_parse_tree.Value;
-    'entries': _pi.Dictionary<d_parse_tree.ID_Value_Pairs.L.value.O>
+    'entries': _pi.Dictionary<d_parse_tree.Value>
 }
 
 export type List = d_astn.List
@@ -27,5 +27,5 @@ export type Text = string
 
 export type Verbose_Group = {
     'value': d_parse_tree.Value
-    'properties': _pi.Dictionary<d_parse_tree.ID_Value_Pairs.L.value.O>;
+    'properties': _pi.Dictionary<d_parse_tree.Value>;
 }

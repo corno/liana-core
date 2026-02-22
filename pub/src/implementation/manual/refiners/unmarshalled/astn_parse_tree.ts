@@ -139,7 +139,7 @@ export const Dictionary: Dictionary = ($, abort) => {
             return {
                 'value': $.value,
                 'entries': $.entries.__d_map(($, id) => $.value.__decide(
-                    ($) => $,
+                    ($) => $.value,
                     () => abort(['liana', {
                         'range': t_parse_tree_to_location.Value(value),
                         'type': ['dictionary', ['entry not set', id]]
@@ -173,7 +173,7 @@ export const Property: Property = ($, abort, $p) => {
                 'type': ['type', ['missing property', $p.id]]
             }])
         }
-    ).value
+    )
 }
 
 export const State: State = ($, abort) => {
@@ -192,7 +192,7 @@ export const Verbose_Group: Verbose_Group = ($, abort, $p) => {
             return {
                 'value': $.value,
                 'properties': $.properties.__d_map(($, id) => $.value.__decide(
-                    ($) => $,
+                    ($) => $.value,
                     () => abort(['liana', {
                         'range': t_parse_tree_to_location.Value(value),
                         'type': ['dictionary', ['entry not set', id]]
