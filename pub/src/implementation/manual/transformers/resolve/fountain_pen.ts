@@ -9,11 +9,11 @@ export type Error = ($: d_in.Error) => d_out.Phrase
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: Error = ($) => sh.ph.composed([
-    sh.ph.literal($.location['document resource identifier']),
+    sh.ph.literal($.location.start.relative['document resource identifier']),
     sh.ph.literal(":"),
-    sh.ph.decimal($.location.line),
+    sh.ph.decimal($.location.start.relative.line),
     sh.ph.literal(":"),
-    sh.ph.decimal($.location.column),
+    sh.ph.decimal($.location.start.relative.column),
     sh.ph.literal(": "),
     _p.decide.state($.type, ($) => {
         switch ($[0]) {

@@ -1,7 +1,7 @@
 
 import * as _pi from "pareto-core/dist/interface"
 
-import * as i_location from "astn-core/dist/interface/to_be_generated/location_temp"
+import * as i_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
 
 export namespace Error_ {
     
@@ -63,7 +63,7 @@ export namespace Error_ {
         | readonly ['lookup', type_.lookup]
         | readonly ['missing required entries', type_.missing_required_entries]
     
-    export type location = i_location.Location
+    export type location = i_location.Range
     
 }
 
