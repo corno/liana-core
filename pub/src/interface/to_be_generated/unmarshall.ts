@@ -7,6 +7,6 @@ export type Error =
         'type':
         | readonly ['not a valid number', string]
         | readonly ['not a valid boolean', null]
-        | readonly ['unknown option', null]
+        | readonly ['unknown option', string]
         'range': d_location.Range
     }]

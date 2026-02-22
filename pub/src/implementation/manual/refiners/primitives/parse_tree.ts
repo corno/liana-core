@@ -68,7 +68,7 @@ export const Decimal: Decimal = ($, abort) => {
             r_astn_unmarshalled_from_parse_tree.Text(
                 $,
                 ($) => abort(['astn', $])
-            ),
+            ).value,
             ($) => $
         ),
         ($) => abort(['liana', {
