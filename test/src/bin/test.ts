@@ -21,25 +21,25 @@ import * as ds_main from "pareto-resources/dist/interface/to_be_generated/temp_m
 // Import test data
 import { TEST_DATA } from "../data/test_data"
 
-// Import serializers
-import { serialize as s_decimal } from "pub/dist/implementation/manual/primitives/integer/serializers/decimal"
-import { $$ as s_hexadecimal } from "pub/dist/implementation/manual/primitives/integer/serializers/hexadecimal"
-import { $$ as s_binary } from "pub/dist/implementation/manual/primitives/integer/serializers/binary"
-import { $$ as s_octal } from "pub/dist/implementation/manual/primitives/integer/serializers/octal"
-import { $$ as s_udhr_to_iso } from "pub/dist/implementation/manual/primitives/integer/serializers/iso_udhr"
-import { $$ as s_fractional_decimal } from "pub/dist/implementation/manual/primitives/integer/serializers/fractional_decimal"
-import { serialize as s_boolean_true_false } from "pub/dist/implementation/manual/primitives/boolean/serializers/true_false"
-import { $$ as s_approx_scientific } from "pub/dist/implementation/manual/primitives/approximate_number/serializers/scientific_notation"
+// // Import serializers
+// import { serialize as s_decimal } from "pub/dist/implementation/manual/primitives/integer/serializers/decimal"
+// import { $$ as s_hexadecimal } from "pub/dist/implementation/manual/primitives/integer/serializers/hexadecimal"
+// import { $$ as s_binary } from "pub/dist/implementation/manual/primitives/integer/serializers/binary"
+// import { $$ as s_octal } from "pub/dist/implementation/manual/primitives/integer/serializers/octal"
+// import { $$ as s_udhr_to_iso } from "pub/dist/implementation/manual/primitives/integer/serializers/iso_udhr"
+// import { $$ as s_fractional_decimal } from "pub/dist/implementation/manual/primitives/integer/serializers/fractional_decimal"
+// import { serialize as s_boolean_true_false } from "pub/dist/implementation/manual/primitives/boolean/serializers/true_false"
+// import { $$ as s_approx_scientific } from "pub/dist/implementation/manual/primitives/approximate_number/serializers/scientific_notation"
 
-// Import deserializers
-import { deserialize as ds_decimal } from "pub/dist/implementation/manual/primitives/integer/deserializers/decimal"
-import { $$ as ds_hexadecimal } from "pub/dist/implementation/manual/primitives/integer/deserializers/hexadecimal"
-import { $$ as ds_binary } from "pub/dist/implementation/manual/primitives/integer/deserializers/binary"
-import { $$ as ds_octal } from "pub/dist/implementation/manual/primitives/integer/deserializers/octal"
-import { $$ as ds_iso_to_udhr } from "pub/dist/implementation/manual/primitives/integer/deserializers/iso_udhr"
-import { $$ as ds_fractional_decimal } from "pub/dist/implementation/manual/primitives/integer/deserializers/fractional_decimal"
-import { deserialize as ds_true_false } from "pub/dist/implementation/manual/primitives/boolean/deserializers/true_false"
-import { $$ as ds_approx_scientific } from "pub/dist/implementation/manual/primitives/approximate_number/deserializers/scientific_notation"
+// // Import deserializers
+// import { deserialize as ds_decimal } from "pub/dist/implementation/manual/primitives/integer/deserializers/decimal"
+// import { $$ as ds_hexadecimal } from "pub/dist/implementation/manual/primitives/integer/deserializers/hexadecimal"
+// import { $$ as ds_binary } from "pub/dist/implementation/manual/primitives/integer/deserializers/binary"
+// import { $$ as ds_octal } from "pub/dist/implementation/manual/primitives/integer/deserializers/octal"
+// import { $$ as ds_iso_to_udhr } from "pub/dist/implementation/manual/primitives/integer/deserializers/iso_udhr"
+// import { $$ as ds_fractional_decimal } from "pub/dist/implementation/manual/primitives/integer/deserializers/fractional_decimal"
+// import { deserialize as ds_true_false } from "pub/dist/implementation/manual/primitives/boolean/deserializers/true_false"
+// import { $$ as ds_approx_scientific } from "pub/dist/implementation/manual/primitives/approximate_number/deserializers/scientific_notation"
 
 _pn.run_main_command(
     ($rr) => {

@@ -2,7 +2,6 @@ import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_generic from "pareto-test/dist/interface/temp/generic"
 import * as d_serializer_parameters from "pub/dist/interface/to_be_generated/serializer_parameters"
-import * as signatures from "pub/dist/interface/signatures"
 
 export type Test_Set = {
     'integer': {
