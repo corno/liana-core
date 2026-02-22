@@ -17,10 +17,14 @@ export const Error = ($: d_in.Error): d_out.Phrase => sh.ph.composed([
                 _p.decide.state($.type, ($) => {
                     switch ($[0]) {
                         case 'not a valid number': return _p.ss($, ($) => sh.ph.composed([
-                            sh.ph.literal("not a valid number")
+                            sh.ph.literal("not a valid number, expected: '"),
+                            sh.ph.literal($['expected format']),
+                            sh.ph.literal("'")
                         ]))
                         case 'not a valid boolean': return _p.ss($, ($) => sh.ph.composed([
-                            sh.ph.literal("not a valid boolean")
+                            sh.ph.literal("not a valid boolean, expected: '"),
+                            sh.ph.literal($['expected format']),
+                            sh.ph.literal("'")
                         ]))
                         case 'unknown option': return _p.ss($, ($) => sh.ph.composed([
                             sh.ph.literal("unknown option: '"),

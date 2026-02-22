@@ -1,37 +1,11 @@
 import * as _pi from 'pareto-core/dist/interface'
 import * as _p from 'pareto-core/dist/assign'
-
-// import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
-import * as d_out from "../../../../interface/to_be_generated/primitives"
-import * as d_function from "../../../../interface/to_be_generated/unmarshall"
-import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
-
-//dependencies
-// import * as t_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/location"
-// import * as r_astn_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 
-// export type Decimal = _pi.Refiner<d_out.Decimal, d_function.Error, d_in.Value>
-
-// export const Decimal: Decimal = ($, abort) => {
-//     const value = $
-
-//     return deserialize_decimal(
-//         _p_list_from_text(
-//             r_astn_unmarshalled_from_parse_tree.Text(
-//                 $,
-//                 ($) => abort(['astn', $])
-//             ).value,
-//             ($) => $
-//         ),
-//         ($) => abort(['liana', {
-//             'type': ['not a valid number', $],
-//             range: t_parse_tree_to_location.Value(value)
-//         }]),
-//     )
-// }
+//data types
+import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
 export const decimal: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
     const characters = $
