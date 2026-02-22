@@ -47,6 +47,7 @@ export namespace Error_ {
             | readonly ['cycle detected', lookup.cycle_detected]
             | readonly ['no context lookup', lookup.no_context_lookup]
             | readonly ['no such entry', lookup.no_such_entry]
+            | readonly ['accessing cyclic sibling before it is resolved', null]
         
         export namespace missing_required_entries {
             

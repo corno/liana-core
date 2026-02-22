@@ -36,6 +36,7 @@ export const Error: Error = ($) => sh.ph.composed([
             }))
             case 'lookup': return _p.ss($, ($) => _p.decide.state($, ($) => {
                 switch ($[0]) {
+                    case 'accessing cyclic sibling before it is resolved': return _p.ss($, ($) => sh.ph.literal("accessing cyclic sibling before it is resolved"))
                     case 'cycle detected': return _p.ss($, ($) => sh.ph.literal("cycle detected"))
                     case 'no such entry': return _p.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("no such entry: '"),
