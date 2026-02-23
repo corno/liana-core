@@ -14,6 +14,7 @@ export const Error = ($: d_in.Error): d_out.Phrase => sh.ph.composed([
     _p.decide.state($, ($) => {
         switch ($[0]) {
             case 'liana': return _p.ss($, ($) => sh.ph.composed([
+                sh.ph.literal(`${$.range.start.relative['document resource identifier']}:${$.range.start.relative.line}:${$.range.start.relative.column}-${$.range.end.relative.line}:${$.range.end.relative.column} > `),
                 _p.decide.state($.type, ($) => {
                     switch ($[0]) {
                         case 'not a valid number': return _p.ss($, ($) => sh.ph.composed([
@@ -71,8 +72,6 @@ export const Error = ($: d_in.Error): d_out.Phrase => sh.ph.composed([
                         default: return _p.au($[0])
                     }
                 }),
-                sh.ph.literal("@"),
-                sh.ph.literal(`${$.range.start.relative['document resource identifier']}${$.range.start.relative.line}:${$.range.start.relative.column}-${$.range.end.relative.line}:${$.range.end.relative.column}`),
             ]))
             case 'astn': return _p.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($))
             default: return _p.au($[0])
