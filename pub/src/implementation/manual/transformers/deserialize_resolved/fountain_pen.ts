@@ -6,7 +6,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 //dependencies
 import * as t_resolve_to_fountain_pen from "../resolve/fountain_pen"
-import * as t_deserialize_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/deserialize/fountain_pen"
+import * as t_deserialize_to_fountain_pen from "../deserialize/fountain_pen"
 
 export const Error = ($: d_in.Error): d_out.Phrase => _p.decide.state($, ($) => {
     switch ($[0]) {

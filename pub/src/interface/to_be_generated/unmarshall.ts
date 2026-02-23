@@ -12,7 +12,6 @@ export type Error =
             'expected format': string
         }]
         | readonly ['unknown option', string]
-        | readonly ['unknown option', string]
         | ['state', State_Error]
         | ['dictionary', Dictionary_Error]
         | ['type', Type_Error]
