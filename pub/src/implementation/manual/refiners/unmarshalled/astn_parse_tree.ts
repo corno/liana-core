@@ -18,7 +18,17 @@ export type Number = _pi.Refiner_With_Parameter<
     d_in.Value,
     {
         'type':
+        | ['binary', null]
         | ['decimal', null]
+        | ['fractional decimal', {
+            'digits': number
+        }]
+        | ['hexadecimal', null]
+        | ['iso date', null]
+        | ['octal', null]
+        | ['scientific notation', {
+            'precision': number
+        }]
     }
 >
 
@@ -87,7 +97,7 @@ export type Verbose_Group = _pi.Refiner_With_Parameter<
     }
 >
 
-export const Number: Number = ($, abort) => {
+export const Number: Number = ($, abort, $p) => {
     const value = $
 
     const as_loc = _p_list_from_text(
@@ -98,18 +108,84 @@ export const Number: Number = ($, abort) => {
         ($) => $
     )
 
-    return t_from_loc.decimal(
-        as_loc,
-        ($) => abort(['liana', {
-            'type': ['not a valid number', {
-                'expected format': "-?(0|[1-9][0-9]*)"
-            }],
-            range: t_parse_tree_to_location.Value(value)
-        }]),
-    )
+    return _p.decide.state($p.type, ($) => {
+        switch ($[0]) {
+            case 'binary': return _p.ss($, ($) => t_from_loc.binary(
+                as_loc,
+                ($) => abort(['liana', {
+                    'type': ['not a valid number', {
+                        'expected format': "-?(0|1)+"
+                    }],
+                    range: t_parse_tree_to_location.Value(value)
+                }]),
+            ))
+            case 'decimal': return _p.ss($, ($) => t_from_loc.decimal(
+                as_loc,
+                ($) => abort(['liana', {
+                    'type': ['not a valid number', {
+                        'expected format': "-?(0|[1-9][0-9]*)"
+                    }],
+                    range: t_parse_tree_to_location.Value(value)
+                }]),
+            ))
+            case 'fractional decimal': return _p.ss($, ($) => t_from_loc.fractional_decimal(
+                as_loc,
+                ($) => abort(['liana', {
+                    'type': ['not a valid number', {
+                        'expected format': "-?(0|[1-9][0-9]*)(\\.[0-9]+)?"
+                    }],
+                    range: t_parse_tree_to_location.Value(value)
+                }]),
+                {
+                    'number of fractional digits': $.digits
+                }
+            ))
+            case 'hexadecimal': return _p.ss($, ($) => t_from_loc.hexadecimal(
+                as_loc,
+                ($) => abort(['liana', {
+                    'type': ['not a valid number', {
+                        'expected format': "-?0x(0|[1-9a-fA-F][0-9a-fA-F]*)"
+                    }],
+                    range: t_parse_tree_to_location.Value(value)
+                }]),
+            ))
+            case 'iso date': return _p.ss($, ($) => t_from_loc.iso_udhr(
+                as_loc,
+                ($) => abort(['liana', {
+                    'type': ['not a valid number', {
+                        'expected format': "YYYY-MM-DD"
+                    }],
+                    range: t_parse_tree_to_location.Value(value)
+                }]),
+            ))
+            case 'octal': return _p.ss($, ($) => t_from_loc.octal(
+                as_loc,
+                ($) => abort(['liana', {
+                    'type': ['not a valid number', {
+                        'expected format': "-?0o(0|[1-7][0-7]*)"
+                    }],
+                    range: t_parse_tree_to_location.Value(value)
+                }]),
+            ))
+            case 'scientific notation': return _p.ss($, ($) => t_from_loc.scientific_notation(
+                as_loc,
+                ($) => abort(['liana', {
+                    'type': ['not a valid number', {
+                        'expected format': "-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?"
+                    }],
+                    range: t_parse_tree_to_location.Value(value)
+                }]),
+                {
+                    'precision': $.precision
+                }
+            ))
+            default: return _p.au($[0])
+        }
+    })
+
 }
 
-export const Boolean: Boolean = ($, abort) => {
+export const Boolean: Boolean = ($, abort, $p) => {
     const value = $
 
     const as_loc = _p_list_from_text(
@@ -120,15 +196,21 @@ export const Boolean: Boolean = ($, abort) => {
         ($) => $
     )
 
-    return t_from_loc.true_false(
-        as_loc,
-        ($) => abort(['liana', {
-            'type': ['not a valid boolean', {
-                'expected format': "true|false"
-            }],
-            range: t_parse_tree_to_location.Value(value)
-        }]),
-    )
+    return _p.decide.state($p.type, ($) => {
+        switch ($[0]) {
+            case 'true/false': return _p.ss($, ($) => t_from_loc.true_false(
+                as_loc,
+                ($) => abort(['liana', {
+                    'type': ['not a valid boolean', {
+                        'expected format': "true|false"
+                    }],
+                    range: t_parse_tree_to_location.Value(value)
+                }]),
+            ))
+            default: return _p.au($[0])
+        }
+    })
+
 }
 
 export const Dictionary: Dictionary = ($, abort) => {

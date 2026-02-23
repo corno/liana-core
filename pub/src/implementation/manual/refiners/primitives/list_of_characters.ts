@@ -55,7 +55,7 @@ export const decimal: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($
 }
 
 
-export const scientific_notation: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const scientific_notation: _pi.Refiner_With_Parameter<number, string, d_loc.List_of_Characters, { 'precision': number }> = ($, abort, $p) => {
     const characters = $
     let result = 0
     let isNegative = false
