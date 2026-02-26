@@ -14,7 +14,7 @@ import * as t_deserialize_to_fountain_pen from "../deserialize/fountain_pen"
 export const Error: _pi.Transformer_With_Parameter<d_in.Error, d_out.Phrase, d_function_loc.Parameters> = ($, $p) => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'deserialize': return _p.ss($, ($) => t_deserialize_to_fountain_pen.Error($, $p))
-        case 'resolve error': return _p.ss($, ($) => t_resolve_to_fountain_pen.Error($))
+        case 'resolve error': return _p.ss($, ($) => t_resolve_to_fountain_pen.Error($, $p))
         default: return _p.au($[0])
     }
 })

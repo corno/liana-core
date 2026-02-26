@@ -1,19 +1,20 @@
 import * as _p from 'pareto-core/dist/assign'
+import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_in from "../../../../interface/to_be_generated/resolve"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
+import * as d_function_loc from "astn-core/dist/interface/to_be_generated/location_to_fountain_pen"
 
-export type Error = ($: d_in.Error) => d_out.Phrase
+export type Error = _pi.Transformer_With_Parameter<d_in.Error, d_out.Phrase, d_function_loc.Parameters>
+
+//dependencies
+import * as t_loc_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const Error: Error = ($) => sh.ph.composed([
-    sh.ph.literal($.location.start.relative['document resource identifier']),
-    sh.ph.literal(":"),
-    sh.ph.decimal($.location.start.relative.line),
-    sh.ph.literal(":"),
-    sh.ph.decimal($.location.start.relative.column),
+export const Error: Error = ($, $p) => sh.ph.composed([
+    t_loc_to_fountain_pen.Range($.location, $p),
     sh.ph.literal(": "),
     _p.decide.state($.type, ($) => {
         switch ($[0]) {
