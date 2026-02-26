@@ -77,7 +77,7 @@ export const Error: _pi.Transformer_With_Parameter<d_in.Error, d_out.Phrase, d_f
                     }
                 }),
             ]))
-            case 'astn': return _p.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($))
+            case 'astn': return _p.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($, $p))
             default: return _p.au($[0])
         }
     }),
