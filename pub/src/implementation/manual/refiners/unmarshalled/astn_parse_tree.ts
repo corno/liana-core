@@ -8,7 +8,7 @@ import * as d_out from "../../../../interface/to_be_generated/unmarshalled"
 import * as d_function from "../../../../interface/to_be_generated/unmarshall"
 
 //dependencies
-import * as t_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/location"
+import * as t_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 import * as r_astn_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
 import * as t_from_loc from "../primitives/list_of_characters"
 
