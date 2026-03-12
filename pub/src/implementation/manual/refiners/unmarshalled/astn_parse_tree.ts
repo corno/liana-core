@@ -104,7 +104,7 @@ export const Number: Number = ($, abort, $p) => {
         r_astn_unmarshalled_from_parse_tree.Text(
             $,
             ($) => abort(['astn', $])
-        ).value,
+        ).token.value,
         ($) => $
     )
 
@@ -192,7 +192,7 @@ export const Boolean: Boolean = ($, abort, $p) => {
         r_astn_unmarshalled_from_parse_tree.Text(
             $,
             ($) => abort(['astn', $])
-        ).value,
+        ).token.value,
         ($) => $
     )
 
@@ -263,7 +263,7 @@ export const State: State = ($, abort) => {
 }
 
 export const Text: Text = ($, abort) => {
-    return r_astn_unmarshalled_from_parse_tree.Text($, ($) => abort(['astn', $])).value
+    return r_astn_unmarshalled_from_parse_tree.Text($, ($) => abort(['astn', $])).token.value
 }
 
 export const Verbose_Group: Verbose_Group = ($, abort, $p) => {
