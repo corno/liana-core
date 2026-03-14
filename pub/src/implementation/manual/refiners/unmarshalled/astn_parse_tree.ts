@@ -220,8 +220,14 @@ export const Dictionary: Dictionary = ($, abort) => {
             const value = $.value
             return {
                 'value': $.value,
-                'entries': $.entries.__d_map(($, id) => $.value.__decide(
-                    ($) => $.value,
+                'entries': $.entries.__d_map(($, id) => $.assignment.__decide(
+                    ($) => $.value.__decide(
+                        ($) => $,
+                        () => abort(['liana', {
+                            'range': t_parse_tree_to_location.Value(value),
+                            'type': ['dictionary', ['entry not set', id]]
+                        }])
+                    ),
                     () => abort(['liana', {
                         'range': t_parse_tree_to_location.Value(value),
                         'type': ['dictionary', ['entry not set', id]]
@@ -273,8 +279,14 @@ export const Verbose_Group: Verbose_Group = ($, abort, $p) => {
             const value = $.value
             return {
                 'value': $.value,
-                'properties': $.properties.__d_map(($, id) => $.value.__decide(
-                    ($) => $.value,
+                'properties': $.properties.__d_map(($, id) => $.assignment.__decide(
+                    ($) => $.value.__decide(
+                        ($) => $,
+                        () => abort(['liana', {
+                            'range': t_parse_tree_to_location.Value(value),
+                            'type': ['dictionary', ['entry not set', id]]
+                        }])
+                    ),
                     () => abort(['liana', {
                         'range': t_parse_tree_to_location.Value(value),
                         'type': ['dictionary', ['entry not set', id]]
