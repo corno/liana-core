@@ -1,6 +1,6 @@
 {
   "name": "liana-core",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "author": "Corno",
   "license": "Apache-2.0",
   "main": "./dist/index.js",
