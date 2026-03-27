@@ -18,7 +18,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export namespace signatures {
     // export type Location = _pi.Transformer_With_Parameter<d_in.Location, d_out.Phrase, d_function.Old_Parameters>
-    export type Range = _pi.Transformer_With_Parameter<d_in.Range, d_out.Phrase, { 'character location reporting': d_function.character_location_reporting }>
+    export type Range = _pi.Transformer_With_Parameter<d_in.Range, d_out.Phrase, d_function.Old_Parameters>
     // export type Possible_Range = _pi.Transformer_With_Parameter<d_in.Possible_Range, d_out.Phrase, d_function.Old_Parameters>
 }
 
@@ -30,7 +30,10 @@ const temp_serialize_number = (n: number): d_temp_text.List_of_Characters => {
 export const Range: signatures.Range = ($, $p) => t_astn_location_to_fountain_pen.Range(
     $,
     {
-        'document resource identifier': $['document resource identifier'],
+        'document resource identifier': $['subdocument resource identifier'].__decide(
+            ($) => $,
+            () => $p['document resource identifier']
+        ),
         'character location reporting': $p['character location reporting']
     }
 )
