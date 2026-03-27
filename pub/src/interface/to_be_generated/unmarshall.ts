@@ -1,5 +1,5 @@
 import * as d_astn_unmarshall from "astn-core/dist/interface/to_be_generated/unmarshall"
-import * as d_location from "./location"
+import * as d_location from "./document_and_location"
 
 export type Error =
     | readonly ['astn', d_astn_unmarshall.Error]

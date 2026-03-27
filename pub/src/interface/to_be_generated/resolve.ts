@@ -1,7 +1,7 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i_location from "./location"
+import * as i_location from "./document_and_location"
 
 export namespace Error_ {
     

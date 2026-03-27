@@ -6,7 +6,7 @@ import _p_cc from 'pareto-core/dist/_p_change_context'
 import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 import * as d_out from "../../../../interface/to_be_generated/unmarshalled"
 import * as d_function from "../../../../interface/to_be_generated/unmarshall"
-import * as d_function_loc from "../../../../interface/to_be_generated/location"
+import * as d_function_loc from "../../../../interface/to_be_generated/document_and_location"
 
 
 //dependencies
