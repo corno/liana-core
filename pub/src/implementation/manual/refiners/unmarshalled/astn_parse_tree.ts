@@ -6,6 +6,8 @@ import _p_cc from 'pareto-core/dist/_p_change_context'
 import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 import * as d_out from "../../../../interface/to_be_generated/unmarshalled"
 import * as d_function from "../../../../interface/to_be_generated/unmarshall"
+import * as d_function_loc from "../../../../interface/to_be_generated/location"
+
 
 //dependencies
 import * as t_parse_tree_to_location from "../../transformers/parse_tree/start_token_range"
@@ -29,7 +31,7 @@ export type Number = _pi.Refiner_With_Parameter<
         | ['scientific notation', {
             'precision': number
         }]
-        'subdocument resource identifier': _pi.Optional_Value<string>
+        'subdocument context': _pi.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
@@ -40,7 +42,7 @@ export type Boolean = _pi.Refiner_With_Parameter<
     {
         'type':
         | ['true/false', null]
-        'subdocument resource identifier': _pi.Optional_Value<string>
+        'subdocument context': _pi.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
@@ -50,7 +52,7 @@ export type Dictionary = _pi.Refiner_With_Parameter<
     d_function.Error,
     d_in.Value,
     {
-        'subdocument resource identifier': _pi.Optional_Value<string>
+        'subdocument context': _pi.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
@@ -59,7 +61,7 @@ export type List = _pi.Refiner_With_Parameter<
     d_function.Error,
     d_in.Value,
     {
-        'subdocument resource identifier': _pi.Optional_Value<string>
+        'subdocument context': _pi.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
@@ -81,7 +83,7 @@ export type Property = _pi.Refiner_With_Parameter<
     d_out.Verbose_Group,
     {
         'id': string
-        'subdocument resource identifier': _pi.Optional_Value<string>
+        'subdocument context': _pi.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
@@ -103,7 +105,7 @@ export type Verbose_Group = _pi.Refiner_With_Parameter<
     d_in.Value,
     {
         'expected properties': _pi.Dictionary<null>
-        'subdocument resource identifier': _pi.Optional_Value<string>
+        'subdocument context': _pi.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
@@ -126,7 +128,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?(0|1)+"
                     }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']})
+                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
                 }]),
             ))
             case 'decimal': return _p.ss($, ($) => t_from_loc.decimal(
@@ -135,7 +137,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?(0|[1-9][0-9]*)"
                     }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']})
+                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
                 }]),
             ))
             case 'fractional decimal': return _p.ss($, ($) => t_from_loc.fractional_decimal(
@@ -144,7 +146,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?(0|[1-9][0-9]*)(\\.[0-9]+)?"
                     }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']})
+                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
                 }]),
                 {
                     'number of fractional digits': $.digits
@@ -156,7 +158,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?0x(0|[1-9a-fA-F][0-9a-fA-F]*)"
                     }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']})
+                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
                 }]),
             ))
             case 'iso date': return _p.ss($, ($) => t_from_loc.iso_udhr(
@@ -165,7 +167,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "YYYY-MM-DD"
                     }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']})
+                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
                 }]),
             ))
             case 'octal': return _p.ss($, ($) => t_from_loc.octal(
@@ -174,7 +176,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?0o(0|[1-7][0-7]*)"
                     }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']})
+                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
                 }]),
             ))
             case 'scientific notation': return _p.ss($, ($) => t_from_loc.scientific_notation(
@@ -183,7 +185,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?"
                     }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']})
+                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
                 }]),
                 {
                     'precision': $.precision
@@ -214,7 +216,7 @@ export const Boolean: Boolean = ($, abort, $p) => {
                     'type': ['not a valid boolean', {
                         'expected format': "true|false"
                     }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']})
+                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
                 }]),
             ))
             default: return _p.au($[0])
@@ -234,12 +236,12 @@ export const Dictionary: Dictionary = ($, abort, $p) => {
                     ($) => $.value.__decide(
                         ($) => $,
                         () => abort(['liana', {
-                            'range': t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']}),
+                            'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']}),
                             'type': ['dictionary', ['entry not set', id]]
                         }])
                     ),
                     () => abort(['liana', {
-                        'range': t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']}),
+                        'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']}),
                         'type': ['dictionary', ['entry not set', id]]
                     }])
                 ))
@@ -267,7 +269,7 @@ export const Property: Property = ($, abort, $p) => {
         $p.id,
         {
             no_such_entry: ($) => abort(['liana', {
-                'range': t_parse_tree_to_location.Value(value.value, { 'subdocument resource identifier': $p['subdocument resource identifier']}),
+                'range': t_parse_tree_to_location.Value(value.value, { 'subdocument context': $p['subdocument context']}),
                 'type': ['type', ['missing property', $p.id]]
             }])
         }
@@ -293,12 +295,12 @@ export const Verbose_Group: Verbose_Group = ($, abort, $p) => {
                     ($) => $.value.__decide(
                         ($) => $,
                         () => abort(['liana', {
-                            'range': t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']}),
+                            'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']}),
                             'type': ['dictionary', ['entry not set', id]]
                         }])
                     ),
                     () => abort(['liana', {
-                        'range': t_parse_tree_to_location.Value(value, { 'subdocument resource identifier': $p['subdocument resource identifier']}),
+                        'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']}),
                         'type': ['dictionary', ['entry not set', id]]
                     }])
                 ))

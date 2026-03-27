@@ -7,7 +7,7 @@ import * as d_out from "astn-core/dist/interface/generated/liana/schemas/locatio
 
 //dependencies
 import * as t_deserialize_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/deserialize_parse_tree/location"
-import * as t_unmarshall_to_location from "../unmarshall/location"
+import * as t_unmarshall_to_location from "../unmarshall/location_in_main_document"
 
 export const Error: _pi.Transformer<d_in.Error, d_out.Possible_Range> = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
