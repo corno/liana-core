@@ -1,5 +1,5 @@
 import * as d_astn_unmarshall from "astn-core/dist/interface/to_be_generated/unmarshall"
-import * as d_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
+import * as d_location from "./location"
 
 export type Error =
     | readonly ['astn', d_astn_unmarshall.Error]

@@ -8,7 +8,7 @@ import * as d_out from "../../../../interface/to_be_generated/unmarshalled"
 import * as d_function from "../../../../interface/to_be_generated/unmarshall"
 
 //dependencies
-import * as t_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as t_parse_tree_to_location from "../../transformers/parse_tree/start_token_range"
 import * as r_astn_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
 import * as t_from_loc from "../primitives/list_of_characters"
 
@@ -29,6 +29,7 @@ export type Number = _pi.Refiner_With_Parameter<
         | ['scientific notation', {
             'precision': number
         }]
+        'document resource identifier': string
     }
 >
 
@@ -39,20 +40,27 @@ export type Boolean = _pi.Refiner_With_Parameter<
     {
         'type':
         | ['true/false', null]
+        'document resource identifier': string
     }
 >
 
 
-export type Dictionary = _pi.Refiner<
+export type Dictionary = _pi.Refiner_With_Parameter<
     d_out.Dictionary,
     d_function.Error,
-    d_in.Value
+    d_in.Value,
+    {
+        'document resource identifier': string
+    }
 >
 
-export type List = _pi.Refiner<
+export type List = _pi.Refiner_With_Parameter<
     d_out.List,
     d_function.Error,
-    d_in.Value
+    d_in.Value,
+    {
+        'document resource identifier': string
+    }
 >
 
 export type Nothing = _pi.Refiner<
@@ -73,6 +81,7 @@ export type Property = _pi.Refiner_With_Parameter<
     d_out.Verbose_Group,
     {
         'id': string
+        'document resource identifier': string
     }
 >
 
@@ -94,6 +103,7 @@ export type Verbose_Group = _pi.Refiner_With_Parameter<
     d_in.Value,
     {
         'expected properties': _pi.Dictionary<null>
+        'document resource identifier': string
     }
 >
 
@@ -116,7 +126,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?(0|1)+"
                     }],
-                    range: t_parse_tree_to_location.Value(value)
+                    range: t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']})
                 }]),
             ))
             case 'decimal': return _p.ss($, ($) => t_from_loc.decimal(
@@ -125,7 +135,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?(0|[1-9][0-9]*)"
                     }],
-                    range: t_parse_tree_to_location.Value(value)
+                    range: t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']})
                 }]),
             ))
             case 'fractional decimal': return _p.ss($, ($) => t_from_loc.fractional_decimal(
@@ -134,7 +144,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?(0|[1-9][0-9]*)(\\.[0-9]+)?"
                     }],
-                    range: t_parse_tree_to_location.Value(value)
+                    range: t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']})
                 }]),
                 {
                     'number of fractional digits': $.digits
@@ -146,7 +156,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?0x(0|[1-9a-fA-F][0-9a-fA-F]*)"
                     }],
-                    range: t_parse_tree_to_location.Value(value)
+                    range: t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']})
                 }]),
             ))
             case 'iso date': return _p.ss($, ($) => t_from_loc.iso_udhr(
@@ -155,7 +165,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "YYYY-MM-DD"
                     }],
-                    range: t_parse_tree_to_location.Value(value)
+                    range: t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']})
                 }]),
             ))
             case 'octal': return _p.ss($, ($) => t_from_loc.octal(
@@ -164,7 +174,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?0o(0|[1-7][0-7]*)"
                     }],
-                    range: t_parse_tree_to_location.Value(value)
+                    range: t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']})
                 }]),
             ))
             case 'scientific notation': return _p.ss($, ($) => t_from_loc.scientific_notation(
@@ -173,7 +183,7 @@ export const Number: Number = ($, abort, $p) => {
                     'type': ['not a valid number', {
                         'expected format': "-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?"
                     }],
-                    range: t_parse_tree_to_location.Value(value)
+                    range: t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']})
                 }]),
                 {
                     'precision': $.precision
@@ -204,7 +214,7 @@ export const Boolean: Boolean = ($, abort, $p) => {
                     'type': ['not a valid boolean', {
                         'expected format': "true|false"
                     }],
-                    range: t_parse_tree_to_location.Value(value)
+                    range: t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']})
                 }]),
             ))
             default: return _p.au($[0])
@@ -213,7 +223,7 @@ export const Boolean: Boolean = ($, abort, $p) => {
 
 }
 
-export const Dictionary: Dictionary = ($, abort) => {
+export const Dictionary: Dictionary = ($, abort, $p) => {
     return _p_cc(
         r_astn_unmarshalled_from_parse_tree.Dictionary($, ($) => abort(['astn', $])),
         ($) => {
@@ -224,12 +234,12 @@ export const Dictionary: Dictionary = ($, abort) => {
                     ($) => $.value.__decide(
                         ($) => $,
                         () => abort(['liana', {
-                            'range': t_parse_tree_to_location.Value(value),
+                            'range': t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']}),
                             'type': ['dictionary', ['entry not set', id]]
                         }])
                     ),
                     () => abort(['liana', {
-                        'range': t_parse_tree_to_location.Value(value),
+                        'range': t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']}),
                         'type': ['dictionary', ['entry not set', id]]
                     }])
                 ))
@@ -257,7 +267,7 @@ export const Property: Property = ($, abort, $p) => {
         $p.id,
         {
             no_such_entry: ($) => abort(['liana', {
-                'range': t_parse_tree_to_location.Value(value.value),
+                'range': t_parse_tree_to_location.Value(value.value, { 'document resource identifier': $p['document resource identifier']}),
                 'type': ['type', ['missing property', $p.id]]
             }])
         }
@@ -283,12 +293,12 @@ export const Verbose_Group: Verbose_Group = ($, abort, $p) => {
                     ($) => $.value.__decide(
                         ($) => $,
                         () => abort(['liana', {
-                            'range': t_parse_tree_to_location.Value(value),
+                            'range': t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']}),
                             'type': ['dictionary', ['entry not set', id]]
                         }])
                     ),
                     () => abort(['liana', {
-                        'range': t_parse_tree_to_location.Value(value),
+                        'range': t_parse_tree_to_location.Value(value, { 'document resource identifier': $p['document resource identifier']}),
                         'type': ['dictionary', ['entry not set', id]]
                     }])
                 ))
