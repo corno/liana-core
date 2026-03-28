@@ -361,7 +361,7 @@ export const fractional_decimal: _pi.Transformer_With_Parameter<number, d_out.Te
     ($) => $
 )
 
-export const iso_udhr: _pi.Transformer<number, d_out.Text> = (udhr_day) => {
+export const iso_date_udhr: _pi.Transformer<number, d_out.Text> = (udhr_day) => {
 
     const pad_left: _pi.Transformer_With_Parameter<string, _pi.List<number>, { 'desired length': number, 'pad character': number }> = ($, $p) => _p_list_build_deprecated(($i) => {
         const as_list_of_characters = _p_list_from_text($, ($) => $)

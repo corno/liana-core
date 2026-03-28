@@ -161,7 +161,7 @@ export const Number: Number = ($, abort, $p) => {
                     range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
                 }]),
             ))
-            case 'iso date': return _p.ss($, ($) => t_from_loc.iso_udhr(
+            case 'iso date': return _p.ss($, ($) => t_from_loc.iso_date_udhr(
                 as_loc,
                 ($) => abort(['liana', {
                     'type': ['not a valid number', {

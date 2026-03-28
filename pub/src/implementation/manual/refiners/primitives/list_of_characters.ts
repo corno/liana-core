@@ -355,7 +355,7 @@ export const hexadecimal: _pi.Refiner<number, string, d_loc.List_of_Characters> 
  * 
  * This function converts an ISO 8601 date string (YYYY-MM-DD) to a udhr day number
  */
-export const iso_udhr: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const iso_date_udhr: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
 
     const iso_day_0_offset = - 711471 // the number of days that iso day 1 (0001-01-01) is offset relative to udhr day 0 (1948-12-10)
 
