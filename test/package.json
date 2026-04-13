@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "pareto-test": "^0.13.0",
-    "pub": "file:../pub"
+    "lib": "file:../lib",
+    "pareto-test": "^0.13.0"
   },
   "devDependencies": {
     "c8": "^8.0.1"
