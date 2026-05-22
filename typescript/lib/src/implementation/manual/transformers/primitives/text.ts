@@ -70,7 +70,7 @@ export const scientific_notation: _pi.Transformer_With_Parameter<number, d_out.T
             }
 
             // Simple rounding using integer operations
-            const mantissa_scaled = _p.number.integer.divide(
+            const mantissa_scaled = _p.number.from.number.divide(
                 mantissa * scale_factor + 0.5,
                 1,
                 {
@@ -86,7 +86,7 @@ export const scientific_notation: _pi.Transformer_With_Parameter<number, d_out.T
                 do {
                     const digit = temp % 10
                     $i['add item'](digit)
-                    temp = _p.number.integer.divide(
+                    temp = _p.number.from.number.divide(
                         temp,
                         10,
                         {
@@ -138,7 +138,7 @@ export const scientific_notation: _pi.Transformer_With_Parameter<number, d_out.T
                     do {
                         const digit = exponent % 10
                         $i['add item'](digit)
-                        exponent = _p.number.integer.divide(
+                        exponent = _p.number.from.number.divide(
                             exponent,
                             10,
                             {
@@ -179,7 +179,7 @@ export const binary: _pi.Transformer<number, d_out.Text> = ($) => _p_text_from_l
             do {
                 const digit = $ % 2
                 $i['add item'](digit)
-                $ = _p.number.integer.divide(
+                $ = _p.number.from.number.divide(
                     $,
                     2,
                     {
@@ -212,7 +212,7 @@ export const decimal: _pi.Transformer<number, d_out.Text> = ($) => _p_text_from_
             do {
                 const digit = $ % 10
                 $i['add item'](digit)
-                $ = _p.number.integer.divide(
+                $ = _p.number.from.number.divide(
                     $,
                     10,
                     {
@@ -251,7 +251,7 @@ export const hexadecimal: _pi.Transformer<number, d_out.Text> = ($) => _p_text_f
             do {
                 const digit = $ % 16
                 $i['add item'](digit)
-                $ = _p.number.integer.divide(
+                $ = _p.number.from.number.divide(
                     $,
                     16,
                     {
@@ -297,7 +297,7 @@ export const fractional_decimal: _pi.Transformer_With_Parameter<number, d_out.Te
         }
 
         // Split into integer and fractional parts
-        const integerPart = _p.number.integer.divide(
+        const integerPart = _p.number.from.number.divide(
             value,
             divisor,
             {
@@ -315,7 +315,7 @@ export const fractional_decimal: _pi.Transformer_With_Parameter<number, d_out.Te
                 while (temp > 0) {
                     const digit = temp % 10
                     $i['add item'](digit)
-                    temp = _p.number.integer.divide(
+                    temp = _p.number.from.number.divide(
                         temp,
                         10,
                         {
@@ -343,7 +343,7 @@ export const fractional_decimal: _pi.Transformer_With_Parameter<number, d_out.Te
             for (let i = 0; i < $p['number of fractional digits']; i++) {
                 const digit = temp % 10
                 $i['add item'](digit)
-                temp = _p.number.integer.divide(
+                temp = _p.number.from.number.divide(
                     temp,
                     10,
                     {
@@ -369,7 +369,7 @@ export const iso_date_udhr: _pi.Transformer<number, d_out.Text> = (udhr_day) => 
     const pad_left: _pi.Transformer_With_Parameter<string, _pi.List<number>, { 'desired length': number, 'pad character': number }> = ($, $p) => _p_list_build_deprecated(($i) => {
         const as_list_of_characters = _p_list_from_text($, ($) => $)
         // Add padding characters if current length is less than desired length
-        for (let i = _p.number.natural.from.list(as_list_of_characters).amount_of_items(); i < $p['desired length']; i++) {
+        for (let i = _p.number.from.list(as_list_of_characters).amount_of_items(); i < $p['desired length']; i++) {
             $i['add item']($p['pad character'])
         }
         $i['add list'](as_list_of_characters)
@@ -414,7 +414,7 @@ export const octal: _pi.Transformer<number, d_out.Text> = ($) => _p_text_from_li
             do {
                 const digit = $ % 8
                 $i['add item'](digit)
-                $ = _p.number.integer.divide(
+                $ = _p.number.from.number.divide(
                     $,
                     8,
                     {

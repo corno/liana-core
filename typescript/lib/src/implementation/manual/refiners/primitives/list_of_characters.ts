@@ -442,21 +442,21 @@ export const iso_date_udhr: _pi.Refiner<number, string, d_loc.List_of_Characters
 
     const full_years = iso_date.year - 1
     const leap_days_before_current_year =
-        + _p.number.integer.divide(
+        + _p.number.from.number.divide(
             full_years,
             4,
             {
                 divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 4")
             }
         )
-        - _p.number.integer.divide(
+        - _p.number.from.number.divide(
             full_years,
             100,
             {
                 divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 100")
             }
         )
-        + _p.number.integer.divide(
+        + _p.number.from.number.divide(
             full_years,
             400,
             {
