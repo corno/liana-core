@@ -73,6 +73,7 @@ export const scientific_notation: _pi.Transformer_With_Parameter<number, d_out.T
             const mantissa_scaled = _p.number.from.number.divide(
                 mantissa * scale_factor + 0.5,
                 1,
+                ['towards zero', null],
                 {
                     divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 1")
                 }
@@ -89,6 +90,7 @@ export const scientific_notation: _pi.Transformer_With_Parameter<number, d_out.T
                     temp = _p.number.from.number.divide(
                         temp,
                         10,
+                        ['towards zero', null],
                         {
                             divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
                         }
@@ -141,6 +143,7 @@ export const scientific_notation: _pi.Transformer_With_Parameter<number, d_out.T
                         exponent = _p.number.from.number.divide(
                             exponent,
                             10,
+                            ['towards zero', null],
                             {
                                 divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
                             }
@@ -182,6 +185,7 @@ export const binary: _pi.Transformer<number, d_out.Text> = ($) => _p_text_from_l
                 $ = _p.number.from.number.divide(
                     $,
                     2,
+                    ['towards zero', null],
                     {
                         divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 2")
                     }
@@ -215,6 +219,7 @@ export const decimal: _pi.Transformer<number, d_out.Text> = ($) => _p_text_from_
                 $ = _p.number.from.number.divide(
                     $,
                     10,
+                    ['towards zero', null],
                     {
                         divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
                     }
@@ -254,6 +259,7 @@ export const hexadecimal: _pi.Transformer<number, d_out.Text> = ($) => _p_text_f
                 $ = _p.number.from.number.divide(
                     $,
                     16,
+                    ['towards zero', null],
                     {
                         divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 16")
                     }
@@ -300,6 +306,7 @@ export const fractional_decimal: _pi.Transformer_With_Parameter<number, d_out.Te
         const integerPart = _p.number.from.number.divide(
             value,
             divisor,
+            ['towards zero', null],
             {
                 divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10^fractionalDigits")
             }
@@ -318,6 +325,7 @@ export const fractional_decimal: _pi.Transformer_With_Parameter<number, d_out.Te
                     temp = _p.number.from.number.divide(
                         temp,
                         10,
+                        ['towards zero', null],
                         {
                             divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
                         }
@@ -346,6 +354,7 @@ export const fractional_decimal: _pi.Transformer_With_Parameter<number, d_out.Te
                 temp = _p.number.from.number.divide(
                     temp,
                     10,
+                    ['towards zero', null],
                     {
                         divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
                     }
@@ -417,6 +426,7 @@ export const octal: _pi.Transformer<number, d_out.Text> = ($) => _p_text_from_li
                 $ = _p.number.from.number.divide(
                     $,
                     8,
+                    ['towards zero', null],
                     {
                         divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 8")
                     }

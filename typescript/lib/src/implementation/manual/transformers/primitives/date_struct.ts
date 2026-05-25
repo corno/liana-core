@@ -29,6 +29,7 @@ export const iso_date_udhr: _pi.Transformer<number, Date_Struct> = (udhr_day) =>
     const number_of_400_year_blocks = _p.number.from.number.divide(
         total_days,
         number_of_days_in_400_years,
+            ['towards zero', null],
         {
             divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 400-year block")
         }
@@ -38,6 +39,7 @@ export const iso_date_udhr: _pi.Transformer<number, Date_Struct> = (udhr_day) =>
     const number_of_100_year_blocks = _p.number.from.number.divide(
         remaining_days_in_the_last_400_years,
         number_of_days_in_100_years,
+            ['towards zero', null],
         {
             divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 100-year block")
         }
@@ -47,6 +49,7 @@ export const iso_date_udhr: _pi.Transformer<number, Date_Struct> = (udhr_day) =>
     const number_of_4_year_blocks = _p.number.from.number.divide(
         remaining_days_in_the_last_100_years,
         number_of_days_in_4_years,
+            ['towards zero', null],
         {
             divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 4-year block")
         }
@@ -56,6 +59,7 @@ export const iso_date_udhr: _pi.Transformer<number, Date_Struct> = (udhr_day) =>
     const number_of_1_year_blocks = _p.number.from.number.divide(
         remaining_days_in_the_last_4_years,
         number_of_days_in_1_year,
+            ['towards zero', null],
         {
             divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 1-year block")
         }

@@ -445,6 +445,7 @@ export const iso_date_udhr: _pi.Refiner<number, string, d_loc.List_of_Characters
         + _p.number.from.number.divide(
             full_years,
             4,
+            ['towards zero', null],
             {
                 divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 4")
             }
@@ -452,6 +453,7 @@ export const iso_date_udhr: _pi.Refiner<number, string, d_loc.List_of_Characters
         - _p.number.from.number.divide(
             full_years,
             100,
+            ['towards zero', null],
             {
                 divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 100")
             }
@@ -459,6 +461,7 @@ export const iso_date_udhr: _pi.Refiner<number, string, d_loc.List_of_Characters
         + _p.number.from.number.divide(
             full_years,
             400,
+            ['towards zero', null],
             {
                 divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 400")
             }
