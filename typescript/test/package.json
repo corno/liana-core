@@ -3,9 +3,6 @@
     "lib": "file:../lib",
     "pareto-test": "^0.13.0"
   },
-  "devDependencies": {
-    "c8": "^8.0.1"
-  },
   "scripts": {
     "test": "node ./dist/bin/test.js",
     "test:coverage": "cd .. && npx c8 --all --src pub/src --exclude '**/test/**' --exclude '**/node_modules/**' --reports-dir test/coverage --reporter html --reporter text --reporter lcov node ./test/dist/bin/test.js",
