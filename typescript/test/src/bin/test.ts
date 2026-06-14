@@ -6,13 +6,13 @@ import * as _pc from 'pareto-core/dist/command'
 
 // import * as _pn from 'pareto-host-nodejs'
 
-import {
-    Resources,
-    run_refiner_tests_with_parameters,
-    run_refiner_tests_without_parameters,
-    run_transformer_tests_with_parameters,
-    run_transformer_tests_without_parameters,
-} from "pareto-test/dist/implementation/generic"
+// import {
+//     Resources,
+//     run_refiner_tests_with_parameters,
+//     run_refiner_tests_without_parameters,
+//     run_transformer_tests_with_parameters,
+//     run_transformer_tests_without_parameters,
+// } from "pareto-test/dist/implementation/generic"
 
 import { $$ as p_run_tests } from "pareto-test/dist/implementation/manual/commands/run_tests"
 
@@ -44,7 +44,7 @@ import { TEST_DATA } from "../data/test_data"
 // _pn.run_main_command(
 //     ($rr) => {
 //         return _pc.command_procedure<ds_main.Error, ds_main.Parameters, null, null>(
-//             ($p, $r) => [
+//             ($d, $s, $q) => [
 //                 p_run_tests(
 //                     {
 //                         'log error': $rr.commands['log error'],
