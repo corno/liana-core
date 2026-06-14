@@ -1,8 +1,8 @@
-import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
-import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
-import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
-import * as _p from 'pareto-core/dist/assign'
-import * as _pi from 'pareto-core/dist/interface'
+import p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
+import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
+import p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import * as pt from 'pareto-core/dist/assign'
+import * as pi from 'pareto-core/dist/interface'
 
 export type Date_Struct = {
     year: number
@@ -10,7 +10,7 @@ export type Date_Struct = {
     day: number
 }
 
-export const iso_date_udhr: _pi.Transformer<number, Date_Struct> = (udhr_day) => {
+export const iso_date_udhr: pi.Transformer<number, Date_Struct> = (udhr_day) => {
 
     const iso_day_0_offset = - 711471 // the number of days that iso day 1 (0001-01-01) is offset relative to udhr day 0 (1948-12-10)
 
@@ -26,42 +26,42 @@ export const iso_date_udhr: _pi.Transformer<number, Date_Struct> = (udhr_day) =>
     const number_of_days_in_4_years = 365 * 4 + 1
     const number_of_days_in_1_year = 365
 
-    const number_of_400_year_blocks = _p.number.from.number.divide(
+    const number_of_400_year_blocks = pt.number.from.number.divide(
         total_days,
         number_of_days_in_400_years,
             ['towards zero', null],
         {
-            divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 400-year block")
+            divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 400-year block")
         }
     )
     const remaining_days_in_the_last_400_years = total_days % number_of_days_in_400_years
 
-    const number_of_100_year_blocks = _p.number.from.number.divide(
+    const number_of_100_year_blocks = pt.number.from.number.divide(
         remaining_days_in_the_last_400_years,
         number_of_days_in_100_years,
             ['towards zero', null],
         {
-            divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 100-year block")
+            divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 100-year block")
         }
     )
     const remaining_days_in_the_last_100_years = remaining_days_in_the_last_400_years % number_of_days_in_100_years
 
-    const number_of_4_year_blocks = _p.number.from.number.divide(
+    const number_of_4_year_blocks = pt.number.from.number.divide(
         remaining_days_in_the_last_100_years,
         number_of_days_in_4_years,
             ['towards zero', null],
         {
-            divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 4-year block")
+            divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 4-year block")
         }
     )
     const remaining_days_in_the_last_4_years = remaining_days_in_the_last_100_years % number_of_days_in_4_years
 
-    const number_of_1_year_blocks = _p.number.from.number.divide(
+    const number_of_1_year_blocks = pt.number.from.number.divide(
         remaining_days_in_the_last_4_years,
         number_of_days_in_1_year,
             ['towards zero', null],
         {
-            divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 1-year block")
+            divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 1-year block")
         }
     )
     const remaining_days_in_the_last_year = remaining_days_in_the_last_4_years % number_of_days_in_1_year

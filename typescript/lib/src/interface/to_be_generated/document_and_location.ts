@@ -1,4 +1,4 @@
-import * as _pi from 'pareto-core/dist/interface'
+import * as pi from 'pareto-core/dist/interface'
 
 import * as d_astn_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
 

@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 import * as _pt from 'pareto-core/dist/assign'
-import * as _pi from 'pareto-core/dist/interface'
+import * as pi from 'pareto-core/dist/interface'
 import * as _pc from 'pareto-core/dist/command'
 
-// import * as _pn from 'pareto-host-nodejs'
+// import * as ph from 'pareto-host-nodejs'
 
 // import {
 //     Resources,
@@ -41,7 +41,7 @@ import { TEST_DATA } from "../data/test_data"
 // import { deserialize as ds_true_false } from "lib/dist/implementation/manual/primitives/boolean/deserializers/true_false"
 // import { $$ as ds_approx_scientific } from "lib/dist/implementation/manual/primitives/approximate_number/deserializers/scientific_notation"
 
-// _pn.run_main_command(
+// ph.run_main_command(
 //     ($rr) => {
 //         return _pc.command_procedure<ds_main.Error, ds_main.Parameters, null, null>(
 //             ($d, $s, $q) => [

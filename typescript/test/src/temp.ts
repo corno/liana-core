@@ -1,4 +1,4 @@
-import * as _pi from 'pareto-core/dist/interface'
+import * as pi from 'pareto-core/dist/interface'
 
 type Possible_Error =
     | ['success', string]
@@ -44,7 +44,7 @@ type Tester_for_Refiner =
     | ['without error without parameter', Tester_for_Refiner_Without_Error_Without_Parameter]
 
 export const create_tester_for_transformer_with_parameter = <Input, Result, Parameter>(
-    transformer: _pi.Transformer_With_Parameter<Input, Result, Parameter>,
+    transformer: pi.Transformer_With_Parameter<Input, Result, Parameter>,
     text_to_input: (input: string) => Input,
     text_to_parameter: (parameter: string) => Parameter,
     result_to_text: (result: Result) => string,
@@ -56,7 +56,7 @@ export const create_tester_for_transformer_with_parameter = <Input, Result, Para
 }
 
 // export const create_tester_for_transformer_without_parameter = <Input, Result>(
-//     transformer: _pi.Transformer<Input, Result>,
+//     transformer: pi.Transformer<Input, Result>,
 //     text_to_input: (input: string) => Input,
 //     result_to_text: (result: Result) => string,
 // ): Tester_for_Transformer => {
@@ -69,7 +69,7 @@ export const create_tester_for_transformer_with_parameter = <Input, Result, Para
 
 
 export const create_tester_for_serializer_with_parameter = <Input, Parameter>(
-    transformer: _pi.Transformer_With_Parameter<Input, string, Parameter>,
+    transformer: pi.Transformer_With_Parameter<Input, string, Parameter>,
     text_to_input: (input: string) => Input,
     text_to_parameter: (parameter: string) => Parameter,
 ): Tester_for_Transformer => ['with parameter', (input, parameter) => transformer(
@@ -78,7 +78,7 @@ export const create_tester_for_serializer_with_parameter = <Input, Parameter>(
 )]
 
 export const create_tester_for_transformer_without_parameter = <Input, Result>(
-    transformer: _pi.Transformer<Input, Result>,
+    transformer: pi.Transformer<Input, Result>,
     text_to_input: (input: string) => Input,
     result_to_text: (result: Result) => string,
 ): Tester_for_Transformer => ['without parameter', (input: string) => result_to_text(transformer(
@@ -88,7 +88,7 @@ export const create_tester_for_transformer_without_parameter = <Input, Result>(
 
 
 // export const create_tester_for_refiner_with_error_with_parameter = <Input, Result, Parameter, Error>(
-//     refiner: _pi.Refiner_With_Parameter<Input, Result, Error, Parameter>,
+//     refiner: pi.Refiner_With_Parameter<Input, Result, Error, Parameter>,
 //     text_to_input: (input: string) => Input,
 //     text_to_parameter: (parameter: string) => Parameter,
 //     result_to_text: (result: Result) => string,
@@ -108,7 +108,7 @@ export const create_tester_for_transformer_without_parameter = <Input, Result>(
 
 
 // type Integer_Refiner =
-//     | ['with error', <Error>() => _pi.Number_Refiner<Error>]
+//     | ['with error', <Error>() => pi.Number_Refiner<Error>]
 
 // type API = {
 //     'deserializers': {

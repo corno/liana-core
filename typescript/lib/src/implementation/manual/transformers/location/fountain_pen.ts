@@ -1,6 +1,6 @@
-import * as _p from 'pareto-core/dist/assign'
-import * as _pi from 'pareto-core/dist/interface'
-import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
+import * as pt from 'pareto-core/dist/assign'
+import * as pi from 'pareto-core/dist/interface'
+import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 //data types
 import * as d_in from "../../../../interface/to_be_generated/document_and_location"
@@ -15,17 +15,17 @@ import * as t_astn_location_to_fountain_pen from "astn-core/dist/implementation/
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export namespace signatures {
-    // export type Location = _pi.Transformer_With_Parameter<d_in.Location, d_out.Phrase, d_function.Old_Parameters>
-    export type Range = _pi.Transformer_With_Parameter<d_in.Range, d_out.Phrase, {
+    // export type Location = pi.Transformer_With_Parameter<d_in.Location, d_out.Phrase, d_function.Old_Parameters>
+    export type Range = pi.Transformer_With_Parameter<d_in.Range, d_out.Phrase, {
         'character location reporting': d_function.character_location_reporting
         'document resource identifier': string
     }>
-    // export type Possible_Range = _pi.Transformer_With_Parameter<d_in.Possible_Range, d_out.Phrase, d_function.Old_Parameters>
+    // export type Possible_Range = pi.Transformer_With_Parameter<d_in.Possible_Range, d_out.Phrase, d_function.Old_Parameters>
 }
 
-export const Range: signatures.Range = ($, $p) => _p.decide.state($, ($) => {
+export const Range: signatures.Range = ($, $p) => pt.decide.state($, ($) => {
     switch ($[0]) {
-        case 'in main document': return _p.ss($, ($) => sh.ph.composed([
+        case 'in main document': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal($p['document resource identifier']),
             sh.ph.literal(':'),
             t_astn_location_to_fountain_pen.Range(
@@ -35,7 +35,7 @@ export const Range: signatures.Range = ($, $p) => _p.decide.state($, ($) => {
                 }
             )
         ]))
-        case 'in subdocument': return _p.ss($, ($) => sh.ph.composed([
+        case 'in subdocument': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal($.context['subdocument resource identifier']),
             sh.ph.literal(':'),
             t_astn_location_to_fountain_pen.Range(
@@ -45,6 +45,6 @@ export const Range: signatures.Range = ($, $p) => _p.decide.state($, ($) => {
                 }
             )
         ]))
-        default: return _p.au($[0])
+        default: return pt.au($[0])
     }
 })

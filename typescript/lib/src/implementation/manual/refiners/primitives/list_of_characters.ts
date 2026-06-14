@@ -1,19 +1,19 @@
-import * as _pi from 'pareto-core/dist/interface'
-import * as _p from 'pareto-core/dist/assign'
-import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
-import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
-import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import * as pi from 'pareto-core/dist/interface'
+import * as pt from 'pareto-core/dist/assign'
+import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
+import p_text_from_list from 'pareto-core/dist/_p_text_from_list'
+import p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 
 //data types
 import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
-export const decimal: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const decimal: pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
     const characters = $
     let result = 0
     let isNegative = false
     let startIndex = 0
 
-    // _p.iterate(characters, (iterator) => {
+    // pt.iterate(characters, (iterator) => {
 
     // })
 
@@ -55,7 +55,7 @@ export const decimal: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($
 }
 
 
-export const scientific_notation: _pi.Refiner_With_Parameter<number, string, d_loc.List_of_Characters, { 'precision': number }> = ($, abort, $p) => {
+export const scientific_notation: pi.Refiner_With_Parameter<number, string, d_loc.List_of_Characters, { 'precision': number }> = ($, abort, $p) => {
     const characters = $
     let result = 0
     let isNegative = false
@@ -142,8 +142,8 @@ export const scientific_notation: _pi.Refiner_With_Parameter<number, string, d_l
     return isNegative ? -finalResult : finalResult
 }
 
-export const true_false: _pi.Refiner<boolean, string, d_loc.List_of_Characters> = ($, abort) => {
-    const as_string = _p_text_from_list($, ($) => $)
+export const true_false: pi.Refiner<boolean, string, d_loc.List_of_Characters> = ($, abort) => {
+    const as_string = p_text_from_list($, ($) => $)
     return as_string === "true"
         ? true
         : as_string === "false"
@@ -153,7 +153,7 @@ export const true_false: _pi.Refiner<boolean, string, d_loc.List_of_Characters> 
 
 
 
-export const binary: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const binary: pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
     const characters = $
     let result = 0
     let isNegative = false
@@ -208,7 +208,7 @@ export const binary: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($,
 }
 
 
-export const fractional_decimal: _pi.Refiner_With_Parameter<number, string, d_loc.List_of_Characters, { 'number of fractional digits': number }> = ($, abort, $p) => {
+export const fractional_decimal: pi.Refiner_With_Parameter<number, string, d_loc.List_of_Characters, { 'number of fractional digits': number }> = ($, abort, $p) => {
     const characters = $
     let isNegative = false
     let startIndex = 0
@@ -286,7 +286,7 @@ export const fractional_decimal: _pi.Refiner_With_Parameter<number, string, d_lo
 }
 
 
-export const hexadecimal: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const hexadecimal: pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
     const characters = $
     let result = 0
     let isNegative = false
@@ -355,7 +355,7 @@ export const hexadecimal: _pi.Refiner<number, string, d_loc.List_of_Characters> 
  * 
  * This function converts an ISO 8601 date string (YYYY-MM-DD) to a udhr day number
  */
-export const iso_date_udhr: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const iso_date_udhr: pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
 
     const iso_day_0_offset = - 711471 // the number of days that iso day 1 (0001-01-01) is offset relative to udhr day 0 (1948-12-10)
 
@@ -375,18 +375,18 @@ export const iso_date_udhr: _pi.Refiner<number, string, d_loc.List_of_Characters
     const characters = $
 
     const parse_iso_date = (
-        characters: _pi.List<number>
+        characters: pi.List<number>
     ): ISO_Date => {
 
 
-        const get_certain_character_at = (characters: _pi.List<number>, index: number): number => {
+        const get_certain_character_at = (characters: pi.List<number>, index: number): number => {
             return characters.__deprecated_get_possible_item_at(index).__decide(
                 ($) => $,
                 () => abort("index out of bounds")
             )
         }
 
-        const string_to_number = (characters: _pi.List<number>, start: number, end: number): number => {
+        const string_to_number = (characters: pi.List<number>, start: number, end: number): number => {
             let result = 0
             for (let i = start; i < end; i++) {
                 const digit = get_certain_character_at(characters, i) - 48
@@ -442,28 +442,28 @@ export const iso_date_udhr: _pi.Refiner<number, string, d_loc.List_of_Characters
 
     const full_years = iso_date.year - 1
     const leap_days_before_current_year =
-        + _p.number.from.number.divide(
+        + pt.number.from.number.divide(
             full_years,
             4,
             ['towards zero', null],
             {
-                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 4")
+                divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 4")
             }
         )
-        - _p.number.from.number.divide(
+        - pt.number.from.number.divide(
             full_years,
             100,
             ['towards zero', null],
             {
-                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 100")
+                divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 100")
             }
         )
-        + _p.number.from.number.divide(
+        + pt.number.from.number.divide(
             full_years,
             400,
             ['towards zero', null],
             {
-                divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 400")
+                divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 400")
             }
         )
 
@@ -482,7 +482,7 @@ export const iso_date_udhr: _pi.Refiner<number, string, d_loc.List_of_Characters
 }
 
 
-export const octal: _pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const octal: pi.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
     const characters = $
     let result = 0
     let isNegative = false
