@@ -14,7 +14,7 @@ import * as _pc from 'pareto-core/dist/command'
 //     run_transformer_tests_without_parameters,
 // } from "pareto-test/dist/implementation/generic"
 
-import { $$ as p_run_tests } from "pareto-test/dist/implementation/manual/commands/run_tests"
+// import { $$ as p_run_tests } from "pareto-test/dist/implementation/manual/commands/run_tests"
 
 import * as ds_main from "pareto-resources/dist/interface/to_be_generated/temp_main"
 
