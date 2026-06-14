@@ -1,7 +1,8 @@
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
+import * as p_ri from 'pareto-core/dist/refiner/interface'
 import * as pt from 'pareto-core/dist/assign'
-import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
-import p_change_context from 'pareto-core/dist/_p_change_context'
+import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
+import p_change_context from 'pareto-core/dist/specials/change_context'
 
 import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 import * as d_out from "../../../../interface/to_be_generated/unmarshalled"
@@ -14,7 +15,7 @@ import * as t_parse_tree_to_location from "../../transformers/parse_tree/start_t
 import * as r_astn_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
 import * as t_from_loc from "../primitives/list_of_characters"
 
-export type Number = pi.Refiner_With_Parameter<
+export type Number = p_ri.Refiner_With_Parameter<
     d_out.Number,
     d_function.Error,
     d_in.Value,
@@ -31,81 +32,81 @@ export type Number = pi.Refiner_With_Parameter<
         | ['scientific notation', {
             'precision': number
         }]
-        'subdocument context': pi.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
-export type Boolean = pi.Refiner_With_Parameter<
+export type Boolean = p_ri.Refiner_With_Parameter<
     d_out.Boolean,
     d_function.Error,
     d_in.Value,
     {
         'type':
         | ['true/false', null]
-        'subdocument context': pi.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
 
-export type Dictionary = pi.Refiner_With_Parameter<
+export type Dictionary = p_ri.Refiner_With_Parameter<
     d_out.Dictionary,
     d_function.Error,
     d_in.Value,
     {
-        'subdocument context': pi.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
-export type List = pi.Refiner_With_Parameter<
+export type List = p_ri.Refiner_With_Parameter<
     d_out.List,
     d_function.Error,
     d_in.Value,
     {
-        'subdocument context': pi.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
-export type Nothing = pi.Refiner<
+export type Nothing = p_ri.Refiner<
     d_out.Nothing,
     d_function.Error,
     d_in.Value
 >
 
-export type Optional = pi.Refiner<
+export type Optional = p_ri.Refiner<
     d_out.Optional,
     d_function.Error,
     d_in.Value
 >
 
-export type Property = pi.Refiner_With_Parameter<
+export type Property = p_ri.Refiner_With_Parameter<
     d_out.Property,
     d_function.Error,
     d_out.Verbose_Group,
     {
         'id': string
-        'subdocument context': pi.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
     }
 >
 
-export type State = pi.Refiner<
+export type State = p_ri.Refiner<
     d_out.State,
     d_function.Error,
     d_in.Value
 >
 
-export type Text = pi.Refiner<
+export type Text = p_ri.Refiner<
     d_out.Text,
     d_function.Error,
     d_in.Value
 >
 
-export type Verbose_Group = pi.Refiner_With_Parameter<
+export type Verbose_Group = p_ri.Refiner_With_Parameter<
     d_out.Verbose_Group,
     d_function.Error,
     d_in.Value,
     {
-        'expected properties': pi.Dictionary<null>
-        'subdocument context': pi.Optional_Value<d_function_loc.Subdocument>
+        'expected properties': p_di.Dictionary<null>
+        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
     }
 >
 

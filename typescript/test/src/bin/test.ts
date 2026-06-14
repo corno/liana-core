@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import * as _pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
-import * as _pc from 'pareto-core/dist/command'
+import * as p_di from 'pareto-core/dist/data/interface'
+import * as _pc from 'pareto-core/dist/command/implementation'
 
 // import * as ph from 'pareto-host-nodejs'
 

@@ -1,5 +1,6 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 //data types
 import * as d_in from "../../../../interface/to_be_generated/unmarshall"
@@ -11,7 +12,7 @@ import * as t_astn_unmarshall_to_fountain_pen from "astn-core/dist/implementatio
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const Error: pi.Transformer<d_in.Error, d_out.Phrase> = ($) => sh.ph.composed([
+export const Error: p_ti.Transformer<d_in.Error, d_out.Phrase> = ($) => sh.ph.composed([
     pt.decide.state($, ($) => {
         switch ($[0]) {
             case 'liana': return pt.ss($, ($) => sh.ph.composed([

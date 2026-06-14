@@ -1,8 +1,9 @@
-import p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
-import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
-import p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import p_list_build_deprecated from 'pareto-core/dist/specials/list_build_deprecated'
+import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
+import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 export type Date_Struct = {
     year: number
@@ -10,7 +11,7 @@ export type Date_Struct = {
     day: number
 }
 
-export const iso_date_udhr: pi.Transformer<number, Date_Struct> = (udhr_day) => {
+export const iso_date_udhr: p_ti.Transformer<number, Date_Struct> = (udhr_day) => {
 
     const iso_day_0_offset = - 711471 // the number of days that iso day 1 (0001-01-01) is offset relative to udhr day 0 (1948-12-10)
 

@@ -1,22 +1,23 @@
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 import * as pt from 'pareto-core/dist/assign'
-import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
+import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 //data types
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/text/data"
-import p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
-import p_text_from_list from 'pareto-core/dist/_p_text_from_list'
-import p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import p_list_build_deprecated from 'pareto-core/dist/specials/list_build_deprecated'
+import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
+import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
 
 //dependencies
 import * as t_to_date_struct from "./date_struct"
 
 
-export const true_false: pi.Transformer<boolean, d_out.Text> = ($) => {
+export const true_false: p_ti.Transformer<boolean, d_out.Text> = ($) => {
     return $ ? "true" : "false"
 }
 
-export const scientific_notation: pi.Transformer_With_Parameter<number, d_out.Text, { digits: number }> = ($, $p) => {
+export const scientific_notation: p_ti.Transformer_With_Parameter<number, d_out.Text, { digits: number }> = ($, $p) => {
     return p_text_from_list(
         p_list_build_deprecated<number>(($i) => {
             // Handle special case for zero in scientific notation
@@ -167,7 +168,7 @@ export const scientific_notation: pi.Transformer_With_Parameter<number, d_out.Te
     )
 }
 
-export const binary: pi.Transformer<number, d_out.Text> = ($) => p_text_from_list(
+export const binary: p_ti.Transformer<number, d_out.Text> = ($) => p_text_from_list(
     p_list_build_deprecated<number>(($i) => {
         if ($ < 0) {
             $i['add item'](45) // '-'
@@ -206,7 +207,7 @@ export const binary: pi.Transformer<number, d_out.Text> = ($) => p_text_from_lis
 )
 
 
-export const decimal: pi.Transformer<number, d_out.Text> = ($) => p_text_from_list(
+export const decimal: p_ti.Transformer<number, d_out.Text> = ($) => p_text_from_list(
     p_list_build_deprecated<number>(($i) => {
         if ($ < 0) {
             $i['add item'](45) // '-'
@@ -241,7 +242,7 @@ export const decimal: pi.Transformer<number, d_out.Text> = ($) => p_text_from_li
 )
 
 
-export const hexadecimal: pi.Transformer<number, d_out.Text> = ($) => p_text_from_list(
+export const hexadecimal: p_ti.Transformer<number, d_out.Text> = ($) => p_text_from_list(
     p_list_build_deprecated<number>(($i) => {
         if ($ < 0) {
             $i['add item'](45) // '-'
@@ -286,7 +287,7 @@ export const hexadecimal: pi.Transformer<number, d_out.Text> = ($) => p_text_fro
 )
 
 
-export const fractional_decimal: pi.Transformer_With_Parameter<number, d_out.Text, { 'number of fractional digits': number }> = ($, $p) => p_text_from_list(
+export const fractional_decimal: p_ti.Transformer_With_Parameter<number, d_out.Text, { 'number of fractional digits': number }> = ($, $p) => p_text_from_list(
     p_list_build_deprecated<number>(($i) => {
         let value = $
 
@@ -373,9 +374,9 @@ export const fractional_decimal: pi.Transformer_With_Parameter<number, d_out.Tex
     ($) => $
 )
 
-export const iso_date_udhr: pi.Transformer<number, d_out.Text> = (udhr_day) => {
+export const iso_date_udhr: p_ti.Transformer<number, d_out.Text> = (udhr_day) => {
 
-    const pad_left: pi.Transformer_With_Parameter<string, pi.List<number>, { 'desired length': number, 'pad character': number }> = ($, $p) => p_list_build_deprecated(($i) => {
+    const pad_left: p_ti.Transformer_With_Parameter<string, p_di.List<number>, { 'desired length': number, 'pad character': number }> = ($, $p) => p_list_build_deprecated(($i) => {
         const as_list_of_characters = p_list_from_text($, ($) => $)
         // Add padding characters if current length is less than desired length
         for (let i = pt.number.from.list(as_list_of_characters).amount_of_items(); i < $p['desired length']; i++) {
@@ -408,7 +409,7 @@ export const iso_date_udhr: pi.Transformer<number, d_out.Text> = (udhr_day) => {
     )
 }
 
-export const octal: pi.Transformer<number, d_out.Text> = ($) => p_text_from_list(
+export const octal: p_ti.Transformer<number, d_out.Text> = ($) => p_text_from_list(
     p_list_build_deprecated<number>(($i) => {
         if ($ < 0) {
             $i['add item'](45) // '-'

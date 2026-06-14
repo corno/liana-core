@@ -1,5 +1,6 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 //data types
 import * as d_in from "../../../../interface/to_be_generated/deserialize_resolved"
@@ -10,7 +11,7 @@ import * as t_resolve_to_fountain_pen from "../resolve/fountain_pen"
 import * as t_deserialize_to_fountain_pen from "../deserialize/fountain_pen"
 
 
-export const Error: pi.Transformer<d_in.Error, d_out.Phrase> = ($) => pt.decide.state($, ($) => {
+export const Error: p_ti.Transformer<d_in.Error, d_out.Phrase> = ($) => pt.decide.state($, ($) => {
     switch ($[0]) {
         case 'deserialize': return pt.ss($, ($) => t_deserialize_to_fountain_pen.Error($))
         case 'resolve error': return pt.ss($, ($) => t_resolve_to_fountain_pen.Error($))
