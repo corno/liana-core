@@ -1,5 +1,5 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_ti from 'pareto-core/dist/transformer/interface'
+import * as p_i from 'pareto-core/dist/transformer/interface'
 
 //data types
 import * as d_in from "../../../../interface/to_be_generated/document_and_location"
@@ -13,12 +13,12 @@ import * as t_astn_location_to_fountain_pen from "astn-core/dist/implementation/
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export namespace signatures {
-    // export type Location = p_ti.Transformer_With_Parameter<d_in.Location, d_out.Phrase, d_function.Old_Parameters>
-    export type Range = p_ti.Transformer_With_Parameter<d_in.Range, d_out.Phrase, {
+    // export type Location = p_i.Transformer_With_Parameter<d_in.Location, d_out.Phrase, d_function.Old_Parameters>
+    export type Range = p_i.Transformer_With_Parameter<d_in.Range, d_out.Phrase, {
         'character location reporting': d_function.character_location_reporting
         'document resource identifier': string
     }>
-    // export type Possible_Range = p_ti.Transformer_With_Parameter<d_in.Possible_Range, d_out.Phrase, d_function.Old_Parameters>
+    // export type Possible_Range = p_i.Transformer_With_Parameter<d_in.Possible_Range, d_out.Phrase, d_function.Old_Parameters>
 }
 
 export const Range: signatures.Range = ($, $p) => pt.decide.state($, ($) => {
