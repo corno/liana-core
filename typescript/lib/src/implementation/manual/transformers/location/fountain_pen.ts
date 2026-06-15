@@ -1,13 +1,10 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_di from 'pareto-core/dist/data/interface'
-import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
 import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 //data types
 import * as d_in from "../../../../interface/to_be_generated/document_and_location"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 import * as d_function from "astn-core/dist/interface/to_be_generated/location_to_fountain_pen"
-import * as d_temp_text from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
 //dependencies
 import * as t_astn_location_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"

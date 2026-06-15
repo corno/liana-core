@@ -1,4 +1,3 @@
-import * as p_di from 'pareto-core/dist/data/interface'
 
 // import * as d_generic from "pareto-test/dist/interface/temp/generic"
 import * as d_serializer_parameters from "lib/dist/interface/to_be_generated/serializer_parameters"
