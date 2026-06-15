@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
@@ -21,9 +21,9 @@ export namespace signatures {
     // export type Possible_Range = p_i.Transformer_With_Parameter<d_in.Possible_Range, d_out.Phrase, d_function.Old_Parameters>
 }
 
-export const Range: signatures.Range = ($, $p) => pt.decide.state($, ($) => {
+export const Range: signatures.Range = ($, $p) => p_.decide.state($, ($) => {
     switch ($[0]) {
-        case 'in main document': return pt.ss($, ($) => sh.ph.composed([
+        case 'in main document': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal($p['document resource identifier']),
             sh.ph.literal(':'),
             t_astn_location_to_fountain_pen.Range(
@@ -33,7 +33,7 @@ export const Range: signatures.Range = ($, $p) => pt.decide.state($, ($) => {
                 }
             )
         ]))
-        case 'in subdocument': return pt.ss($, ($) => sh.ph.composed([
+        case 'in subdocument': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal($.context['subdocument resource identifier']),
             sh.ph.literal(':'),
             t_astn_location_to_fountain_pen.Range(
@@ -43,6 +43,6 @@ export const Range: signatures.Range = ($, $p) => pt.decide.state($, ($) => {
                 }
             )
         ]))
-        default: return pt.au($[0])
+        default: return p_.au($[0])
     }
 })

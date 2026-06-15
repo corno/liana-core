@@ -1,5 +1,5 @@
 import * as p_di from 'pareto-core/dist/interface/data'
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
@@ -71,7 +71,7 @@ export const scientific_notation: p_i.Transformer_With_Parameter<number, d_out.T
             }
 
             // Simple rounding using integer operations
-            const mantissa_scaled = pt.number.from.number.divide(
+            const mantissa_scaled = p_.number.from.number.divide(
                 mantissa * scale_factor + 0.5,
                 1,
                 ['towards zero', null],
@@ -88,7 +88,7 @@ export const scientific_notation: p_i.Transformer_With_Parameter<number, d_out.T
                 do {
                     const digit = temp % 10
                     $i['add item'](digit)
-                    temp = pt.number.from.number.divide(
+                    temp = p_.number.from.number.divide(
                         temp,
                         10,
                         ['towards zero', null],
@@ -141,7 +141,7 @@ export const scientific_notation: p_i.Transformer_With_Parameter<number, d_out.T
                     do {
                         const digit = exponent % 10
                         $i['add item'](digit)
-                        exponent = pt.number.from.number.divide(
+                        exponent = p_.number.from.number.divide(
                             exponent,
                             10,
                             ['towards zero', null],
@@ -183,7 +183,7 @@ export const binary: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_li
             do {
                 const digit = $ % 2
                 $i['add item'](digit)
-                $ = pt.number.from.number.divide(
+                $ = p_.number.from.number.divide(
                     $,
                     2,
                     ['towards zero', null],
@@ -217,7 +217,7 @@ export const decimal: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_l
             do {
                 const digit = $ % 10
                 $i['add item'](digit)
-                $ = pt.number.from.number.divide(
+                $ = p_.number.from.number.divide(
                     $,
                     10,
                     ['towards zero', null],
@@ -257,7 +257,7 @@ export const hexadecimal: p_i.Transformer<number, d_out.Text> = ($) => p_text_fr
             do {
                 const digit = $ % 16
                 $i['add item'](digit)
-                $ = pt.number.from.number.divide(
+                $ = p_.number.from.number.divide(
                     $,
                     16,
                     ['towards zero', null],
@@ -304,7 +304,7 @@ export const fractional_decimal: p_i.Transformer_With_Parameter<number, d_out.Te
         }
 
         // Split into integer and fractional parts
-        const integerPart = pt.number.from.number.divide(
+        const integerPart = p_.number.from.number.divide(
             value,
             divisor,
             ['towards zero', null],
@@ -323,7 +323,7 @@ export const fractional_decimal: p_i.Transformer_With_Parameter<number, d_out.Te
                 while (temp > 0) {
                     const digit = temp % 10
                     $i['add item'](digit)
-                    temp = pt.number.from.number.divide(
+                    temp = p_.number.from.number.divide(
                         temp,
                         10,
                         ['towards zero', null],
@@ -352,7 +352,7 @@ export const fractional_decimal: p_i.Transformer_With_Parameter<number, d_out.Te
             for (let i = 0; i < $p['number of fractional digits']; i++) {
                 const digit = temp % 10
                 $i['add item'](digit)
-                temp = pt.number.from.number.divide(
+                temp = p_.number.from.number.divide(
                     temp,
                     10,
                     ['towards zero', null],
@@ -379,7 +379,7 @@ export const iso_date_udhr: p_i.Transformer<number, d_out.Text> = (udhr_day) => 
     const pad_left: p_i.Transformer_With_Parameter<string, p_di.List<number>, { 'desired length': number, 'pad character': number }> = ($, $p) => p_list_build_deprecated(($i) => {
         const as_list_of_characters = p_list_from_text($, ($) => $)
         // Add padding characters if current length is less than desired length
-        for (let i = pt.number.from.list(as_list_of_characters).amount_of_items(); i < $p['desired length']; i++) {
+        for (let i = p_.number.from.list(as_list_of_characters).amount_of_items(); i < $p['desired length']; i++) {
             $i['add item']($p['pad character'])
         }
         $i['add list'](as_list_of_characters)
@@ -394,7 +394,7 @@ export const iso_date_udhr: p_i.Transformer<number, d_out.Text> = (udhr_day) => 
     const day_str = pad_left(decimal(iso_date.day), { 'desired length': 2, 'pad character': 48 }) // '0'
 
     return p_text_from_list(
-        pt.literal.nested_list([
+        p_.literal.nested_list([
             year_str,
             [
                 45 // '-'
@@ -424,7 +424,7 @@ export const octal: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_lis
             do {
                 const digit = $ % 8
                 $i['add item'](digit)
-                $ = pt.number.from.number.divide(
+                $ = p_.number.from.number.divide(
                     $,
                     8,
                     ['towards zero', null],

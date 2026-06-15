@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 import * as d_in from "../../../../interface/data/resolve"
@@ -13,38 +13,38 @@ import * as t_loc_to_fountain_pen from "astn-core/dist/implementation/manual/tra
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: Error = ($) => sh.ph.composed([
-    pt.decide.state($.type, ($) => {
+    p_.decide.state($.type, ($) => {
         switch ($[0]) {
-            case 'constraint': return pt.ss($, ($) => pt.decide.state($, ($) => {
+            case 'constraint': return p_.ss($, ($) => p_.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'state': return pt.ss($, ($) => sh.ph.composed([
+                    case 'state': return p_.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("expected '"),
                         sh.ph.literal($.expected),
                         sh.ph.literal("' but found '"),
                         sh.ph.literal($.found),
                         sh.ph.literal("'"),
                     ]))
-                    case 'optional value is not set': return pt.ss($, ($) => sh.ph.literal("expected parameter/optional value to be set"))
-                    case 'same node': return pt.ss($, ($) => sh.ph.composed([
+                    case 'optional value is not set': return p_.ss($, ($) => sh.ph.literal("expected parameter/optional value to be set"))
+                    case 'same node': return p_.ss($, ($) => sh.ph.composed([
                         sh.ph.literal($),
                         sh.ph.literal(", not the same node")
                     ]))
-                    default: return pt.au($[0])
+                    default: return p_.au($[0])
                 }
             }))
-            case 'lookup': return pt.ss($, ($) => pt.decide.state($, ($) => {
+            case 'lookup': return p_.ss($, ($) => p_.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'cycle detected': return pt.ss($, ($) => sh.ph.literal("cycle detected"))
-                    case 'no such entry': return pt.ss($, ($) => sh.ph.composed([
+                    case 'cycle detected': return p_.ss($, ($) => sh.ph.literal("cycle detected"))
+                    case 'no such entry': return p_.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("no such entry: '"),
                         sh.ph.literal($),
                         sh.ph.literal("'")
                     ]))
-                    case 'no context lookup': return pt.ss($, ($) => sh.ph.literal("there is is no context where this entry can be looked up"))
-                    default: return pt.au($[0])
+                    case 'no context lookup': return p_.ss($, ($) => sh.ph.literal("there is is no context where this entry can be looked up"))
+                    default: return p_.au($[0])
                 }
             }))
-            case 'missing required entries': return pt.ss($, ($) => sh.ph.composed([
+            case 'missing required entries': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("missing required entries:"),
                 sh.ph.indent(
                     sh.pg.sentences($.__to_list(($, id) => sh.sentence([
@@ -53,7 +53,7 @@ export const Error: Error = ($) => sh.ph.composed([
                     ])))
                 )
             ]))
-            default: return pt.au($[0])
+            default: return p_.au($[0])
         }
     })
 ])

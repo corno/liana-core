@@ -13,7 +13,7 @@ export const decimal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($
     let isNegative = false
     let startIndex = 0
 
-    // pt.iterate(characters, (iterator) => {
+    // p_.iterate(characters, (iterator) => {
 
     // })
 
