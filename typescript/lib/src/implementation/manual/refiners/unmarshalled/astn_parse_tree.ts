@@ -5,9 +5,9 @@ import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from
 import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
-import * as d_out from "../../../../interface/to_be_generated/unmarshalled"
-import * as d_function from "../../../../interface/to_be_generated/unmarshall"
-import * as d_function_loc from "../../../../interface/to_be_generated/document_and_location"
+import * as d_out from "../../../../interface/data/unmarshalled"
+import * as d_function from "../../../../interface/data/unmarshall"
+import * as d_function_loc from "../../../../interface/data/document_and_location"
 
 
 //dependencies

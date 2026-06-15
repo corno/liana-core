@@ -2,7 +2,7 @@ import * as pt from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
-import * as d_in from "../../../../interface/to_be_generated/document_and_location"
+import * as d_in from "../../../../interface/data/document_and_location"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 import * as d_function from "astn-core/dist/interface/to_be_generated/location_to_fountain_pen"
 

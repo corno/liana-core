@@ -1,7 +1,7 @@
 import * as p_di from 'pareto-core/dist/interface/data'
 
 import * as d_deserialized_parse_tree from "astn-core/dist/interface/generated/liana/schemas/deserialize_parse_tree/data"
-import * as d_unmarshall from "../to_be_generated/unmarshall"
+import * as d_unmarshall from "../data/unmarshall"
 
 
 export type Error_ = 
