@@ -1,4 +1,3 @@
-// import * as _pt from 'pareto-core/dist/assign'
 
 // import * as d from "../interface/test_set"
 

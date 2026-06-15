@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
-import * as _pt from 'pareto-core/dist/assign'
-import * as _pc from 'pareto-core/dist/command/implementation'
-
-// import * as ph from 'pareto-host-nodejs'
+import * as p_h from 'pareto-host-nodejs/dist'
 
 // import {
 //     Resources,

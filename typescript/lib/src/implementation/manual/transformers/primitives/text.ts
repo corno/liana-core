@@ -1,13 +1,13 @@
-import * as p_di from 'pareto-core/dist/data/interface'
-import * as pt from 'pareto-core/dist/transformer/implementation'
-import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
-import * as p_i from 'pareto-core/dist/transformer/interface'
+import * as p_di from 'pareto-core/dist/interface/data'
+import * as pt from 'pareto-core/dist/implementation/transformer'
+import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
+import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/text/data"
-import p_list_build_deprecated from 'pareto-core/dist/specials/list_build_deprecated'
-import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
-import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
+import p_list_build_deprecated from 'pareto-core/dist/implementation/specials/list_build_deprecated'
+import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
+import p_unreachable_code_path from 'pareto-core/dist/implementation/specials/unreachable_code_path'
 
 //dependencies
 import * as t_to_date_struct from "./date_struct"

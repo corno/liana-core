@@ -1,5 +1,5 @@
-import * as p_di from 'pareto-core/dist/data/interface'
-import * as p_i from 'pareto-core/dist/transformer/interface'
+import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/dist/interface/transformer'
 
 import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 import * as d_out from "../../../../interface/to_be_generated/document_and_location"

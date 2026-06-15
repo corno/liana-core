@@ -1,13 +1,13 @@
-import * as p_di from 'pareto-core/dist/data/interface'
-import * as p_ri from 'pareto-core/dist/refiner/interface'
-import * as pt from 'pareto-core/dist/assign'
-import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
-import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
+import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/dist/interface/refiner'
+import * as p_temp from 'pareto-core/dist/assign'
+import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
+import p_unreachable_code_path from 'pareto-core/dist/implementation/specials/unreachable_code_path'
 
 //data types
 import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
-export const decimal: p_ri.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const decimal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
     const characters = $
     let result = 0
     let isNegative = false
@@ -55,7 +55,7 @@ export const decimal: p_ri.Refiner<number, string, d_loc.List_of_Characters> = (
 }
 
 
-export const scientific_notation: p_ri.Refiner_With_Parameter<number, string, d_loc.List_of_Characters, { 'precision': number }> = ($, abort, $p) => {
+export const scientific_notation: p_i.Refiner_With_Parameter<number, string, d_loc.List_of_Characters, { 'precision': number }> = ($, abort, $p) => {
     const characters = $
     let result = 0
     let isNegative = false
@@ -142,7 +142,7 @@ export const scientific_notation: p_ri.Refiner_With_Parameter<number, string, d_
     return isNegative ? -finalResult : finalResult
 }
 
-export const true_false: p_ri.Refiner<boolean, string, d_loc.List_of_Characters> = ($, abort) => {
+export const true_false: p_i.Refiner<boolean, string, d_loc.List_of_Characters> = ($, abort) => {
     const as_string = p_text_from_list($, ($) => $)
     return as_string === "true"
         ? true
@@ -153,7 +153,7 @@ export const true_false: p_ri.Refiner<boolean, string, d_loc.List_of_Characters>
 
 
 
-export const binary: p_ri.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const binary: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
     const characters = $
     let result = 0
     let isNegative = false
@@ -208,7 +208,7 @@ export const binary: p_ri.Refiner<number, string, d_loc.List_of_Characters> = ($
 }
 
 
-export const fractional_decimal: p_ri.Refiner_With_Parameter<number, string, d_loc.List_of_Characters, { 'number of fractional digits': number }> = ($, abort, $p) => {
+export const fractional_decimal: p_i.Refiner_With_Parameter<number, string, d_loc.List_of_Characters, { 'number of fractional digits': number }> = ($, abort, $p) => {
     const characters = $
     let isNegative = false
     let startIndex = 0
@@ -286,7 +286,7 @@ export const fractional_decimal: p_ri.Refiner_With_Parameter<number, string, d_l
 }
 
 
-export const hexadecimal: p_ri.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const hexadecimal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
     const characters = $
     let result = 0
     let isNegative = false
@@ -355,7 +355,7 @@ export const hexadecimal: p_ri.Refiner<number, string, d_loc.List_of_Characters>
  * 
  * This function converts an ISO 8601 date string (YYYY-MM-DD) to a udhr day number
  */
-export const iso_date_udhr: p_ri.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const iso_date_udhr: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
 
     const iso_day_0_offset = - 711471 // the number of days that iso day 1 (0001-01-01) is offset relative to udhr day 0 (1948-12-10)
 
@@ -442,7 +442,7 @@ export const iso_date_udhr: p_ri.Refiner<number, string, d_loc.List_of_Character
 
     const full_years = iso_date.year - 1
     const leap_days_before_current_year =
-        + pt.number.from.number.divide(
+        + p_temp.number.from.number.divide(
             full_years,
             4,
             ['towards zero', null],
@@ -450,7 +450,7 @@ export const iso_date_udhr: p_ri.Refiner<number, string, d_loc.List_of_Character
                 divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 4")
             }
         )
-        - pt.number.from.number.divide(
+        - p_temp.number.from.number.divide(
             full_years,
             100,
             ['towards zero', null],
@@ -458,7 +458,7 @@ export const iso_date_udhr: p_ri.Refiner<number, string, d_loc.List_of_Character
                 divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 100")
             }
         )
-        + pt.number.from.number.divide(
+        + p_temp.number.from.number.divide(
             full_years,
             400,
             ['towards zero', null],
@@ -482,7 +482,7 @@ export const iso_date_udhr: p_ri.Refiner<number, string, d_loc.List_of_Character
 }
 
 
-export const octal: p_ri.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
+export const octal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
     const characters = $
     let result = 0
     let isNegative = false
