@@ -4,7 +4,7 @@ import * as p_i from 'pareto-core/dist/interface/transformer'
 //data types
 import * as d_in from "../../../../interface/data/document_and_location"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
-import * as d_function from "astn-core/dist/interface/to_be_generated/location_to_fountain_pen"
+import * as d_function from "astn-core/dist/interface/data/location_to_fountain_pen"
 
 //dependencies
 import * as t_astn_location_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"

@@ -1,4 +1,4 @@
-import * as d_astn_unmarshall from "astn-core/dist/interface/to_be_generated/unmarshall"
+import * as d_astn_unmarshall from "astn-core/dist/interface/data/unmarshall"
 import * as d_location from "./document_and_location"
 
 export type Error =
