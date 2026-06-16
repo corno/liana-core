@@ -12,7 +12,7 @@ import * as p_h from 'pareto-host-nodejs/dist'
 
 // import { $$ as p_run_tests } from "pareto-test/dist/implementation/manual/commands/run_tests"
 
-import * as ds_main from "pareto-resources/dist/interface/to_be_generated/temp_main"
+import * as ds_main from "pareto-resources/dist/interface/data/temp_main"
 
 // Import test data
 // import { TEST_DATA } from "../data/test_data"
