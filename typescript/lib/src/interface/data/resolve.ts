@@ -1,5 +1,5 @@
 
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_ from 'pareto-core/dist/interface/data'
 
 import * as i_location from "./document_and_location"
 
@@ -54,7 +54,7 @@ export namespace Error_ {
             
         }
         
-        export type missing_required_entries = p_di.Dictionary<missing_required_entries.D>
+        export type missing_required_entries = p_.Dictionary<missing_required_entries.D>
         
     }
     
