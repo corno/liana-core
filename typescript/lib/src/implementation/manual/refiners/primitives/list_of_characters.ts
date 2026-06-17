@@ -1,11 +1,13 @@
+import * as p_ from 'pareto-core/dist/implementation/refiner'
 import * as p_di from 'pareto-core/dist/interface/data'
 import * as p_i from 'pareto-core/dist/interface/refiner'
-import * as p_temp from 'pareto-core/dist/assign'
 import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
-import p_unreachable_code_path from 'pareto-core/dist/implementation/specials/unreachable_code_path'
 
 //data types
 import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
+
+//dependencies
+import * as t_leap_days_before_year from "../../transformers/leap_days_before_year/year"
 
 export const decimal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($, abort) => {
     const characters = $
@@ -441,31 +443,8 @@ export const iso_date_udhr: p_i.Refiner<number, string, d_loc.List_of_Characters
     }
 
     const full_years = iso_date.year - 1
-    const leap_days_before_current_year =
-        + p_temp.number.from.number.divide(
-            full_years,
-            4,
-            ['towards zero', null],
-            {
-                divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 4")
-            }
-        )
-        - p_temp.number.from.number.divide(
-            full_years,
-            100,
-            ['towards zero', null],
-            {
-                divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 100")
-            }
-        )
-        + p_temp.number.from.number.divide(
-            full_years,
-            400,
-            ['towards zero', null],
-            {
-                divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 400")
-            }
-        )
+    const leap_days_before_current_year = t_leap_days_before_year.Year(full_years)
+
 
     const total_days_before_current_year = full_years * 365 + leap_days_before_current_year
 

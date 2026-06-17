@@ -28,20 +28,20 @@ type Tester_for_Refiner_With_Error_Without_Parameter = (
 ) => Possible_Error
 
 
-type Tester_for_Refiner_Without_Error_Without_Parameter = (
-    input: string,
-) => string
+// type Tester_for_Refiner_  Without_Error_Without_Parameter = (
+//     input: string,
+// ) => string
 
-type Tester_for_Refiner_Without_Error_With_Parameter = (
-    input: string,
-    parameter: string,
-) => string
+// type Tester_for_Refiner_  Without_Error_With_Parameter = (
+//     input: string,
+//     parameter: string,
+// ) => string
 
 type Tester_for_Refiner =
     | ['with error with parameter', Tester_for_Refiner_With_Error_With_Parameter]
     | ['with error without parameter', Tester_for_Refiner_With_Error_Without_Parameter]
-    | ['without error with parameter', Tester_for_Refiner_Without_Error_With_Parameter]
-    | ['without error without parameter', Tester_for_Refiner_Without_Error_Without_Parameter]
+    // | ['without error with parameter', Tester_for_Refiner_  Without_Error_With_Parameter]
+    // | ['without error without parameter', Tester_for_Refiner_  Without_Error_Without_Parameter]
 
 export const create_tester_for_transformer_with_parameter = <Input, Result, Parameter>(
     transformer: p_ti.Transformer_With_Parameter<Input, Result, Parameter>,

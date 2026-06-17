@@ -6,23 +6,23 @@ import * as d_serializer_parameters from "lib/dist/interface/data/serializer_par
 //     'integer': {
 //         'decimal': {
 //             'serializer': p_di.Dictionary<d_generic.Transformer<number, string>>
-//             'deserializer': p_di.Dictionary<d_generic.Refiner_Without_Parameters<number, string, string>>
+//             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<number, string, string>>
 //         }
 //         'hexadecimal': {
 //             'serializer': p_di.Dictionary<d_generic.Transformer<number, string>>
-//             'deserializer': p_di.Dictionary<d_generic.Refiner_Without_Parameters<number, string, string>>
+//             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<number, string, string>>
 //         }
 //         'binary': {
 //             'serializer': p_di.Dictionary<d_generic.Transformer<number, string>>
-//             'deserializer': p_di.Dictionary<d_generic.Refiner_Without_Parameters<number, string, string>>
+//             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<number, string, string>>
 //         }
 //         'octal': {
 //             'serializer': p_di.Dictionary<d_generic.Transformer<number, string>>
-//             'deserializer': p_di.Dictionary<d_generic.Refiner_Without_Parameters<number, string, string>>
+//             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<number, string, string>>
 //         }
 //         'iso_udhr': {
 //             'serializer': p_di.Dictionary<d_generic.Transformer<number, string>>
-//             'deserializer': p_di.Dictionary<d_generic.Refiner_Without_Parameters<number, string, string>>
+//             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<number, string, string>>
 //         }
 //         'fractional_decimal': {
 //             'serializer': p_di.Dictionary<d_generic.Transformer_With_Parameter<number, string, d_serializer_parameters.fractional_decimal>>
@@ -32,7 +32,7 @@ import * as d_serializer_parameters from "lib/dist/interface/data/serializer_par
 //     'boolean': {
 //         'true_false': {
 //             'serializer': p_di.Dictionary<d_generic.Transformer<boolean, string>>
-//             'deserializer': p_di.Dictionary<d_generic.Refiner_Without_Parameters<boolean, string, string>>
+//             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<boolean, string, string>>
 //         }
 //     }
 //     'approximate_number': {
