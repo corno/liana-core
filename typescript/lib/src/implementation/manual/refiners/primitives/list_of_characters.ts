@@ -145,7 +145,10 @@ export const scientific_notation: p_i.Refiner_With_Parameter<number, string, d_l
 }
 
 export const true_false: p_i.Refiner<boolean, string, d_loc.List_of_Characters> = ($, abort) => {
-    const as_string = p_text_from_list($, ($) => $)
+    const as_string = p_text_from_list(
+        $,
+         ($) => $
+    )
     return as_string === "true"
         ? true
         : as_string === "false"

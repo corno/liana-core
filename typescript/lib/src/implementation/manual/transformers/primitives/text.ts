@@ -376,8 +376,18 @@ export const fractional_decimal: p_i.Transformer_With_Parameter<number, d_out.Te
 
 export const iso_date_udhr: p_i.Transformer<number, d_out.Text> = (udhr_day) => {
 
-    const pad_left: p_i.Transformer_With_Parameter<string, p_di.List<number>, { 'desired length': number, 'pad character': number }> = ($, $p) => p_list_build_deprecated(($i) => {
-        const as_list_of_characters = p_list_from_text($, ($) => $)
+    const pad_left: p_i.Transformer_With_Parameter<
+        string,
+        p_di.List<number>,
+        {
+            'desired length': number,
+            'pad character': number
+        }
+    > = ($, $p) => p_list_build_deprecated(($i) => {
+        const as_list_of_characters = p_list_from_text(
+            $,
+            ($) => $
+        )
         // Add padding characters if current length is less than desired length
         for (let i = p_.number.from.list(as_list_of_characters).amount_of_items(); i < $p['desired length']; i++) {
             $i['add item']($p['pad character'])
