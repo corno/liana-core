@@ -1,4 +1,5 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
+import * as p_t from 'pareto-core/dist/implementation/transformer'
 import * as p_di from 'pareto-core/dist/interface/data'
 import * as p_i from 'pareto-core/dist/interface/refiner'
 import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
@@ -20,7 +21,7 @@ export const decimal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($
     // })
 
     // Check for empty string
-    if (characters.__get_number_of_items() === 0) {
+    if (p_t.from.list(characters).amount_of_items() === 0) {
         abort("Empty string is not a valid decimal number")
     }
 
@@ -34,13 +35,13 @@ export const decimal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($
     }
 
     // Check for negative sign
-    if (characters.__get_number_of_items() > 0 && get_character_at(0) === 45) { // '-'
+    if (p_t.from.list(characters).amount_of_items() > 0 && get_character_at(0) === 45) { // '-'
         isNegative = true
         startIndex = 1
     }
 
     // Parse digits from left to right
-    for (let i = startIndex; i < characters.__get_number_of_items(); i++) {
+    for (let i = startIndex; i < p_t.from.list(characters).amount_of_items(); i++) {
         const charCode = get_character_at(i)
 
         // Check if character is a digit (48-57 for '0'-'9')
@@ -77,13 +78,13 @@ export const scientific_notation: p_i.Refiner_With_Parameter<number, string, d_l
     )
 
     // Check for negative sign
-    if (characters.__get_number_of_items() > 0 && get_character_at(0) === 45) { // '-'
+    if (p_t.from.list(characters).amount_of_items() > 0 && get_character_at(0) === 45) { // '-'
         isNegative = true
         startIndex = 1
     }
 
     // Parse the number
-    for (let i = startIndex; i < characters.__get_number_of_items(); i++) {
+    for (let i = startIndex; i < p_t.from.list(characters).amount_of_items(); i++) {
         const charCode = get_character_at(i)
 
         if (charCode === 46) { // '.'
@@ -97,7 +98,7 @@ export const scientific_notation: p_i.Refiner_With_Parameter<number, string, d_l
             }
             inExponent = true
             // Check for exponent sign
-            if (i + 1 < characters.__get_number_of_items()) {
+            if (i + 1 < p_t.from.list(characters).amount_of_items()) {
                 const nextChar = get_character_at(i + 1)
                 if (nextChar === 45) { // '-'
                     isExponentNegative = true
@@ -165,7 +166,7 @@ export const binary: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($,
     let startIndex = 0
 
     // Check for empty string
-    if (characters.__get_number_of_items() === 0) {
+    if (p_t.from.list(characters).amount_of_items() === 0) {
         abort("Empty string is not a valid binary number")
     }
 
@@ -177,13 +178,13 @@ export const binary: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($,
     )
 
     // Check for negative sign
-    if (characters.__get_number_of_items() > 0 && get_character_at(0) === 45) { // '-'
+    if (p_t.from.list(characters).amount_of_items() > 0 && get_character_at(0) === 45) { // '-'
         isNegative = true
         startIndex = 1
     }
 
     // Check for "0b" prefix - REQUIRE it for binary
-    if (characters.__get_number_of_items() <= startIndex + 1 ||
+    if (p_t.from.list(characters).amount_of_items() <= startIndex + 1 ||
         get_character_at(startIndex) !== 48 || // '0'
         get_character_at(startIndex + 1) !== 98) { // 'b'
         abort("Binary number must have '0b' prefix")
@@ -191,12 +192,12 @@ export const binary: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($,
     startIndex += 2
 
     // Check if there are digits after the prefix
-    if (startIndex >= characters.__get_number_of_items()) {
+    if (startIndex >= p_t.from.list(characters).amount_of_items()) {
         abort("Binary number must have digits after '0b' prefix")
     }
 
     // Parse binary digits from left to right
-    for (let i = startIndex; i < characters.__get_number_of_items(); i++) {
+    for (let i = startIndex; i < p_t.from.list(characters).amount_of_items(); i++) {
         const charCode = get_character_at(i)
 
         // Check if character is a binary digit (48-49 for '0'-'1')
@@ -220,7 +221,7 @@ export const fractional_decimal: p_i.Refiner_With_Parameter<number, string, d_lo
     let decimalPointIndex = -1
 
     // Check for empty string
-    if (characters.__get_number_of_items() === 0) {
+    if (p_t.from.list(characters).amount_of_items() === 0) {
         abort("Empty string is not a valid fractional decimal number")
     }
 
@@ -234,13 +235,13 @@ export const fractional_decimal: p_i.Refiner_With_Parameter<number, string, d_lo
     }
 
     // Check for negative sign
-    if (characters.__get_number_of_items() > 0 && get_character_at(0) === 45) { // '-'
+    if (p_t.from.list(characters).amount_of_items() > 0 && get_character_at(0) === 45) { // '-'
         isNegative = true
         startIndex = 1
     }
 
     // Find decimal point and validate characters
-    for (let i = startIndex; i < characters.__get_number_of_items(); i++) {
+    for (let i = startIndex; i < p_t.from.list(characters).amount_of_items(); i++) {
         const charCode = get_character_at(i)
 
         if (charCode === 46) { // '.'
@@ -264,7 +265,7 @@ export const fractional_decimal: p_i.Refiner_With_Parameter<number, string, d_lo
     }
 
     // Calculate number of fractional digits in input
-    const inputFractionalDigits = characters.__get_number_of_items() - decimalPointIndex - 1
+    const inputFractionalDigits = p_t.from.list(characters).amount_of_items() - decimalPointIndex - 1
     const expectedFractionalDigits = $p['number of fractional digits']
 
     // Check that the number of fractional digits matches expected
@@ -281,7 +282,7 @@ export const fractional_decimal: p_i.Refiner_With_Parameter<number, string, d_lo
     }
 
     // Parse fractional part
-    for (let i = decimalPointIndex + 1; i < characters.__get_number_of_items(); i++) {
+    for (let i = decimalPointIndex + 1; i < p_t.from.list(characters).amount_of_items(); i++) {
         const charCode = get_character_at(i)
         const digit = charCode - 48
         result = result * 10 + digit
@@ -298,7 +299,7 @@ export const hexadecimal: p_i.Refiner<number, string, d_loc.List_of_Characters> 
     let startIndex = 0
 
     // Check for empty string
-    if (characters.__get_number_of_items() === 0) {
+    if (p_t.from.list(characters).amount_of_items() === 0) {
         abort("Empty string is not a valid hexadecimal number")
     }
 
@@ -312,13 +313,13 @@ export const hexadecimal: p_i.Refiner<number, string, d_loc.List_of_Characters> 
     }
 
     // Check for negative sign
-    if (characters.__get_number_of_items() > 0 && get_character_at(0) === 45) { // '-'
+    if (p_t.from.list(characters).amount_of_items() > 0 && get_character_at(0) === 45) { // '-'
         isNegative = true
         startIndex = 1
     }
 
     // Check for "0x" prefix - REQUIRE it for hex
-    if (characters.__get_number_of_items() <= startIndex + 1 ||
+    if (p_t.from.list(characters).amount_of_items() <= startIndex + 1 ||
         get_character_at(startIndex) !== 48 || // '0'
         get_character_at(startIndex + 1) !== 120) { // 'x'
         abort("Hexadecimal number must have '0x' prefix")
@@ -326,12 +327,12 @@ export const hexadecimal: p_i.Refiner<number, string, d_loc.List_of_Characters> 
     startIndex += 2
 
     // Check if there are digits after the prefix
-    if (startIndex >= characters.__get_number_of_items()) {
+    if (startIndex >= p_t.from.list(characters).amount_of_items()) {
         abort("Hexadecimal number must have digits after '0x' prefix")
     }
 
     // Parse hex digits from left to right
-    for (let i = startIndex; i < characters.__get_number_of_items(); i++) {
+    for (let i = startIndex; i < p_t.from.list(characters).amount_of_items(); i++) {
         const charCode = get_character_at(i)
         let digit: number
 
@@ -403,7 +404,7 @@ export const iso_date_udhr: p_i.Refiner<number, string, d_loc.List_of_Characters
         const dash = 45
 
         //validate format
-        if (characters.__get_number_of_items() !== 10) { // YYYY-MM-DD
+        if (p_t.from.list(characters).amount_of_items() !== 10) { // YYYY-MM-DD
             return abort("invalid date format")
         }
         if (get_certain_character_at(characters, 4) !== dash) { // -
@@ -471,7 +472,7 @@ export const octal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($, 
     let startIndex = 0
 
     // Check for empty string
-    if (characters.__get_number_of_items() === 0) {
+    if (p_t.from.list(characters).amount_of_items() === 0) {
         abort("Empty string is not a valid octal number")
     }
 
@@ -483,13 +484,13 @@ export const octal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($, 
     )
 
     // Check for negative sign
-    if (characters.__get_number_of_items() > 0 && get_character_at(0) === 45) { // '-'
+    if (p_t.from.list(characters).amount_of_items() > 0 && get_character_at(0) === 45) { // '-'
         isNegative = true
         startIndex = 1
     }
 
     // Check for "0o" prefix - REQUIRE it for octal
-    if (characters.__get_number_of_items() <= startIndex + 1 ||
+    if (p_t.from.list(characters).amount_of_items() <= startIndex + 1 ||
         get_character_at(startIndex) !== 48 || // '0'
         get_character_at(startIndex + 1) !== 111) { // 'o'
         abort("Octal number must have '0o' prefix")
@@ -497,12 +498,12 @@ export const octal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($, 
     startIndex += 2
 
     // Check if there are digits after the prefix
-    if (startIndex >= characters.__get_number_of_items()) {
+    if (startIndex >= p_t.from.list(characters).amount_of_items()) {
         abort("Octal number must have digits after '0o' prefix")
     }
 
     // Parse octal digits from left to right
-    for (let i = startIndex; i < characters.__get_number_of_items(); i++) {
+    for (let i = startIndex; i < p_t.from.list(characters).amount_of_items(); i++) {
         const charCode = get_character_at(i)
 
         // Check if character is an octal digit (48-55 for '0'-'7')

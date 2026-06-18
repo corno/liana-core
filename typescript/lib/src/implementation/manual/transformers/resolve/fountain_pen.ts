@@ -13,9 +13,9 @@ import * as t_loc_to_fountain_pen from "astn-core/dist/implementation/manual/tra
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: Error = ($) => sh.ph.composed([
-    p_.decide.state($.type, ($) => {
+    p_.from.state($.type).decide(($) => {
         switch ($[0]) {
-            case 'constraint': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'constraint': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'state': return p_.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("expected '"),
@@ -32,7 +32,7 @@ export const Error: Error = ($) => sh.ph.composed([
                     default: return p_.au($[0])
                 }
             }))
-            case 'lookup': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'lookup': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'cycle detected': return p_.ss($, ($) => sh.ph.literal("cycle detected"))
                     case 'no such entry': return p_.ss($, ($) => sh.ph.composed([
@@ -47,7 +47,7 @@ export const Error: Error = ($) => sh.ph.composed([
             case 'missing required entries': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("missing required entries:"),
                 sh.ph.indent(
-                    sh.pg.sentences($.__to_list(($, id) => sh.sentence([
+                    sh.pg.sentences(p_.from.dictionary($).convert_to_list(($, id) => sh.sentence([
                         sh.ph.literal("- "),
                         sh.ph.literal(id)
                     ])))

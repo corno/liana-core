@@ -121,7 +121,7 @@ export const Number: Number = ($, abort, $p) => {
         ($) => $
     )
 
-    return p_.decide.state($p.type, ($) => {
+    return p_.from.state($p.type).decide(($) => {
         switch ($[0]) {
             case 'binary': return p_.ss($, ($) => t_from_loc.binary(
                 as_loc,
@@ -209,7 +209,7 @@ export const Boolean: Boolean = ($, abort, $p) => {
         ($) => $
     )
 
-    return p_.decide.state($p.type, ($) => {
+    return p_.from.state($p.type).decide(($) => {
         switch ($[0]) {
             case 'true/false': return p_.ss($, ($) => t_from_loc.true_false(
                 as_loc,
@@ -233,7 +233,7 @@ export const Dictionary: Dictionary = ($, abort, $p) => {
             const value = $.value
             return {
                 'value': $.value,
-                'entries': $.entries.__d_map(($, id) => $.assignment.__decide(
+                'entries': $.entries.__d_map_deprecated(($, id) => $.assignment.__decide(
                     ($) => $.value.__decide(
                         ($) => $,
                         () => abort(['liana', {
@@ -292,7 +292,7 @@ export const Verbose_Group: Verbose_Group = ($, abort, $p) => {
             const value = $.value
             return {
                 'value': $.value,
-                'properties': $.properties.__d_map(($, id) => $.assignment.__decide(
+                'properties': $.properties.__d_map_deprecated(($, id) => $.assignment.__decide(
                     ($) => $.value.__decide(
                         ($) => $,
                         () => abort(['liana', {

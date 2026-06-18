@@ -21,7 +21,7 @@ export namespace signatures {
     // export type Possible_Range = p_i.Transformer_With_Parameter<d_in.Possible_Range, d_out.Phrase, d_function.Old_Parameters>
 }
 
-export const Range: signatures.Range = ($, $p) => p_.decide.state($, ($) => {
+export const Range: signatures.Range = ($, $p) => p_.from.state($).decide(($) => {
     switch ($[0]) {
         case 'in main document': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal($p['document resource identifier']),
