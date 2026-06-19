@@ -1,8 +1,8 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
 import * as p_di from 'pareto-core/dist/interface/data'
 import * as p_i from 'pareto-core/dist/interface/refiner'
-import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
-import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
+import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
 
 import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 import * as d_out from "../../../../interface/data/unmarshalled"
