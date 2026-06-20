@@ -37,7 +37,7 @@ import * as ds_main from "pareto-resources/dist/interface/data/temp_main"
 // import { deserialize as ds_true_false } from "lib/dist/implementation/manual/primitives/boolean/deserializers/true_false"
 // import { $$ as ds_approx_scientific } from "lib/dist/implementation/manual/primitives/approximate_number/deserializers/scientific_notation"
 
-// ph.run_main_command(
+// p_h.run_main_command(
 //     ($rr) => {
 //         return _pc.command_procedure<ds_main.Error, ds_main.Parameters, null, null>(
 //             ($d, $s, $q) => [
