@@ -399,13 +399,13 @@ export const iso_date_udhr: p_i.Transformer<number, d_out.Text> = (udhr_day) => 
     return p_text_from_list(
         p_.literal.nested_list([
             year_str,
-            [
+            p_.literal.list([
                 45 // '-'
-            ],
+            ]),
             month_str,
-            [
+            p_.literal.list([
                 45 // '-'
-            ],
+            ]),
             day_str
         ]),
         ($) => $
