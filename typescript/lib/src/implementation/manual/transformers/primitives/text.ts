@@ -194,7 +194,7 @@ export const binary: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_li
         })
 
         for (let j = p_.from.list(digits).amount_of_items() - 1; j >= 0; j--) {
-            const digit = digits.__deprecated_get_possible_item_at(j).__decide(
+            const digit = p_.from.optional(digits.__deprecated_get_possible_item_at(j)).decide(
                 ($) => $,
                 () => p_unreachable_code_path("index cannot be out of bounds")
             )
@@ -331,7 +331,7 @@ export const fractional_decimal: p_i.Transformer_With_Parameter<number, d_out.Te
 
         // Add integer part (reverse order)
         for (let j = p_.from.list(integerDigits).amount_of_items() - 1; j >= 0; j--) {
-            $i['add item'](48 + integerDigits.__deprecated_get_possible_item_at(j).__decide(
+            $i['add item'](48 + p_.from.optional(integerDigits.__deprecated_get_possible_item_at(j)).decide(
                 ($) => $,
                 () => p_unreachable_code_path("index cannot be out of bounds")
             ))
@@ -358,7 +358,7 @@ export const fractional_decimal: p_i.Transformer_With_Parameter<number, d_out.Te
 
         // Add fractional part (reverse order)
         for (let j = p_.from.list(fractionalDigits_list).amount_of_items() - 1; j >= 0; j--) {
-            $i['add item'](48 + fractionalDigits_list.__deprecated_get_possible_item_at(j).__decide(
+            $i['add item'](48 + p_.from.optional(fractionalDigits_list.__deprecated_get_possible_item_at(j)).decide(
                 ($) => $,
                 () => p_unreachable_code_path("index cannot be out of bounds")
             ))
@@ -439,7 +439,7 @@ export const octal: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_lis
         })
 
         for (let j = p_.from.list(digits).amount_of_items() - 1; j >= 0; j--) {
-            const digit = digits.__deprecated_get_possible_item_at(j).__decide(
+            const digit = p_.from.optional(digits.__deprecated_get_possible_item_at(j)).decide(
                 ($) => $,
                 () => p_unreachable_code_path("index cannot be out of bounds")
             )
