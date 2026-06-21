@@ -397,7 +397,7 @@ export const iso_date_udhr: p_i.Transformer<number, d_out.Text> = (udhr_day) => 
     const day_str = pad_left(decimal(iso_date.day), { 'desired length': 2, 'pad character': 48 }) // '0'
 
     return p_text_from_list(
-        p_.literal.nested_list([
+        p_.literal.segmented_list([
             year_str,
             p_.literal.list([
                 45 // '-'
