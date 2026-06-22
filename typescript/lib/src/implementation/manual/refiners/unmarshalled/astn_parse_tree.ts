@@ -233,8 +233,8 @@ export const Dictionary: Dictionary = ($, abort, $p) => {
             const value = $.value
             return {
                 'value': $.value,
-                'entries': $.entries.__d_map_deprecated(($, id) => $.assignment.__decide(
-                    ($) => $.value.__decide(
+                'entries': $.entries.__d_map_deprecated(($, id) => p_.from.optional($.assignment).decide(
+                    ($) => p_.from.optional($.value).decide(
                         ($) => $,
                         () => abort(['liana', {
                             'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']}),
@@ -292,8 +292,8 @@ export const Verbose_Group: Verbose_Group = ($, abort, $p) => {
             const value = $.value
             return {
                 'value': $.value,
-                'properties': $.properties.__d_map_deprecated(($, id) => $.assignment.__decide(
-                    ($) => $.value.__decide(
+                'properties': $.properties.__d_map_deprecated(($, id) => p_.from.optional($.assignment).decide(
+                    ($) => p_.from.optional($.value).decide(
                         ($) => $,
                         () => abort(['liana', {
                             'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']}),

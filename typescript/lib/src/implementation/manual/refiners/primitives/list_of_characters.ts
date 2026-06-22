@@ -386,7 +386,7 @@ export const iso_date_udhr: p_i.Refiner<number, string, d_loc.List_of_Characters
 
 
         const get_certain_character_at = (characters: p_di.List<number>, index: number): number => {
-            return characters.__deprecated_get_possible_item_at(index).__decide(
+            return p_.from.optional(characters.__deprecated_get_possible_item_at(index)).decide(
                 ($) => $,
                 () => abort("index out of bounds")
             )
