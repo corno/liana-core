@@ -12,75 +12,81 @@ import * as t_astn_unmarshall_to_fountain_pen from "astn-core/dist/implementatio
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => sh.ph.composed([
-    p_.from.state($).decide(($) => {
-        switch ($[0]) {
-            case 'liana': return p_.ss($, ($) => sh.ph.composed([
-                p_.from.state($.type).decide(($) => {
-                    switch ($[0]) {
-                        case 'not a valid number': return p_.ss($, ($) => sh.ph.composed([
-                            sh.ph.literal("not a valid number, expected: '"),
-                            sh.ph.literal($['expected format']),
-                            sh.ph.literal("'")
-                        ]))
-                        case 'not a valid boolean': return p_.ss($, ($) => sh.ph.composed([
-                            sh.ph.literal("not a valid boolean, expected: '"),
-                            sh.ph.literal($['expected format']),
-                            sh.ph.literal("'")
-                        ]))
-                        case 'unknown option': return p_.ss($, ($) => sh.ph.composed([
-                            sh.ph.literal("unknown option: '"),
-                            sh.ph.literal($),
-                            sh.ph.literal("'")
-                        ]))
-                        case 'state': return p_.ss($, ($) => p_.from.state($).decide(($) => {
+    p_.from.state($).decide(
+        ($) => {
+            switch ($[0]) {
+                case 'liana': return p_.ss($, ($) => sh.ph.composed([
+                    p_.from.state($.type).decide(
+                        ($) => {
                             switch ($[0]) {
+                                case 'not a valid number': return p_.ss($, ($) => sh.ph.composed([
+                                    sh.ph.literal("not a valid number, expected: '"),
+                                    sh.ph.literal($['expected format']),
+                                    sh.ph.literal("'")
+                                ]))
+                                case 'not a valid boolean': return p_.ss($, ($) => sh.ph.composed([
+                                    sh.ph.literal("not a valid boolean, expected: '"),
+                                    sh.ph.literal($['expected format']),
+                                    sh.ph.literal("'")
+                                ]))
                                 case 'unknown option': return p_.ss($, ($) => sh.ph.composed([
                                     sh.ph.literal("unknown option: '"),
                                     sh.ph.literal($),
                                     sh.ph.literal("'")
                                 ]))
+                                case 'state': return p_.ss($, ($) => p_.from.state($).decide(
+                                    ($) => {
+                                        switch ($[0]) {
+                                            case 'unknown option': return p_.ss($, ($) => sh.ph.composed([
+                                                sh.ph.literal("unknown option: '"),
+                                                sh.ph.literal($),
+                                                sh.ph.literal("'")
+                                            ]))
 
-                                default: return p_.au($[0])
-                            }
-                        }))
-                        case 'dictionary': return p_.ss($, ($) => p_.from.state($).decide(($) => {
-                            switch ($[0]) {
-                                case 'entry not set': return p_.ss($, ($) => sh.ph.composed([
-                                    sh.ph.literal("entry not set: '"),
-                                    sh.ph.literal($),
-                                    sh.ph.literal("'")
-                                ]))
+                                            default: return p_.au($[0])
+                                        }
+                                    }))
+                                case 'dictionary': return p_.ss($, ($) => p_.from.state($).decide(
+                                    ($) => {
+                                        switch ($[0]) {
+                                            case 'entry not set': return p_.ss($, ($) => sh.ph.composed([
+                                                sh.ph.literal("entry not set: '"),
+                                                sh.ph.literal($),
+                                                sh.ph.literal("'")
+                                            ]))
 
+                                            default: return p_.au($[0])
+                                        }
+                                    }))
+                                case 'type': return p_.ss($, ($) => p_.from.state($).decide(
+                                    ($) => {
+                                        switch ($[0]) {
+                                            case 'property not set': return p_.ss($, ($) => sh.ph.composed([
+                                                sh.ph.literal("property not set: '"),
+                                                sh.ph.literal($),
+                                                sh.ph.literal("'")
+                                            ]))
+                                            case 'missing property': return p_.ss($, ($) => sh.ph.composed([
+                                                sh.ph.literal("missing property: '"),
+                                                sh.ph.literal($),
+                                                sh.ph.literal("'")
+                                            ]))
+                                            default: return p_.au($[0])
+                                        }
+                                    }))
                                 default: return p_.au($[0])
                             }
-                        }))
-                        case 'type': return p_.ss($, ($) => p_.from.state($).decide(($) => {
-                            switch ($[0]) {
-                                case 'property not set': return p_.ss($, ($) => sh.ph.composed([
-                                    sh.ph.literal("property not set: '"),
-                                    sh.ph.literal($),
-                                    sh.ph.literal("'")
-                                ]))
-                                case 'missing property': return p_.ss($, ($) => sh.ph.composed([
-                                    sh.ph.literal("missing property: '"),
-                                    sh.ph.literal($),
-                                    sh.ph.literal("'")
-                                ]))
-                                default: return p_.au($[0])
-                            }
-                        }))
-                        default: return p_.au($[0])
-                    }
-                }),
-            ]))
-            case 'astn': return p_.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($))
-            default: return p_.au($[0])
-        }
-    }),
+                        }),
+                ]))
+                case 'astn': return p_.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($))
+                default: return p_.au($[0])
+            }
+        }),
 
 ])
 
-// export const Error = ($: d_in.Error): d_out.Phrase => p_.from.state($).decide(($) => {
+// export const Error = ($: d_in.Error): d_out.Phrase => p_.from.state($).decide(
+// ($) => {
 //     switch ($[0]) {
 
 //         case 'expected a dictionary': return p_.ss($, ($) => sh.ph.composed([

@@ -121,80 +121,81 @@ export const Number: Number = ($, abort, $p) => {
         ($) => $
     )
 
-    return p_.from.state($p.type).decide(($) => {
-        switch ($[0]) {
-            case 'binary': return p_.ss($, ($) => t_from_loc.binary(
-                as_loc,
-                ($) => abort(['liana', {
-                    'type': ['not a valid number', {
-                        'expected format': "-?(0|1)+"
-                    }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
-                }]),
-            ))
-            case 'decimal': return p_.ss($, ($) => t_from_loc.decimal(
-                as_loc,
-                ($) => abort(['liana', {
-                    'type': ['not a valid number', {
-                        'expected format': "-?(0|[1-9][0-9]*)"
-                    }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
-                }]),
-            ))
-            case 'fractional decimal': return p_.ss($, ($) => t_from_loc.fractional_decimal(
-                as_loc,
-                ($) => abort(['liana', {
-                    'type': ['not a valid number', {
-                        'expected format': "-?(0|[1-9][0-9]*)(\\.[0-9]+)?"
-                    }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
-                }]),
-                {
-                    'number of fractional digits': $.digits
-                }
-            ))
-            case 'hexadecimal': return p_.ss($, ($) => t_from_loc.hexadecimal(
-                as_loc,
-                ($) => abort(['liana', {
-                    'type': ['not a valid number', {
-                        'expected format': "-?0x(0|[1-9a-fA-F][0-9a-fA-F]*)"
-                    }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
-                }]),
-            ))
-            case 'iso date': return p_.ss($, ($) => t_from_loc.iso_date_udhr(
-                as_loc,
-                ($) => abort(['liana', {
-                    'type': ['not a valid number', {
-                        'expected format': "YYYY-MM-DD"
-                    }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
-                }]),
-            ))
-            case 'octal': return p_.ss($, ($) => t_from_loc.octal(
-                as_loc,
-                ($) => abort(['liana', {
-                    'type': ['not a valid number', {
-                        'expected format': "-?0o(0|[1-7][0-7]*)"
-                    }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
-                }]),
-            ))
-            case 'scientific notation': return p_.ss($, ($) => t_from_loc.scientific_notation(
-                as_loc,
-                ($) => abort(['liana', {
-                    'type': ['not a valid number', {
-                        'expected format': "-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?"
-                    }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
-                }]),
-                {
-                    'precision': $.precision
-                }
-            ))
-            default: return p_.au($[0])
-        }
-    })
+    return p_.from.state($p.type).decide(
+        ($) => {
+            switch ($[0]) {
+                case 'binary': return p_.ss($, ($) => t_from_loc.binary(
+                    as_loc,
+                    ($) => abort(['liana', {
+                        'type': ['not a valid number', {
+                            'expected format': "-?(0|1)+"
+                        }],
+                        range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
+                    }]),
+                ))
+                case 'decimal': return p_.ss($, ($) => t_from_loc.decimal(
+                    as_loc,
+                    ($) => abort(['liana', {
+                        'type': ['not a valid number', {
+                            'expected format': "-?(0|[1-9][0-9]*)"
+                        }],
+                        range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
+                    }]),
+                ))
+                case 'fractional decimal': return p_.ss($, ($) => t_from_loc.fractional_decimal(
+                    as_loc,
+                    ($) => abort(['liana', {
+                        'type': ['not a valid number', {
+                            'expected format': "-?(0|[1-9][0-9]*)(\\.[0-9]+)?"
+                        }],
+                        range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
+                    }]),
+                    {
+                        'number of fractional digits': $.digits
+                    }
+                ))
+                case 'hexadecimal': return p_.ss($, ($) => t_from_loc.hexadecimal(
+                    as_loc,
+                    ($) => abort(['liana', {
+                        'type': ['not a valid number', {
+                            'expected format': "-?0x(0|[1-9a-fA-F][0-9a-fA-F]*)"
+                        }],
+                        range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
+                    }]),
+                ))
+                case 'iso date': return p_.ss($, ($) => t_from_loc.iso_date_udhr(
+                    as_loc,
+                    ($) => abort(['liana', {
+                        'type': ['not a valid number', {
+                            'expected format': "YYYY-MM-DD"
+                        }],
+                        range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
+                    }]),
+                ))
+                case 'octal': return p_.ss($, ($) => t_from_loc.octal(
+                    as_loc,
+                    ($) => abort(['liana', {
+                        'type': ['not a valid number', {
+                            'expected format': "-?0o(0|[1-7][0-7]*)"
+                        }],
+                        range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
+                    }]),
+                ))
+                case 'scientific notation': return p_.ss($, ($) => t_from_loc.scientific_notation(
+                    as_loc,
+                    ($) => abort(['liana', {
+                        'type': ['not a valid number', {
+                            'expected format': "-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?"
+                        }],
+                        range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
+                    }]),
+                    {
+                        'precision': $.precision
+                    }
+                ))
+                default: return p_.au($[0])
+            }
+        })
 
 }
 
@@ -209,20 +210,21 @@ export const Boolean: Boolean = ($, abort, $p) => {
         ($) => $
     )
 
-    return p_.from.state($p.type).decide(($) => {
-        switch ($[0]) {
-            case 'true/false': return p_.ss($, ($) => t_from_loc.true_false(
-                as_loc,
-                ($) => abort(['liana', {
-                    'type': ['not a valid boolean', {
-                        'expected format': "true|false"
-                    }],
-                    range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']})
-                }]),
-            ))
-            default: return p_.au($[0])
-        }
-    })
+    return p_.from.state($p.type).decide(
+        ($) => {
+            switch ($[0]) {
+                case 'true/false': return p_.ss($, ($) => t_from_loc.true_false(
+                    as_loc,
+                    ($) => abort(['liana', {
+                        'type': ['not a valid boolean', {
+                            'expected format': "true|false"
+                        }],
+                        range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
+                    }]),
+                ))
+                default: return p_.au($[0])
+            }
+        })
 
 }
 
@@ -233,19 +235,20 @@ export const Dictionary: Dictionary = ($, abort, $p) => {
             const value = $.value
             return {
                 'value': $.value,
-                'entries': p_.from.dictionary($.entries).map(($, id) => p_.from.optional($.assignment).decide(
-                    ($) => p_.from.optional($.value).decide(
-                        ($) => $,
+                'entries': p_.from.dictionary($.entries).map(
+                    ($, id) => p_.from.optional($.assignment).decide(
+                        ($) => p_.from.optional($.value).decide(
+                            ($) => $,
+                            () => abort(['liana', {
+                                'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] }),
+                                'type': ['dictionary', ['entry not set', id]]
+                            }])
+                        ),
                         () => abort(['liana', {
-                            'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']}),
+                            'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] }),
                             'type': ['dictionary', ['entry not set', id]]
                         }])
-                    ),
-                    () => abort(['liana', {
-                        'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']}),
-                        'type': ['dictionary', ['entry not set', id]]
-                    }])
-                ))
+                    ))
             }
         }
     )
@@ -268,7 +271,7 @@ export const Property: Property = ($, abort, $p) => {
         $p.id,
         {
             no_such_entry: () => abort(['liana', {
-                'range': t_parse_tree_to_location.Value($.value, { 'subdocument context': $p['subdocument context']}),
+                'range': t_parse_tree_to_location.Value($.value, { 'subdocument context': $p['subdocument context'] }),
                 'type': ['type', ['missing property', $p.id]]
             }])
         }
@@ -290,19 +293,20 @@ export const Verbose_Group: Verbose_Group = ($, abort, $p) => {
             const value = $.value
             return {
                 'value': $.value,
-                'properties': p_.from.dictionary($.properties).map(($, id) => p_.from.optional($.assignment).decide(
-                    ($) => p_.from.optional($.value).decide(
-                        ($) => $,
+                'properties': p_.from.dictionary($.properties).map(
+                    ($, id) => p_.from.optional($.assignment).decide(
+                        ($) => p_.from.optional($.value).decide(
+                            ($) => $,
+                            () => abort(['liana', {
+                                'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] }),
+                                'type': ['dictionary', ['entry not set', id]]
+                            }])
+                        ),
                         () => abort(['liana', {
-                            'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']}),
+                            'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] }),
                             'type': ['dictionary', ['entry not set', id]]
                         }])
-                    ),
-                    () => abort(['liana', {
-                        'range': t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context']}),
-                        'type': ['dictionary', ['entry not set', id]]
-                    }])
-                ))
+                    ))
             }
         }
     )

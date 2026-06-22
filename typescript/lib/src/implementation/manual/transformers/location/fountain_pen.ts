@@ -21,28 +21,29 @@ export namespace signatures {
     // export type Possible_Range = p_i.Transformer_With_Parameter<d_in.Possible_Range, d_out.Phrase, d_function.Old_Parameters>
 }
 
-export const Range: signatures.Range = ($, $p) => p_.from.state($).decide(($) => {
-    switch ($[0]) {
-        case 'in main document': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal($p['document resource identifier']),
-            sh.ph.literal(':'),
-            t_astn_location_to_fountain_pen.Range(
-                $,
-                {
-                    'character location reporting': $p['character location reporting']
-                }
-            )
-        ]))
-        case 'in subdocument': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal($.context['subdocument resource identifier']),
-            sh.ph.literal(':'),
-            t_astn_location_to_fountain_pen.Range(
-                $['range'],
-                {
-                    'character location reporting': $p['character location reporting']
-                }
-            )
-        ]))
-        default: return p_.au($[0])
-    }
-})
+export const Range: signatures.Range = ($, $p) => p_.from.state($).decide(
+    ($) => {
+        switch ($[0]) {
+            case 'in main document': return p_.ss($, ($) => sh.ph.composed([
+                sh.ph.literal($p['document resource identifier']),
+                sh.ph.literal(':'),
+                t_astn_location_to_fountain_pen.Range(
+                    $,
+                    {
+                        'character location reporting': $p['character location reporting']
+                    }
+                )
+            ]))
+            case 'in subdocument': return p_.ss($, ($) => sh.ph.composed([
+                sh.ph.literal($.context['subdocument resource identifier']),
+                sh.ph.literal(':'),
+                t_astn_location_to_fountain_pen.Range(
+                    $['range'],
+                    {
+                        'character location reporting': $p['character location reporting']
+                    }
+                )
+            ]))
+            default: return p_.au($[0])
+        }
+    })
