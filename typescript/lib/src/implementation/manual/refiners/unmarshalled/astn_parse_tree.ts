@@ -233,7 +233,7 @@ export const Dictionary: Dictionary = ($, abort, $p) => {
             const value = $.value
             return {
                 'value': $.value,
-                'entries': $.entries.__d_map_deprecated(($, id) => p_.from.optional($.assignment).decide(
+                'entries': p_.from.dictionary($.entries).map(($, id) => p_.from.optional($.assignment).decide(
                     ($) => p_.from.optional($.value).decide(
                         ($) => $,
                         () => abort(['liana', {
@@ -264,13 +264,11 @@ export const Optional: Optional = ($, abort) => {
 }
 
 export const Property: Property = ($, abort, $p) => {
-    const value = $
-    return p_.select.entry(
-        $.properties,
+    return p_.from.dictionary($.properties).get_entry(
         $p.id,
         {
-            no_such_entry: ($) => abort(['liana', {
-                'range': t_parse_tree_to_location.Value(value.value, { 'subdocument context': $p['subdocument context']}),
+            no_such_entry: () => abort(['liana', {
+                'range': t_parse_tree_to_location.Value($.value, { 'subdocument context': $p['subdocument context']}),
                 'type': ['type', ['missing property', $p.id]]
             }])
         }
@@ -292,7 +290,7 @@ export const Verbose_Group: Verbose_Group = ($, abort, $p) => {
             const value = $.value
             return {
                 'value': $.value,
-                'properties': $.properties.__d_map_deprecated(($, id) => p_.from.optional($.assignment).decide(
+                'properties': p_.from.dictionary($.properties).map(($, id) => p_.from.optional($.assignment).decide(
                     ($) => p_.from.optional($.value).decide(
                         ($) => $,
                         () => abort(['liana', {
