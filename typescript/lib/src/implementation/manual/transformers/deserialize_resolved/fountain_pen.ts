@@ -10,7 +10,9 @@ import * as t_resolve_to_fountain_pen from "../resolve/fountain_pen"
 import * as t_deserialize_to_fountain_pen from "../deserialize/fountain_pen"
 
 
-export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => p_.from.state($).decide(
+export const Error: p_i.Transformer<
+d_in.Error, d_out.Phrase
+> = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'deserialize': return p_.ss($, ($) => t_deserialize_to_fountain_pen.Error($))

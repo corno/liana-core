@@ -13,12 +13,15 @@ import * as t_astn_location_to_fountain_pen from "astn-core/dist/implementation/
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export namespace signatures {
-    // export type Location = p_i.Transformer_With_Parameter<d_in.Location, d_out.Phrase, d_function.Old_Parameters>
-    export type Range = p_i.Transformer_With_Parameter<d_in.Range, d_out.Phrase, {
-        'character location reporting': d_function.character_location_reporting
-        'document resource identifier': string
-    }>
-    // export type Possible_Range = p_i.Transformer_With_Parameter<d_in.Possible_Range, d_out.Phrase, d_function.Old_Parameters>
+
+    export type Range = p_i.Transformer_With_Parameter<
+        d_in.Range,
+        d_out.Phrase,
+        {
+            'character location reporting': d_function.character_location_reporting
+            'document resource identifier': string
+        }
+    >
 }
 
 export const Range: signatures.Range = ($, $p) => p_.from.state($).decide(

@@ -4,7 +4,9 @@ import * as p_i from 'pareto-core/dist/interface/transformer'
 import * as d_in from "../../../../interface/data/resolve"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
-export type Error = p_i.Transformer<d_in.Error, d_out.Phrase>
+export type Error = p_i.Transformer<
+d_in.Error, d_out.Phrase
+>
 
 //dependencies
 import * as t_loc_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"

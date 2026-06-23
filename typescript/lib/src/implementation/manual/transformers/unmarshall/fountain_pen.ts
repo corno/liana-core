@@ -11,7 +11,9 @@ import * as t_astn_unmarshall_to_fountain_pen from "astn-core/dist/implementatio
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => sh.ph.composed([
+export const Error: p_i.Transformer<
+d_in.Error, d_out.Phrase
+> = ($) => sh.ph.composed([
     p_.from.state($).decide(
         ($) => {
             switch ($[0]) {

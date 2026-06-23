@@ -5,23 +5,33 @@ import * as d_serializer_parameters from "lib/dist/interface/data/serializer_par
 // export type Test_Set = {
 //     'integer': {
 //         'decimal': {
-//             'serializer': p_di.Dictionary<d_generic.Transformer<number, string>>
+//             'serializer': p_di.Dictionary<d_generic.Transformer<
+// number, string
+// >>
 //             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<number, string, string>>
 //         }
 //         'hexadecimal': {
-//             'serializer': p_di.Dictionary<d_generic.Transformer<number, string>>
+//             'serializer': p_di.Dictionary<d_generic.Transformer<
+// number, string
+// >>
 //             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<number, string, string>>
 //         }
 //         'binary': {
-//             'serializer': p_di.Dictionary<d_generic.Transformer<number, string>>
+//             'serializer': p_di.Dictionary<d_generic.Transformer<
+// number, string
+// >>
 //             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<number, string, string>>
 //         }
 //         'octal': {
-//             'serializer': p_di.Dictionary<d_generic.Transformer<number, string>>
+//             'serializer': p_di.Dictionary<d_generic.Transformer<
+// number, string
+// >>
 //             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<number, string, string>>
 //         }
 //         'iso_udhr': {
-//             'serializer': p_di.Dictionary<d_generic.Transformer<number, string>>
+//             'serializer': p_di.Dictionary<d_generic.Transformer<
+// number, string
+// >>
 //             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<number, string, string>>
 //         }
 //         'fractional_decimal': {
@@ -31,7 +41,9 @@ import * as d_serializer_parameters from "lib/dist/interface/data/serializer_par
 //     }
 //     'boolean': {
 //         'true_false': {
-//             'serializer': p_di.Dictionary<d_generic.Transformer<boolean, string>>
+//             'serializer': p_di.Dictionary<d_generic.Transformer<
+// boolean, string
+// >>
 //             'deserializer': p_di.Dictionary<d_generic.Refiner_  Without_Parameters<boolean, string, string>>
 //         }
 //     }

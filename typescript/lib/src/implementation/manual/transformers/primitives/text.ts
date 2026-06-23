@@ -13,11 +13,17 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 import * as t_to_date_struct from "./date_struct"
 
 
-export const true_false: p_i.Transformer<boolean, d_out.Text> = ($) => {
+export const true_false: p_i.Transformer<
+boolean, d_out.Text
+> = ($) => {
     return $ ? "true" : "false"
 }
 
-export const scientific_notation: p_i.Transformer_With_Parameter<number, d_out.Text, { digits: number }> = ($, $p) => {
+export const scientific_notation: p_i.Transformer_With_Parameter<
+    number,
+    d_out.Text,
+    { digits: number }
+> = ($, $p) => {
     return p_text_from_list(
         p_list_build_deprecated<number>(
             ($i) => {
@@ -170,7 +176,9 @@ export const scientific_notation: p_i.Transformer_With_Parameter<number, d_out.T
     )
 }
 
-export const binary: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_list(
+export const binary: p_i.Transformer<
+number, d_out.Text
+> = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -210,7 +218,9 @@ export const binary: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_li
 )
 
 
-export const decimal: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_list(
+export const decimal: p_i.Transformer<
+number, d_out.Text
+> = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -246,7 +256,9 @@ export const decimal: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_l
 )
 
 
-export const hexadecimal: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_list(
+export const hexadecimal: p_i.Transformer<
+number, d_out.Text
+> = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -379,7 +391,9 @@ export const fractional_decimal: p_i.Transformer_With_Parameter<number, d_out.Te
     ($) => $
 )
 
-export const iso_date_udhr: p_i.Transformer<number, d_out.Text> = (udhr_day) => {
+export const iso_date_udhr: p_i.Transformer<
+number, d_out.Text
+> = (udhr_day) => {
 
     const pad_left: p_i.Transformer_With_Parameter<
         string,
@@ -425,7 +439,9 @@ export const iso_date_udhr: p_i.Transformer<number, d_out.Text> = (udhr_day) => 
     )
 }
 
-export const octal: p_i.Transformer<number, d_out.Text> = ($) => p_text_from_list(
+export const octal: p_i.Transformer<
+number, d_out.Text
+> = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {

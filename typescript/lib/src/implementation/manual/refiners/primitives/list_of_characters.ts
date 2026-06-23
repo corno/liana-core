@@ -3,6 +3,7 @@ import * as p_t from 'pareto-core/dist/implementation/transformer'
 import * as p_di from 'pareto-core/dist/interface/data'
 import * as p_i from 'pareto-core/dist/interface/refiner'
 import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
+import p_iterate from 'pareto-core/dist/implementation/refiner/specials/iterate'
 
 //data types
 import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
@@ -16,9 +17,13 @@ export const decimal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($
     let isNegative = false
     let startIndex = 0
 
-    // p_.iterate(characters, (iterator) => {
-
-    // })
+    const new_imp = p_iterate(
+        characters,
+        null,
+        (iterator): number => {
+            return 42
+        }
+    )
 
     // Check for empty string
     if (p_t.from.list(characters).amount_of_items() === 0) {
@@ -54,7 +59,13 @@ export const decimal: p_i.Refiner<number, string, d_loc.List_of_Characters> = ($
         }
     }
 
-    return isNegative ? -result : result
+    const old_imp = isNegative ? -result : result
+
+    if (new_imp !== old_imp) {
+        throw `Inconsistent results between old and new implementations: old=${old_imp}, new=${new_imp}`
+    }
+
+    return old_imp
 }
 
 
@@ -148,7 +159,7 @@ export const scientific_notation: p_i.Refiner_With_Parameter<number, string, d_l
 export const true_false: p_i.Refiner<boolean, string, d_loc.List_of_Characters> = ($, abort) => {
     const as_string = p_text_from_list(
         $,
-         ($) => $
+        ($) => $
     )
     return as_string === "true"
         ? true
