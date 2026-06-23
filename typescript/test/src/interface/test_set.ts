@@ -36,7 +36,9 @@ import * as d_serializer_parameters from "lib/dist/interface/data/serializer_par
 //         }
 //         'fractional_decimal': {
 //             'serializer': p_di.Dictionary<d_generic.Transformer_With_Parameter<number, string, d_serializer_parameters.fractional_decimal>>
-//             'deserializer': p_di.Dictionary<d_generic.Refiner_With_Parameter<number, string, string, d_serializer_parameters.fractional_decimal>>
+//             'deserializer': p_di.Dictionary<d_generic.Refiner_With_Parameter<
+// number, string, string, d_serializer_parameters.fractional_decimal
+// >>
 //         }
 //     }
 //     'boolean': {
@@ -50,7 +52,9 @@ import * as d_serializer_parameters from "lib/dist/interface/data/serializer_par
 //     'approximate_number': {
 //         'scientific_notation': {
 //             'serializer': p_di.Dictionary<d_generic.Transformer_With_Parameter<number, string, d_serializer_parameters.scientific_notation>>
-//             'deserializer': p_di.Dictionary<d_generic.Refiner_With_Parameter<string, number, string, d_serializer_parameters.scientific_notation>>
+//             'deserializer': p_di.Dictionary<d_generic.Refiner_With_Parameter<
+// string, number, string, d_serializer_parameters.scientific_notation
+// >>
 //         }
 //     }
 // }

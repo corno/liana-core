@@ -93,7 +93,9 @@ type Tester_for_Refiner =
 
 
 // export const create_tester_for_refiner_with_error_with_parameter = <Input, Result, Parameter, Error>(
-//     refiner: p_ri.Refiner_With_Parameter<Input, Result, Error, Parameter>,
+//     refiner: p_ri.Refiner_With_Parameter<
+// Input, Result, Error, Parameter
+// >,
 //     text_to_input: (input: string) => Input,
 //     text_to_parameter: (parameter: string) => Parameter,
 //     result_to_text: (result: Result) => string,
@@ -113,7 +115,9 @@ type Tester_for_Refiner =
 
 
 // type Integer_Refiner =
-//     | ['with error', <Error>() => pi.Number_Refiner<Error>]
+//     | ['with error', <Error>() => pi.Number_Refiner<
+// Error
+// >]
 
 // type API = {
 //     'deserializers': {
