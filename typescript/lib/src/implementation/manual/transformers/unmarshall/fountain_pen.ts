@@ -9,7 +9,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 import * as t_astn_unmarshall_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/unmarshall/fountain_pen"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 export const Error: p_i.Transformer<
 d_in.Error, d_out.Phrase

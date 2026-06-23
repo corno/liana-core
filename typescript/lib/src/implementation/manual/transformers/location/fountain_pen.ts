@@ -10,7 +10,7 @@ import * as d_function from "astn-core/dist/interface/data/location_to_fountain_
 import * as t_astn_location_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 export namespace signatures {
 

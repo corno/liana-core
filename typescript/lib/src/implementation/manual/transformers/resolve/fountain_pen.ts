@@ -12,7 +12,7 @@ d_in.Error, d_out.Phrase
 import * as t_loc_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 export const Error: Error = ($) => sh.ph.composed([
     p_.from.state($.type).decide(
