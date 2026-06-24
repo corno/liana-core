@@ -22,6 +22,8 @@ number, string, d_loc.List_of_Characters
     const new_imp = p_iterate(
         characters,
         null,
+        p_.literal.set<string>("Invalid character in decimal string"),
+        abort,
         (iterator): number => {
             return 42
         }
