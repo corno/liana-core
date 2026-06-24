@@ -12,22 +12,23 @@ import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schem
 import * as t_leap_days_before_year from "../../transformers/leap_days_before_year/year"
 
 export const decimal: p_i.Refiner<
-number, string, d_loc.List_of_Characters
+    number, string, d_loc.List_of_Characters
 > = ($, abort) => {
     const characters = $
     let result = 0
     let isNegative = false
     let startIndex = 0
 
-    const new_imp = p_iterate(
-        characters,
-        null,
-        ($) => p_.literal.set<string>("Invalid character in decimal string"),
-        abort,
-        (iterator): number => {
+    const new_imp = p_iterate({
+        list: characters,
+        end_info: null,
+        create_dangling_item_error: ($) => p_.literal.set<string>("Invalid character in decimal string"),
+        abort: abort,
+        assign: (iterator): number => {
             return 42
-        }
-    )
+        },
+        create_expectation_error: ($, expected) => "missing",
+    })
 
     // Check for empty string
     if (p_t.from.list(characters).amount_of_items() === 0) {
@@ -74,7 +75,7 @@ number, string, d_loc.List_of_Characters
 
 
 export const scientific_notation: p_i.Refiner_With_Parameter<
-number, string, d_loc.List_of_Characters, { 'precision': number }
+    number, string, d_loc.List_of_Characters, { 'precision': number }
 > = ($, abort, $p) => {
     const characters = $
     let result = 0
@@ -163,7 +164,7 @@ number, string, d_loc.List_of_Characters, { 'precision': number }
 }
 
 export const true_false: p_i.Refiner<
-boolean, string, d_loc.List_of_Characters
+    boolean, string, d_loc.List_of_Characters
 > = ($, abort) => {
     const as_string = p_text_from_list(
         $,
@@ -179,7 +180,7 @@ boolean, string, d_loc.List_of_Characters
 
 
 export const binary: p_i.Refiner<
-number, string, d_loc.List_of_Characters
+    number, string, d_loc.List_of_Characters
 > = ($, abort) => {
     const characters = $
     let result = 0
@@ -236,7 +237,7 @@ number, string, d_loc.List_of_Characters
 
 
 export const fractional_decimal: p_i.Refiner_With_Parameter<
-number, string, d_loc.List_of_Characters, { 'number of fractional digits': number }
+    number, string, d_loc.List_of_Characters, { 'number of fractional digits': number }
 > = ($, abort, $p) => {
     const characters = $
     let isNegative = false
@@ -316,7 +317,7 @@ number, string, d_loc.List_of_Characters, { 'number of fractional digits': numbe
 
 
 export const hexadecimal: p_i.Refiner<
-number, string, d_loc.List_of_Characters
+    number, string, d_loc.List_of_Characters
 > = ($, abort) => {
     const characters = $
     let result = 0
@@ -387,7 +388,7 @@ number, string, d_loc.List_of_Characters
  * This function converts an ISO 8601 date string (YYYY-MM-DD) to a udhr day number
  */
 export const iso_date_udhr: p_i.Refiner<
-number, string, d_loc.List_of_Characters
+    number, string, d_loc.List_of_Characters
 > = ($, abort) => {
 
     const iso_day_0_offset = - 711471 // the number of days that iso day 1 (0001-01-01) is offset relative to udhr day 0 (1948-12-10)
@@ -493,7 +494,7 @@ number, string, d_loc.List_of_Characters
 
 
 export const octal: p_i.Refiner<
-number, string, d_loc.List_of_Characters
+    number, string, d_loc.List_of_Characters
 > = ($, abort) => {
     const characters = $
     let result = 0
