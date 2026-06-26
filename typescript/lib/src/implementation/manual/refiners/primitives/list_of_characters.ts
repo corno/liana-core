@@ -22,11 +22,10 @@ export const decimal: p_i.Refiner<
     const new_imp = p_iterate({
         list: characters,
         end_info: null,
-        on_dangling_item: ($) => abort("Invalid character in decimal string"),
         assign: (iterator): number => {
             return 42
         },
-        // create_expectation_error: ($, expected) => "missing",
+        on_dangling_item: ($) => abort("Invalid character in decimal string"),
     })
 
     // Check for empty string
