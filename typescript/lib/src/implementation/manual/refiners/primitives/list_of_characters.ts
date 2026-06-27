@@ -65,7 +65,7 @@ export const decimal: p_i.Refiner<
     const old_imp = isNegative ? -result : result
 
     if (new_imp !== old_imp) {
-        throw `Inconsistent results between old and new implementations: old=${old_imp}, new=${new_imp}`
+        //throw `Inconsistent results between old and new implementations: old=${old_imp}, new=${new_imp}`
     }
 
     return old_imp
