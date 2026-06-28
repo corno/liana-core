@@ -8,9 +8,6 @@ export type Error = p_i.Transformer<
 d_in.Error, d_out.Phrase
 >
 
-//dependencies
-import * as t_loc_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
-
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
