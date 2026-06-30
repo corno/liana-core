@@ -124,7 +124,7 @@ export const Number: Number = ($, abort, $p) => {
     return p_.from.state($p.type).decide(
         ($) => {
             switch ($[0]) {
-                case 'binary': return p_.ss($, ($) => t_from_loc.binary(
+                case 'binary': return p_.option($, ($) => t_from_loc.binary(
                     as_loc,
                     ($) => abort(['liana', {
                         'type': ['not a valid number', {
@@ -133,7 +133,7 @@ export const Number: Number = ($, abort, $p) => {
                         range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
                     }]),
                 ))
-                case 'decimal': return p_.ss($, ($) => t_from_loc.decimal(
+                case 'decimal': return p_.option($, ($) => t_from_loc.decimal(
                     as_loc,
                     ($) => abort(['liana', {
                         'type': ['not a valid number', {
@@ -142,7 +142,7 @@ export const Number: Number = ($, abort, $p) => {
                         range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
                     }]),
                 ))
-                case 'fractional decimal': return p_.ss($, ($) => t_from_loc.fractional_decimal(
+                case 'fractional decimal': return p_.option($, ($) => t_from_loc.fractional_decimal(
                     as_loc,
                     ($) => abort(['liana', {
                         'type': ['not a valid number', {
@@ -154,7 +154,7 @@ export const Number: Number = ($, abort, $p) => {
                         'number of fractional digits': $.digits
                     }
                 ))
-                case 'hexadecimal': return p_.ss($, ($) => t_from_loc.hexadecimal(
+                case 'hexadecimal': return p_.option($, ($) => t_from_loc.hexadecimal(
                     as_loc,
                     ($) => abort(['liana', {
                         'type': ['not a valid number', {
@@ -163,7 +163,7 @@ export const Number: Number = ($, abort, $p) => {
                         range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
                     }]),
                 ))
-                case 'iso date': return p_.ss($, ($) => t_from_loc.iso_date_udhr(
+                case 'iso date': return p_.option($, ($) => t_from_loc.iso_date_udhr(
                     as_loc,
                     ($) => abort(['liana', {
                         'type': ['not a valid number', {
@@ -172,7 +172,7 @@ export const Number: Number = ($, abort, $p) => {
                         range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
                     }]),
                 ))
-                case 'octal': return p_.ss($, ($) => t_from_loc.octal(
+                case 'octal': return p_.option($, ($) => t_from_loc.octal(
                     as_loc,
                     ($) => abort(['liana', {
                         'type': ['not a valid number', {
@@ -181,7 +181,7 @@ export const Number: Number = ($, abort, $p) => {
                         range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
                     }]),
                 ))
-                case 'scientific notation': return p_.ss($, ($) => t_from_loc.scientific_notation(
+                case 'scientific notation': return p_.option($, ($) => t_from_loc.scientific_notation(
                     as_loc,
                     ($) => abort(['liana', {
                         'type': ['not a valid number', {
@@ -213,7 +213,7 @@ export const Boolean: Boolean = ($, abort, $p) => {
     return p_.from.state($p.type).decide(
         ($) => {
             switch ($[0]) {
-                case 'true/false': return p_.ss($, ($) => t_from_loc.true_false(
+                case 'true/false': return p_.option($, ($) => t_from_loc.true_false(
                     as_loc,
                     ($) => abort(['liana', {
                         'type': ['not a valid boolean', {

@@ -26,54 +26,54 @@ number, Date_Struct
     const number_of_days_in_4_years = 365 * 4 + 1
     const number_of_days_in_1_year = 365
 
-    const number_of_400_year_blocks = p_.from.number(total_days).divide(
+    const $v_number_of_400_year_blocks = p_.from.number(total_days).divide(
         number_of_days_in_400_years,
             ['towards zero', null],
         {
             divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 400-year block")
         }
     )
-    const remaining_days_in_the_last_400_years = total_days % number_of_days_in_400_years
+    const $v_remaining_days_in_the_last_400_years = total_days % number_of_days_in_400_years
 
-    const number_of_100_year_blocks = p_.from.number(remaining_days_in_the_last_400_years).divide(
+    const number_of_100_year_blocks = p_.from.number($v_remaining_days_in_the_last_400_years).divide(
         number_of_days_in_100_years,
             ['towards zero', null],
         {
             divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 100-year block")
         }
     )
-    const remaining_days_in_the_last_100_years = remaining_days_in_the_last_400_years % number_of_days_in_100_years
+    const $v_remaining_days_in_the_last_100_years = $v_remaining_days_in_the_last_400_years % number_of_days_in_100_years
 
-    const number_of_4_year_blocks = p_.from.number(remaining_days_in_the_last_100_years).divide(
+    const number_of_4_year_blocks = p_.from.number($v_remaining_days_in_the_last_100_years).divide(
         number_of_days_in_4_years,
             ['towards zero', null],
         {
             divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 4-year block")
         }
     )
-    const remaining_days_in_the_last_4_years = remaining_days_in_the_last_100_years % number_of_days_in_4_years
+    const $v_remaining_days_in_the_last_4_years = $v_remaining_days_in_the_last_100_years % number_of_days_in_4_years
 
-    const number_of_1_year_blocks = p_.from.number(remaining_days_in_the_last_4_years).divide(
+    const number_of_1_year_blocks = p_.from.number($v_remaining_days_in_the_last_4_years).divide(
         number_of_days_in_1_year,
             ['towards zero', null],
         {
             divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 1-year block")
         }
     )
-    const remaining_days_in_the_last_year = remaining_days_in_the_last_4_years % number_of_days_in_1_year
+    const $v_remaining_days_in_the_last_year = $v_remaining_days_in_the_last_4_years % number_of_days_in_1_year
 
-    const base_years = number_of_400_year_blocks * 400 + number_of_100_year_blocks * 100 + number_of_4_year_blocks * 4 + number_of_1_year_blocks * 1
+    const $v_base_years = $v_number_of_400_year_blocks * 400 + number_of_100_year_blocks * 100 + number_of_4_year_blocks * 4 + number_of_1_year_blocks * 1
 
     // When remaining_days_in_the_last_year === 0, we're at the end of a year boundary
-    const days_in_current_year = remaining_days_in_the_last_year === 0
+    const $v_days_in_current_year = $v_remaining_days_in_the_last_year === 0
         // Special case: end of year, need full year length (leap or non-leap)
-        ? (is_leap_year(base_years) ? 366 : 365)
+        ? (is_leap_year($v_base_years) ? 366 : 365)
         // Normal case: partial year, use the remaining days
-        : remaining_days_in_the_last_year
+        : $v_remaining_days_in_the_last_year
 
-    const number_of_years = remaining_days_in_the_last_year === 0
-        ? base_years - 1
-        : base_years
+    const number_of_years = $v_remaining_days_in_the_last_year === 0
+        ? $v_base_years - 1
+        : $v_base_years
 
     const year = number_of_years + 1
 
@@ -83,34 +83,34 @@ number, Date_Struct
     const month_day_table = is_leap_year(year) ? month_day_table_leap : month_day_table_normal
 
     const month = (() => {
-        if (days_in_current_year <= month_day_table[1]) {
+        if ($v_days_in_current_year <= month_day_table[1]) {
             return 1
-        } else if (days_in_current_year <= month_day_table[2]) {
+        } else if ($v_days_in_current_year <= month_day_table[2]) {
             return 2
-        } else if (days_in_current_year <= month_day_table[3]) {
+        } else if ($v_days_in_current_year <= month_day_table[3]) {
             return 3
-        } else if (days_in_current_year <= month_day_table[4]) {
+        } else if ($v_days_in_current_year <= month_day_table[4]) {
             return 4
-        } else if (days_in_current_year <= month_day_table[5]) {
+        } else if ($v_days_in_current_year <= month_day_table[5]) {
             return 5
-        } else if (days_in_current_year <= month_day_table[6]) {
+        } else if ($v_days_in_current_year <= month_day_table[6]) {
             return 6
-        } else if (days_in_current_year <= month_day_table[7]) {
+        } else if ($v_days_in_current_year <= month_day_table[7]) {
             return 7
-        } else if (days_in_current_year <= month_day_table[8]) {
+        } else if ($v_days_in_current_year <= month_day_table[8]) {
             return 8
-        } else if (days_in_current_year <= month_day_table[9]) {
+        } else if ($v_days_in_current_year <= month_day_table[9]) {
             return 9
-        } else if (days_in_current_year <= month_day_table[10]) {
+        } else if ($v_days_in_current_year <= month_day_table[10]) {
             return 10
-        } else if (days_in_current_year <= month_day_table[11]) {
+        } else if ($v_days_in_current_year <= month_day_table[11]) {
             return 11
         } else {
             return 12
         }
     })()
 
-    const day = days_in_current_year - month_day_table[month - 1]
+    const day = $v_days_in_current_year - month_day_table[month - 1]
 
     return {
         year,

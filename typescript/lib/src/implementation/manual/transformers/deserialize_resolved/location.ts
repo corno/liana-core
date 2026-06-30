@@ -15,8 +15,8 @@ d_in.Error, d_out.Possible_Range
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'deserialize': return p_.ss($, ($) => t_deserialize_to_location.Error($))
-            case 'resolve error': return p_.ss($, ($): d_out.Possible_Range => ['range', t_resolve_to_location.Error($)])
+            case 'deserialize': return p_.option($, ($) => t_deserialize_to_location.Error($))
+            case 'resolve error': return p_.option($, ($): d_out.Possible_Range => ['range', t_resolve_to_location.Error($)])
             default: return p_.au($[0])
         }
     })

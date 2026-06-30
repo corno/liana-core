@@ -17,29 +17,29 @@ d_in.Error, d_out.Phrase
     p_.from.state($).decide(
         ($) => {
             switch ($[0]) {
-                case 'liana': return p_.ss($, ($) => sh.ph.composed([
+                case 'liana': return p_.option($, ($) => sh.ph.composed([
                     p_.from.state($.type).decide(
                         ($) => {
                             switch ($[0]) {
-                                case 'not a valid number': return p_.ss($, ($) => sh.ph.composed([
+                                case 'not a valid number': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("not a valid number, expected: '"),
                                     sh.ph.literal($['expected format']),
                                     sh.ph.literal("'")
                                 ]))
-                                case 'not a valid boolean': return p_.ss($, ($) => sh.ph.composed([
+                                case 'not a valid boolean': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("not a valid boolean, expected: '"),
                                     sh.ph.literal($['expected format']),
                                     sh.ph.literal("'")
                                 ]))
-                                case 'unknown option': return p_.ss($, ($) => sh.ph.composed([
+                                case 'unknown option': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("unknown option: '"),
                                     sh.ph.literal($),
                                     sh.ph.literal("'")
                                 ]))
-                                case 'state': return p_.ss($, ($) => p_.from.state($).decide(
+                                case 'state': return p_.option($, ($) => p_.from.state($).decide(
                                     ($) => {
                                         switch ($[0]) {
-                                            case 'unknown option': return p_.ss($, ($) => sh.ph.composed([
+                                            case 'unknown option': return p_.option($, ($) => sh.ph.composed([
                                                 sh.ph.literal("unknown option: '"),
                                                 sh.ph.literal($),
                                                 sh.ph.literal("'")
@@ -48,10 +48,10 @@ d_in.Error, d_out.Phrase
                                             default: return p_.au($[0])
                                         }
                                     }))
-                                case 'dictionary': return p_.ss($, ($) => p_.from.state($).decide(
+                                case 'dictionary': return p_.option($, ($) => p_.from.state($).decide(
                                     ($) => {
                                         switch ($[0]) {
-                                            case 'entry not set': return p_.ss($, ($) => sh.ph.composed([
+                                            case 'entry not set': return p_.option($, ($) => sh.ph.composed([
                                                 sh.ph.literal("entry not set: '"),
                                                 sh.ph.literal($),
                                                 sh.ph.literal("'")
@@ -60,15 +60,15 @@ d_in.Error, d_out.Phrase
                                             default: return p_.au($[0])
                                         }
                                     }))
-                                case 'type': return p_.ss($, ($) => p_.from.state($).decide(
+                                case 'type': return p_.option($, ($) => p_.from.state($).decide(
                                     ($) => {
                                         switch ($[0]) {
-                                            case 'property not set': return p_.ss($, ($) => sh.ph.composed([
+                                            case 'property not set': return p_.option($, ($) => sh.ph.composed([
                                                 sh.ph.literal("property not set: '"),
                                                 sh.ph.literal($),
                                                 sh.ph.literal("'")
                                             ]))
-                                            case 'missing property': return p_.ss($, ($) => sh.ph.composed([
+                                            case 'missing property': return p_.option($, ($) => sh.ph.composed([
                                                 sh.ph.literal("missing property: '"),
                                                 sh.ph.literal($),
                                                 sh.ph.literal("'")
@@ -80,7 +80,7 @@ d_in.Error, d_out.Phrase
                             }
                         }),
                 ]))
-                case 'astn': return p_.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($))
+                case 'astn': return p_.option($, ($) => t_astn_unmarshall_to_fountain_pen.Error($))
                 default: return p_.au($[0])
             }
         }),
@@ -91,28 +91,28 @@ d_in.Error, d_out.Phrase
 // ($) => {
 //     switch ($[0]) {
 
-//         case 'expected a dictionary': return p_.ss($, ($) => sh.ph.composed([
+//         case 'expected a dictionary': return p_.option($, ($) => sh.ph.composed([
 //             sh.ph.literal("expected a dictionary")
 //         ]))
-//         case 'expected a group': return p_.ss($, ($) => sh.ph.composed([
+//         case 'expected a group': return p_.option($, ($) => sh.ph.composed([
 //             sh.ph.literal("expected a group")
 //         ]))
-//         case 'expected a list': return p_.ss($, ($) => sh.ph.composed([
+//         case 'expected a list': return p_.option($, ($) => sh.ph.composed([
 //             sh.ph.literal("expected a list")
 //         ]))
-//         case 'expected a nothing': return p_.ss($, ($) => sh.ph.composed([
+//         case 'expected a nothing': return p_.option($, ($) => sh.ph.composed([
 //             sh.ph.literal("expected a nothing ( ~ )")
 //         ]))
-//         case 'expected an optional': return p_.ss($, ($) => sh.ph.composed([
+//         case 'expected an optional': return p_.option($, ($) => sh.ph.composed([
 //             sh.ph.literal("expected an optional ( ~ or * -value- )")
 //         ]))
-//         case 'expected a state': return p_.ss($, ($) => sh.ph.composed([
+//         case 'expected a state': return p_.option($, ($) => sh.ph.composed([
 //             sh.ph.literal("expected a state ( one of the allowed options )")
 //         ]))
-//         case 'expected a text': return p_.ss($, ($) => sh.ph.composed([
+//         case 'expected a text': return p_.option($, ($) => sh.ph.composed([
 //             sh.ph.literal("expected a text")
 //         ]))
-//         case 'no such entry': return p_.ss($, ($) => sh.ph.composed([
+//         case 'no such entry': return p_.option($, ($) => sh.ph.composed([
 //             sh.ph.literal("no such entry: '"),
 //             sh.ph.literal($),
 //             sh.ph.literal("'")

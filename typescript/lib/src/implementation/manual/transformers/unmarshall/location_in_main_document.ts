@@ -10,15 +10,15 @@ d_in.Error, d_out.Range
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'liana': return p_.ss($, ($): d_out.Range => p_.from.state($.range).decide(
+            case 'liana': return p_.option($, ($): d_out.Range => p_.from.state($.range).decide(
                 ($) => {
                     switch ($[0]) {
-                        case 'in main document': return p_.ss($, ($) => $)
-                        case 'in subdocument': return p_.ss($, ($) => $.context['range of include in main document'])
+                        case 'in main document': return p_.option($, ($) => $)
+                        case 'in subdocument': return p_.option($, ($) => $.context['range of include in main document'])
                         default: return p_.au($[0])
                     }
                 }))
-            case 'astn': return p_.ss($, ($) => $.range)
+            case 'astn': return p_.option($, ($) => $.range)
             default: return p_.au($[0])
         }
     })

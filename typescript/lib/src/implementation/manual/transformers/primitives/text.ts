@@ -55,19 +55,19 @@ export const scientific_notation: p_i.Transformer_With_Parameter<
                 }
 
                 // Calculate exponent and mantissa for scientific notation
-                let exponent = 0
+                let $v_exponent = 0
                 let mantissa = $
 
                 // Normalize to range [1, 10)
                 if (mantissa >= 10) {
                     while (mantissa >= 10) {
                         mantissa = mantissa / 10
-                        exponent++
+                        $v_exponent++
                     }
                 } else if (mantissa < 1) {
                     while (mantissa < 1) {
                         mantissa = mantissa * 10
-                        exponent--
+                        $v_exponent--
                     }
                 }
 
@@ -134,9 +134,9 @@ export const scientific_notation: p_i.Transformer_With_Parameter<
 
                 // Add exponent part
                 $i['add item'](101) // 'e'
-                if (exponent < 0) {
+                if ($v_exponent < 0) {
                     $i['add item'](45) // '-'
-                    exponent = -exponent
+                    $v_exponent = -$v_exponent
                 } else {
                     $i['add item'](43) // '+'
                 }
@@ -144,20 +144,20 @@ export const scientific_notation: p_i.Transformer_With_Parameter<
                 // Convert exponent to string
                 const exp_digits = p_list_build_deprecated<number>(
                     ($i) => {
-                        if (exponent === 0) {
+                        if ($v_exponent === 0) {
                             $i['add item'](0)
                         } else {
                             do {
-                                const digit = exponent % 10
+                                const digit = $v_exponent % 10
                                 $i['add item'](digit)
-                                exponent = p_.from.number(exponent).divide(
+                                $v_exponent = p_.from.number($v_exponent).divide(
                                     10,
                                     ['towards zero', null],
                                     {
                                         divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 10")
                                     }
                                 )
-                            } while (exponent > 0)
+                            } while ($v_exponent > 0)
                         }
                     })
 

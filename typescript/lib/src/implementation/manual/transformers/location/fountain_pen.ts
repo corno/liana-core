@@ -27,7 +27,7 @@ export namespace signatures {
 export const Range: signatures.Range = ($, $p) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'in main document': return p_.ss($, ($) => sh.ph.composed([
+            case 'in main document': return p_.option($, ($) => sh.ph.composed([
                 sh.ph.literal($p['document resource identifier']),
                 sh.ph.literal(':'),
                 t_astn_location_to_fountain_pen.Range(
@@ -37,7 +37,7 @@ export const Range: signatures.Range = ($, $p) => p_.from.state($).decide(
                     }
                 )
             ]))
-            case 'in subdocument': return p_.ss($, ($) => sh.ph.composed([
+            case 'in subdocument': return p_.option($, ($) => sh.ph.composed([
                 sh.ph.literal($.context['subdocument resource identifier']),
                 sh.ph.literal(':'),
                 t_astn_location_to_fountain_pen.Range(

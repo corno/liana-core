@@ -15,8 +15,8 @@ d_in.Error, d_out.Phrase
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'deserialize': return p_.ss($, ($) => t_deserialize_to_fountain_pen.Error($))
-            case 'resolve error': return p_.ss($, ($) => t_resolve_to_fountain_pen.Error($))
+            case 'deserialize': return p_.option($, ($) => t_deserialize_to_fountain_pen.Error($))
+            case 'resolve error': return p_.option($, ($) => t_resolve_to_fountain_pen.Error($))
             default: return p_.au($[0])
         }
     })
