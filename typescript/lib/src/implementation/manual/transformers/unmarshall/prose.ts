@@ -6,7 +6,7 @@ import * as d_in from "../../../../interface/data/unmarshall"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 //dependencies
-import * as t_astn_unmarshall_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/unmarshall/fountain_pen"
+import * as t_astn_unmarshall_to_prose from "astn-core/dist/implementation/manual/transformers/unmarshall/fountain_pen"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
@@ -80,7 +80,7 @@ d_in.Error, d_out.Phrase
                             }
                         }),
                 ]))
-                case 'astn': return p_.option($, ($) => t_astn_unmarshall_to_fountain_pen.Error($))
+                case 'astn': return p_.option($, ($) => t_astn_unmarshall_to_prose.Error($))
                 default: return p_.au($[0])
             }
         }),

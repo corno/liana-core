@@ -7,7 +7,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 import * as d_function from "astn-core/dist/interface/data/location_to_fountain_pen"
 
 //dependencies
-import * as t_astn_location_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
+import * as t_astn_location_to_prose from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
@@ -30,7 +30,7 @@ export const Range: signatures.Range = ($, $p) => p_.from.state($).decide(
             case 'in main document': return p_.option($, ($) => sh.ph.composed([
                 sh.ph.literal($p['document resource identifier']),
                 sh.ph.literal(':'),
-                t_astn_location_to_fountain_pen.Range(
+                t_astn_location_to_prose.Range(
                     $,
                     {
                         'character location reporting': $p['character location reporting']
@@ -40,7 +40,7 @@ export const Range: signatures.Range = ($, $p) => p_.from.state($).decide(
             case 'in subdocument': return p_.option($, ($) => sh.ph.composed([
                 sh.ph.literal($.context['subdocument resource identifier']),
                 sh.ph.literal(':'),
-                t_astn_location_to_fountain_pen.Range(
+                t_astn_location_to_prose.Range(
                     $['range'],
                     {
                         'character location reporting': $p['character location reporting']
