@@ -6,8 +6,8 @@ import * as d_in from "../../../../interface/data/deserialize_resolved"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 //dependencies
-import * as t_resolve_to_fountain_pen from "../resolve/fountain_pen"
-import * as t_deserialize_to_fountain_pen from "../deserialize/fountain_pen"
+import * as t_resolve_to_fountain_pen from "../resolve/prose"
+import * as t_deserialize_to_fountain_pen from "../deserialize/prose"
 
 
 export const Error: p_i.Transformer<

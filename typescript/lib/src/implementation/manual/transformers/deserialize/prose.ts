@@ -7,7 +7,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 //dependencies
 import * as t_deserialize_parse_tree_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/deserialize_parse_tree/fountain_pen"
-import * as t_unmarshall_to_fountain_pen from "../unmarshall/fountain_pen"
+import * as t_unmarshall_to_fountain_pen from "../unmarshall/prose"
 
 export const Error: p_i.Transformer<
 d_in.Error, d_out.Phrase
