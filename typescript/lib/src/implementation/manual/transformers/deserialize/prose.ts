@@ -10,7 +10,8 @@ import * as t_deserialize_parse_tree_to_prose from "astn-core/dist/implementatio
 import * as t_unmarshall_to_prose from "../unmarshall/prose"
 
 export const Error: p_i.Transformer<
-d_in.Error, d_out.Phrase
+    d_in.Error,
+    d_out.Phrase
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {

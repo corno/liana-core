@@ -5,7 +5,8 @@ import * as d_in from "../../../../interface/data/resolve"
 import * as d_out from "astn-core/dist/interface/generated/liana/schemas/location/data"
 
 export type Error = p_i.Transformer<
-d_in.Error, d_out.Range
+    d_in.Error,
+    d_out.Range
 >
 
 export const Error: Error = ($) => p_.from.state($.location).decide(

@@ -6,11 +6,12 @@ import * as d_in from "../../../../interface/data/unmarshall"
 import * as d_out from "astn-core/dist/interface/generated/liana/schemas/location/data"
 
 export const Error: p_i.Transformer<
-d_in.Error, d_out.Range
+    d_in.Error,
+    d_out.Range
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'liana': return p_.option($, ($): d_out.Range => p_.from.state($.range).decide(
+            case 'liana': return p_.option($, ($) => p_.from.state($.range).decide(
                 ($) => {
                     switch ($[0]) {
                         case 'in main document': return p_.option($, ($) => $)

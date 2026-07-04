@@ -10,7 +10,8 @@ import * as t_deserialize_parse_tree_to_location from "astn-core/dist/implementa
 import * as t_unmarshall_to_location from "../unmarshall/location_in_main_document"
 
 export const Error: p_i.Transformer<
-d_in.Error, d_out.Possible_Range
+    d_in.Error,
+    d_out.Possible_Range
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {

@@ -11,7 +11,8 @@ import * as t_deserialize_to_prose from "../deserialize/prose"
 
 
 export const Error: p_i.Transformer<
-d_in.Error, d_out.Phrase
+    d_in.Error,
+    d_out.Phrase
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {

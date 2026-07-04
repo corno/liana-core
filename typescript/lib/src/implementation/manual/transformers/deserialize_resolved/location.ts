@@ -11,7 +11,8 @@ import * as t_deserialize_to_location from "../deserialize/location"
 
 
 export const Error: p_i.Transformer<
-d_in.Error, d_out.Possible_Range
+    d_in.Error,
+    d_out.Possible_Range
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {

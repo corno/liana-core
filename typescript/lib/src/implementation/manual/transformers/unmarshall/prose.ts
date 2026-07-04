@@ -12,7 +12,8 @@ import * as t_astn_unmarshall_to_prose from "astn-core/dist/implementation/manua
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 export const Error: p_i.Transformer<
-d_in.Error, d_out.Phrase
+    d_in.Error,
+    d_out.Phrase
 > = ($) => sh.ph.composed([
     p_.from.state($).decide(
         ($) => {
@@ -86,38 +87,3 @@ d_in.Error, d_out.Phrase
         }),
 
 ])
-
-// export const Error = ($: d_in.Error): d_out.Phrase => p_.from.state($).decide(
-// ($) => {
-//     switch ($[0]) {
-
-//         case 'expected a dictionary': return p_.option($, ($) => sh.ph.composed([
-//             sh.ph.literal("expected a dictionary")
-//         ]))
-//         case 'expected a group': return p_.option($, ($) => sh.ph.composed([
-//             sh.ph.literal("expected a group")
-//         ]))
-//         case 'expected a list': return p_.option($, ($) => sh.ph.composed([
-//             sh.ph.literal("expected a list")
-//         ]))
-//         case 'expected a nothing': return p_.option($, ($) => sh.ph.composed([
-//             sh.ph.literal("expected a nothing ( ~ )")
-//         ]))
-//         case 'expected an optional': return p_.option($, ($) => sh.ph.composed([
-//             sh.ph.literal("expected an optional ( ~ or * -value- )")
-//         ]))
-//         case 'expected a state': return p_.option($, ($) => sh.ph.composed([
-//             sh.ph.literal("expected a state ( one of the allowed options )")
-//         ]))
-//         case 'expected a text': return p_.option($, ($) => sh.ph.composed([
-//             sh.ph.literal("expected a text")
-//         ]))
-//         case 'no such entry': return p_.option($, ($) => sh.ph.composed([
-//             sh.ph.literal("no such entry: '"),
-//             sh.ph.literal($),
-//             sh.ph.literal("'")
-//         ]))
-
-//         default: return p_.au($[0])
-//     }
-// })
