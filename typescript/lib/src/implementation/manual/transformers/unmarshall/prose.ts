@@ -13,7 +13,7 @@ export namespace interface_ {
 }
 
 //dependencies
-import * as t_astn_unmarshall_to_prose from "astn-core/dist/implementation/manual/transformers/unmarshall/fountain_pen"
+import * as t_astn_unmarshall_to_prose from "astn-core/dist/implementation/manual/transformers/unmarshall/prose"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
