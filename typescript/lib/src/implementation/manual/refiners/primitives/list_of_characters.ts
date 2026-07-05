@@ -4,6 +4,7 @@ import * as p_di from 'pareto-core/dist/interface/data'
 import * as p_i from 'pareto-core/dist/interface/refiner'
 import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
 import p_iterate from 'pareto-core/dist/implementation/refiner/specials/iterate'
+import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer/specials/unreachable_code_path'
 
 //data types
 import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
@@ -19,14 +20,14 @@ export const decimal: p_i.Refiner<
     let isNegative = false
     let startIndex = 0
 
-    const new_imp = p_iterate({
-        list: characters,
-        end_info: null,
-        assign: (iterator): number => {
-            return 42
-        },
-        on_dangling_item: ($) => abort("Invalid character in decimal string"),
-    })
+    // const new_imp = p_iterate({
+    //     list: characters,
+    //     end_info: null,
+    //     assign: (iterator): number => {
+    //         return 42
+    //     },
+    //     on_dangling_item: ($) => abort("Invalid character in decimal string"),
+    // })
 
     // Check for empty string
     if (p_t.from.list(characters).amount_of_items() === 0) {
@@ -64,12 +65,36 @@ export const decimal: p_i.Refiner<
 
     const old_imp = isNegative ? -result : result
 
-    if (new_imp !== old_imp) {
-        //throw `Inconsistent results between old and new implementations: old=${old_imp}, new=${new_imp}`
-    }
-
     return old_imp
 }
+// export const decimal_new: p_i.Refiner<
+//     number, string, d_loc.List_of_Characters
+// > = ($, abort) => {
+
+
+//     return p_iterate({
+//         list: $,
+//         end_info: null,
+//         assign: (iterator): number => {
+//             iterator.peek(
+//                 ($) => abort("no characters found"),
+//                 ($) => {
+//                     const handle_absolute_value = (): number => {
+//                         let result = 0
+
+//                     }
+//                     return $ === 45
+//                         ? iterator.consume(
+//                             ($) => p_unreachable_code_path("just peeked"),
+//                             ($) => - handle_absolute_value()
+//                         )
+//                         : handle_absolute_value()
+//                 }
+//             )
+//         },
+//         on_dangling_item: ($) => abort("Invalid character in decimal string"),
+//     })
+// }
 
 
 export const scientific_notation: p_i.Refiner_With_Parameter<
