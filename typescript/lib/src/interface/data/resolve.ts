@@ -1,7 +1,7 @@
 
-import * as p_ from 'pareto-core/dist/interface/data'
+import * as p_ from 'pareto-core/interface/data'
 
-import * as i_location from "./document_and_location"
+import * as i_location from "./document_and_location.js"
 
 export namespace Error_ {
     
@@ -72,6 +72,6 @@ export type Error_ = {
     readonly 'location': Error_.location
 }
 
-export { 
+export type { 
     Error_ as Error, 
 }

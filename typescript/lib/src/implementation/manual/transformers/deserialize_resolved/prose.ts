@@ -1,9 +1,9 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
 
 //data types
-import * as d_in from "../../../../interface/data/deserialize_resolved"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
+import * as d_in from "../../../../interface/data/deserialize_resolved.js"
+import * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
 export namespace interface_ {
     export type Error = p_i.Transformer<
@@ -13,8 +13,8 @@ export namespace interface_ {
 }
 
 //dependencies
-import * as t_resolve_to_prose from "../resolve/prose"
-import * as t_deserialize_to_prose from "../deserialize/prose"
+import * as t_resolve_to_prose from "../resolve/prose.js"
+import * as t_deserialize_to_prose from "../deserialize/prose.js"
 
 
 export const Error: interface_.Error = ($) => p_.from.state($).decide(

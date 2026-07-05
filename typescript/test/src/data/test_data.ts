@@ -1,5 +1,5 @@
 
-// import * as d from "../interface/test_set"
+// import * as d from "../interface/test_set.js"
 
 // /**
 //  * Comprehensive test data for all serializers and deserializers

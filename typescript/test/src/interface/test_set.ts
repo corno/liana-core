@@ -1,6 +1,6 @@
 
-// import * as d_generic from "pareto-test/dist/interface/temp/generic"
-import * as d_serializer_parameters from "lib/dist/interface/data/serializer_parameters"
+// import * as d_generic from "pareto-test/interface/temp/generic"
+import * as d_serializer_parameters from "lib/interface/data/serializer_parameters"
 
 // export type Test_Set = {
 //     'integer': {

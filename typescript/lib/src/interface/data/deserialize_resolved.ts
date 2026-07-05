@@ -1,6 +1,6 @@
 
-import * as d_resolve from "./resolve"
-import * as d_deserialize from "./deserialize"
+import * as d_resolve from "./resolve.js"
+import * as d_deserialize from "./deserialize.js"
 
 
 export type Error =

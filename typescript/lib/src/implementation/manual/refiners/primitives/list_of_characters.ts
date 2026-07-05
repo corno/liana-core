@@ -1,16 +1,16 @@
-import * as p_ from 'pareto-core/dist/implementation/refiner'
-import * as p_t from 'pareto-core/dist/implementation/transformer'
-import * as p_di from 'pareto-core/dist/interface/data'
-import * as p_i from 'pareto-core/dist/interface/refiner'
-import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
-import p_iterate from 'pareto-core/dist/implementation/refiner/specials/iterate'
-import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer/specials/unreachable_code_path'
+import * as p_ from 'pareto-core/implementation/refiner'
+import * as p_t from 'pareto-core/implementation/transformer'
+import * as p_di from 'pareto-core/interface/data'
+import * as p_i from 'pareto-core/interface/refiner'
+import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
+import p_iterate from 'pareto-core/implementation/refiner/specials/iterate'
+import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
 //data types
-import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
+import * as d_loc from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
 
 //dependencies
-import * as t_leap_days_before_year from "../../transformers/leap_days_before_year/year"
+import * as t_leap_days_before_year from "../../transformers/leap_days_before_year/year.js"
 
 export const decimal: p_i.Refiner<
     number, string, d_loc.List_of_Characters
@@ -486,7 +486,7 @@ export const iso_date_udhr: p_i.Refiner<
 
     // Check days per month
     const days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    let max_day = days_in_month[iso_date.month - 1]
+    let max_day = days_in_month[iso_date.month - 1]!
 
     // Adjust for leap year in February
     if (iso_date.month === 2 && is_leap_year(iso_date.year)) {
@@ -504,7 +504,7 @@ export const iso_date_udhr: p_i.Refiner<
     const total_days_before_current_year = full_years * 365 + leap_days_before_current_year
 
     const month_days = is_leap_year(iso_date.year) ? month_day_table_leap : month_day_table_normal
-    const days_in_current_year = month_days[iso_date.month - 1] + iso_date.day
+    const days_in_current_year = month_days[iso_date.month - 1]! + iso_date.day
 
     // Calculate total days since January 1, year 1 CE
     const total_days_since_iso_year_1 = total_days_before_current_year + days_in_current_year

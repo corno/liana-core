@@ -1,10 +1,10 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_di from 'pareto-core/dist/interface/data'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_di from 'pareto-core/interface/data'
+import * as p_i from 'pareto-core/interface/transformer'
 
 //data types
-import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
-import * as d_out from "../../../../interface/data/document_and_location"
+import * as d_in from "astn-core/interface/generated/liana/schemas/parse_tree/data"
+import * as d_out from "../../../../interface/data/document_and_location.js"
 
 export namespace d_function {
     export type Parameters = {
@@ -21,7 +21,7 @@ export namespace interface_ {
 }
 
 //dependencies
-import * as t_pt_to_str from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as t_pt_to_str from "astn-core/implementation/manual/transformers/parse_tree/start_token_range"
 
 
 export const Value: interface_.Value = ($, $p) => {

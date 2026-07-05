@@ -1,8 +1,8 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
 
-import * as d_in from "../../../../interface/data/resolve"
-import * as d_out from "astn-core/dist/interface/generated/liana/schemas/location/data"
+import * as d_in from "../../../../interface/data/resolve.js"
+import * as d_out from "astn-core/interface/generated/liana/schemas/location/data"
 
 export type Error = p_i.Transformer<
     d_in.Error,

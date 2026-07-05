@@ -1,19 +1,19 @@
-import * as p_ from 'pareto-core/dist/implementation/refiner'
-import * as p_di from 'pareto-core/dist/interface/data'
-import * as p_i from 'pareto-core/dist/interface/refiner'
-import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
-import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
+import * as p_ from 'pareto-core/implementation/refiner'
+import * as p_di from 'pareto-core/interface/data'
+import * as p_i from 'pareto-core/interface/refiner'
+import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
+import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
-import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
-import * as d_out from "../../../../interface/data/unmarshalled"
-import * as d_function from "../../../../interface/data/unmarshall"
-import * as d_function_loc from "../../../../interface/data/document_and_location"
+import * as d_in from "astn-core/interface/generated/liana/schemas/parse_tree/data"
+import * as d_out from "../../../../interface/data/unmarshalled.js"
+import * as d_function from "../../../../interface/data/unmarshall.js"
+import * as d_function_loc from "../../../../interface/data/document_and_location.js"
 
 
 //dependencies
-import * as t_parse_tree_to_location from "../../transformers/parse_tree/start_token_range"
-import * as r_astn_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
-import * as t_from_loc from "../primitives/list_of_characters"
+import * as t_parse_tree_to_location from "../../transformers/parse_tree/start_token_range.js"
+import * as r_astn_unmarshalled_from_parse_tree from "astn-core/implementation/manual/refiners/unmarshalled/parse_tree"
+import * as t_from_loc from "../primitives/list_of_characters.js"
 
 export type Number = p_i.Refiner_With_Parameter<
     d_out.Number,

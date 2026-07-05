@@ -1,4 +1,4 @@
-import * as p_ti from 'pareto-core/dist/interface/transformer'
+import * as p_ti from 'pareto-core/interface/transformer'
 
 type Possible_Error =
     | ['success', string]

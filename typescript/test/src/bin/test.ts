@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as p_h from 'pareto-host-nodejs/dist'
+import * as p_h from 'pareto-host-nodejs/index'
 
 // import {
 //     Resources,
@@ -8,19 +8,19 @@ import * as p_h from 'pareto-host-nodejs/dist'
 //     run_refiner_tests_without_parameters,
 //     run_transformer_tests_with_parameters,
 //     run_transformer_tests_without_parameters,
-// } from "pareto-test/dist/implementation/generic"
+// } from "pareto-test/implementation/generic"
 
-// import { $$ as p_run_tests } from "pareto-test/dist/implementation/manual/commands/run_tests"
+// import { $$ as p_run_tests } from "pareto-test/implementation/manual/commands/run_tests"
 
-import * as ds_main from "pareto-resources/dist/interface/data/temp_main"
+import * as ds_main from "pareto-resources/interface/data/temp_main"
 
-import * as foo from "lib/dist/implementation/manual/refiners/primitives/list_of_characters"
+import * as foo from "lib/implementation/manual/refiners/primitives/list_of_characters"
 
 
-import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
-import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
-import p_create_refine_context from 'pareto-core/dist/implementation/__internal/sync/create_refinement_context'
-import p_log_debug_message from 'pareto-core-dev/dist/log_debug_message'
+import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
+import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
+import p_create_refine_context from 'pareto-core/implementation/__internal/sync/create_refinement_context'
+import p_log_debug_message from 'pareto-core-dev/log_debug_message'
 
 
 p_create_refine_context<number, string>(
@@ -41,27 +41,27 @@ p_create_refine_context<number, string>(
 )
 
 // Import test data
-// import { TEST_DATA } from "../data/test_data"
+// import { TEST_DATA } from "../data/test_data.js"
 
 // // Import serializers
-// import { serialize as s_decimal } from "lib/dist/implementation/manual/primitives/integer/serializers/decimal"
-// import { $$ as s_hexadecimal } from "lib/dist/implementation/manual/primitives/integer/serializers/hexadecimal"
-// import { $$ as s_binary } from "lib/dist/implementation/manual/primitives/integer/serializers/binary"
-// import { $$ as s_octal } from "lib/dist/implementation/manual/primitives/integer/serializers/octal"
-// import { $$ as s_udhr_to_iso } from "lib/dist/implementation/manual/primitives/integer/serializers/iso_udhr"
-// import { $$ as s_fractional_decimal } from "lib/dist/implementation/manual/primitives/integer/serializers/fractional_decimal"
-// import { serialize as s_boolean_true_false } from "lib/dist/implementation/manual/primitives/boolean/serializers/true_false"
-// import { $$ as s_approx_scientific } from "lib/dist/implementation/manual/primitives/approximate_number/serializers/scientific_notation"
+// import { serialize as s_decimal } from "lib/implementation/manual/primitives/integer/serializers/decimal"
+// import { $$ as s_hexadecimal } from "lib/implementation/manual/primitives/integer/serializers/hexadecimal"
+// import { $$ as s_binary } from "lib/implementation/manual/primitives/integer/serializers/binary"
+// import { $$ as s_octal } from "lib/implementation/manual/primitives/integer/serializers/octal"
+// import { $$ as s_udhr_to_iso } from "lib/implementation/manual/primitives/integer/serializers/iso_udhr"
+// import { $$ as s_fractional_decimal } from "lib/implementation/manual/primitives/integer/serializers/fractional_decimal"
+// import { serialize as s_boolean_true_false } from "lib/implementation/manual/primitives/boolean/serializers/true_false"
+// import { $$ as s_approx_scientific } from "lib/implementation/manual/primitives/approximate_number/serializers/scientific_notation"
 
 // // Import deserializers
-// import { deserialize as ds_decimal } from "lib/dist/implementation/manual/primitives/integer/deserializers/decimal"
-// import { $$ as ds_hexadecimal } from "lib/dist/implementation/manual/primitives/integer/deserializers/hexadecimal"
-// import { $$ as ds_binary } from "lib/dist/implementation/manual/primitives/integer/deserializers/binary"
-// import { $$ as ds_octal } from "lib/dist/implementation/manual/primitives/integer/deserializers/octal"
-// import { $$ as ds_iso_to_udhr } from "lib/dist/implementation/manual/primitives/integer/deserializers/iso_udhr"
-// import { $$ as ds_fractional_decimal } from "lib/dist/implementation/manual/primitives/integer/deserializers/fractional_decimal"
-// import { deserialize as ds_true_false } from "lib/dist/implementation/manual/primitives/boolean/deserializers/true_false"
-// import { $$ as ds_approx_scientific } from "lib/dist/implementation/manual/primitives/approximate_number/deserializers/scientific_notation"
+// import { deserialize as ds_decimal } from "lib/implementation/manual/primitives/integer/deserializers/decimal"
+// import { $$ as ds_hexadecimal } from "lib/implementation/manual/primitives/integer/deserializers/hexadecimal"
+// import { $$ as ds_binary } from "lib/implementation/manual/primitives/integer/deserializers/binary"
+// import { $$ as ds_octal } from "lib/implementation/manual/primitives/integer/deserializers/octal"
+// import { $$ as ds_iso_to_udhr } from "lib/implementation/manual/primitives/integer/deserializers/iso_udhr"
+// import { $$ as ds_fractional_decimal } from "lib/implementation/manual/primitives/integer/deserializers/fractional_decimal"
+// import { deserialize as ds_true_false } from "lib/implementation/manual/primitives/boolean/deserializers/true_false"
+// import { $$ as ds_approx_scientific } from "lib/implementation/manual/primitives/approximate_number/deserializers/scientific_notation"
 
 // p_h.run_main_command(
 //     ($rr) => {

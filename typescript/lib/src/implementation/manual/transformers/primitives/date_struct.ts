@@ -1,6 +1,6 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
-import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer/specials/unreachable_code_path'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
+import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
 export type Date_Struct = {
     year: number
@@ -83,34 +83,34 @@ number, Date_Struct
     const month_day_table = is_leap_year(year) ? month_day_table_leap : month_day_table_normal
 
     const month = (() => {
-        if ($v_days_in_current_year <= month_day_table[1]) {
+        if ($v_days_in_current_year <= month_day_table[1]!) {
             return 1
-        } else if ($v_days_in_current_year <= month_day_table[2]) {
+        } else if ($v_days_in_current_year <= month_day_table[2]!) {
             return 2
-        } else if ($v_days_in_current_year <= month_day_table[3]) {
+        } else if ($v_days_in_current_year <= month_day_table[3]!) {
             return 3
-        } else if ($v_days_in_current_year <= month_day_table[4]) {
+        } else if ($v_days_in_current_year <= month_day_table[4]!) {
             return 4
-        } else if ($v_days_in_current_year <= month_day_table[5]) {
+        } else if ($v_days_in_current_year <= month_day_table[5]!) {
             return 5
-        } else if ($v_days_in_current_year <= month_day_table[6]) {
+        } else if ($v_days_in_current_year <= month_day_table[6]!) {
             return 6
-        } else if ($v_days_in_current_year <= month_day_table[7]) {
+        } else if ($v_days_in_current_year <= month_day_table[7]!) {
             return 7
-        } else if ($v_days_in_current_year <= month_day_table[8]) {
+        } else if ($v_days_in_current_year <= month_day_table[8]!) {
             return 8
-        } else if ($v_days_in_current_year <= month_day_table[9]) {
+        } else if ($v_days_in_current_year <= month_day_table[9]!) {
             return 9
-        } else if ($v_days_in_current_year <= month_day_table[10]) {
+        } else if ($v_days_in_current_year <= month_day_table[10]!) {
             return 10
-        } else if ($v_days_in_current_year <= month_day_table[11]) {
+        } else if ($v_days_in_current_year <= month_day_table[11]!) {
             return 11
         } else {
             return 12
         }
     })()
 
-    const day = $v_days_in_current_year - month_day_table[month - 1]
+    const day = $v_days_in_current_year - month_day_table[month - 1]!
 
     return {
         year,
