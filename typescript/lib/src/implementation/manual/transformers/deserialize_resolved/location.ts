@@ -5,15 +5,19 @@ import * as p_i from 'pareto-core/dist/interface/transformer'
 import * as d_in from "../../../../interface/data/deserialize_resolved"
 import * as d_out from "astn-core/dist/interface/generated/liana/schemas/location/data"
 
+export namespace interface_ {
+    export type Error = p_i.Transformer<
+        d_in.Error,
+        d_out.Possible_Range
+    >
+}
+
 //dependencies
 import * as t_resolve_to_location from "../resolve/location"
 import * as t_deserialize_to_location from "../deserialize/location"
 
 
-export const Error: p_i.Transformer<
-    d_in.Error,
-    d_out.Possible_Range
-> = ($) => p_.from.state($).decide(
+export const Error: interface_.Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'deserialize': return p_.option($, ($) => t_deserialize_to_location.Error($))

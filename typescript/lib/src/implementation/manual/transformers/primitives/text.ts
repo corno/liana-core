@@ -9,21 +9,52 @@ import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer
 //data types
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/text/data"
 
+export namespace interface_ {
+    export type true_false = p_i.Transformer<
+        boolean,
+        d_out.Text
+    >
+    export type scientific_notation = p_i.Transformer_With_Parameter<
+        number,
+        d_out.Text,
+        { digits: number }
+    >
+    export type binary = p_i.Transformer<
+        number,
+        d_out.Text
+    >
+    export type decimal = p_i.Transformer<
+        number,
+        d_out.Text
+    >
+    export type hexadecimal = p_i.Transformer<
+        number,
+        d_out.Text
+    >
+    export type fractional_decimal = p_i.Transformer_With_Parameter<
+        number,
+        d_out.Text,
+        { 'number of fractional digits': number }
+    >
+    export type iso_date_udhr = p_i.Transformer<
+        number,
+        d_out.Text
+    >
+    export type octal = p_i.Transformer<
+        number,
+        d_out.Text
+    >
+}
+
 //dependencies
 import * as t_to_date_struct from "./date_struct"
 
 
-export const true_false: p_i.Transformer<
-boolean, d_out.Text
-> = ($) => {
+export const true_false: interface_.true_false = ($) => {
     return $ ? "true" : "false"
 }
 
-export const scientific_notation: p_i.Transformer_With_Parameter<
-    number,
-    d_out.Text,
-    { digits: number }
-> = ($, $p) => {
+export const scientific_notation: interface_.scientific_notation = ($, $p) => {
     return p_text_from_list(
         p_list_build_deprecated<number>(
             ($i) => {
@@ -176,9 +207,7 @@ export const scientific_notation: p_i.Transformer_With_Parameter<
     )
 }
 
-export const binary: p_i.Transformer<
-number, d_out.Text
-> = ($) => p_text_from_list(
+export const binary: interface_.binary = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -218,9 +247,7 @@ number, d_out.Text
 )
 
 
-export const decimal: p_i.Transformer<
-number, d_out.Text
-> = ($) => p_text_from_list(
+export const decimal: interface_.decimal = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -256,9 +283,7 @@ number, d_out.Text
 )
 
 
-export const hexadecimal: p_i.Transformer<
-number, d_out.Text
-> = ($) => p_text_from_list(
+export const hexadecimal: interface_.hexadecimal = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -304,7 +329,7 @@ number, d_out.Text
 )
 
 
-export const fractional_decimal: p_i.Transformer_With_Parameter<number, d_out.Text, { 'number of fractional digits': number }> = ($, $p) => p_text_from_list(
+export const fractional_decimal: interface_.fractional_decimal = ($, $p) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             let value = $
@@ -391,9 +416,7 @@ export const fractional_decimal: p_i.Transformer_With_Parameter<number, d_out.Te
     ($) => $
 )
 
-export const iso_date_udhr: p_i.Transformer<
-number, d_out.Text
-> = (udhr_day) => {
+export const iso_date_udhr: interface_.iso_date_udhr = (udhr_day) => {
 
     const pad_left: p_i.Transformer_With_Parameter<
         string,
@@ -439,9 +462,7 @@ number, d_out.Text
     )
 }
 
-export const octal: p_i.Transformer<
-number, d_out.Text
-> = ($) => p_text_from_list(
+export const octal: interface_.octal = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {

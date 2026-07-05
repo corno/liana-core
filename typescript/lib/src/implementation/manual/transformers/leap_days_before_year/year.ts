@@ -2,9 +2,13 @@ import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer/specials/unreachable_code_path'
 
-export const Year: p_i.Transformer<
-number, number
-> = ($) => {
+export namespace interface_ {
+    export type Year = p_i.Transformer<
+        number, number
+    >
+}
+
+export const Year: interface_.Year = ($) => {
     return + p_.from.number($).divide(
         4,
         ['towards zero', null],
