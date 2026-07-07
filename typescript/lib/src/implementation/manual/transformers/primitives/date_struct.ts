@@ -80,7 +80,9 @@ number, Date_Struct
 
     const month_day_table_normal = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
     const month_day_table_leap = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335]
-    const month_day_table = is_leap_year(year) ? month_day_table_leap : month_day_table_normal
+    const month_day_table = is_leap_year(year) 
+        ? month_day_table_leap
+        : month_day_table_normal
 
     const month = (() => {
         if ($v_days_in_current_year <= month_day_table[1]!) {

@@ -503,7 +503,9 @@ export const iso_date_udhr: p_i.Refiner<
 
     const total_days_before_current_year = full_years * 365 + leap_days_before_current_year
 
-    const month_days = is_leap_year(iso_date.year) ? month_day_table_leap : month_day_table_normal
+    const month_days = is_leap_year(iso_date.year)
+        ? month_day_table_leap
+        : month_day_table_normal
     const days_in_current_year = month_days[iso_date.month - 1]! + iso_date.day
 
     // Calculate total days since January 1, year 1 CE
