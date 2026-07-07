@@ -12,7 +12,7 @@ import * as p_h from 'pareto-host-nodejs/index'
 
 // import { $$ as p_run_tests } from "pareto-test/implementation/manual/commands/run_tests"
 
-import * as ds_main from "pareto-resources/interface/data/temp_main"
+import * as ds_main from "pareto-application-api/interface/data/main"
 
 import * as foo from "lib/implementation/manual/refiners/primitives/list_of_characters"
 
