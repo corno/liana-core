@@ -1,4 +1,4 @@
-import * as p_ from 'pareto-core/implementation/transformer'
+
 import type * as p_i from 'pareto-core/interface/transformer'
 
 //data types
@@ -12,7 +12,7 @@ import * as t_astn_location_to_prose from "astn-core/implementation/manual/trans
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-export namespace interface_ {
+
 
     export type Range = p_i.Transformer_With_Parameter<
         d_in.Range,
@@ -22,4 +22,4 @@ export namespace interface_ {
             'document resource identifier': string
         }
     >
-}
+

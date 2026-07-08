@@ -1,4 +1,4 @@
-import * as p_ from 'pareto-core/implementation/transformer'
+
 import type * as p_i from 'pareto-core/interface/transformer'
 import type * as p_di from 'pareto-core/interface/data'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
@@ -9,7 +9,7 @@ import p_unreachable_code_path from 'pareto-core/implementation/transformer/spec
 //data types
 import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/text/data"
 
-export namespace interface_ {
+
     export type true_false = p_i.Transformer<
         boolean,
         d_out.Text
@@ -44,4 +44,4 @@ export namespace interface_ {
         number,
         d_out.Text
     >
-}
+

@@ -1,4 +1,4 @@
-import * as p_ from 'pareto-core/implementation/transformer'
+
 import type * as p_di from 'pareto-core/interface/data'
 import type * as p_i from 'pareto-core/interface/transformer'
 
@@ -12,10 +12,10 @@ export namespace d_function {
     }
 }
 
-export namespace interface_ {
-    export type Value = p_i.Transformer_With_Parameter<
-        d_in.Value,
-        d_out.Range,
-        d_function.Parameters
-    >
-}
+
+export type Value = p_i.Transformer_With_Parameter<
+    d_in.Value,
+    d_out.Range,
+    d_function.Parameters
+>
+
