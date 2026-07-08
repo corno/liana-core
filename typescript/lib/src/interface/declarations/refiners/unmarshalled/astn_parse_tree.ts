@@ -5,9 +5,9 @@ import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_f
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 import type * as d_in from "astn-core/interface/generated/liana/schemas/parse_tree/data"
-import type * as d_out from "../../../../interface/data/unmarshalled.js"
-import type * as d_function from "../../../../interface/data/unmarshall.js"
-import type * as d_function_loc from "../../../../interface/data/document_and_location.js"
+import type * as d_out from "../../../data/unmarshalled.js"
+import type * as d_function from "../../../data/unmarshall.js"
+import type * as d_function_loc from "../../../data/document_and_location.js"
 
 
 //dependencies
