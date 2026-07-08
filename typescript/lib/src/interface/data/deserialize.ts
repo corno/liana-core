@@ -1,6 +1,6 @@
 
-import * as d_deserialized_parse_tree from "astn-core/interface/generated/liana/schemas/deserialize_parse_tree/data"
-import * as d_unmarshall from "../data/unmarshall.js"
+import type * as d_deserialized_parse_tree from "astn-core/interface/generated/liana/schemas/deserialize_parse_tree/data"
+import type * as d_unmarshall from "../data/unmarshall.js"
 
 
 export type Error_ = 

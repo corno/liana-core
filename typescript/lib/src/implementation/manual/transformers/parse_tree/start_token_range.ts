@@ -3,8 +3,8 @@ import * as p_di from 'pareto-core/interface/data'
 import * as p_i from 'pareto-core/interface/transformer'
 
 //data types
-import * as d_in from "astn-core/interface/generated/liana/schemas/parse_tree/data"
-import * as d_out from "../../../../interface/data/document_and_location.js"
+import type * as d_in from "astn-core/interface/generated/liana/schemas/parse_tree/data"
+import type * as d_out from "../../../../interface/data/document_and_location.js"
 
 export namespace d_function {
     export type Parameters = {

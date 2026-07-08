@@ -7,7 +7,7 @@ import p_text_from_list from 'pareto-core/implementation/transformer/specials/te
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
 //data types
-import * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/text/data"
+import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/text/data"
 
 export namespace interface_ {
     export type true_false = p_i.Transformer<

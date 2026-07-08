@@ -7,7 +7,7 @@ import p_iterate from 'pareto-core/implementation/refiner/specials/iterate'
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
 //data types
-import * as d_loc from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
+import type * as d_loc from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
 
 //dependencies
 import * as t_leap_days_before_year from "../../transformers/leap_days_before_year/year.js"

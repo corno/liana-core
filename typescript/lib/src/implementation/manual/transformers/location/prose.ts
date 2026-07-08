@@ -2,9 +2,9 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import * as p_i from 'pareto-core/interface/transformer'
 
 //data types
-import * as d_in from "../../../../interface/data/document_and_location.js"
-import * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
-import * as d_function from "astn-core/interface/data/location_to_prose"
+import type * as d_in from "../../../../interface/data/document_and_location.js"
+import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
+import type * as d_function from "astn-core/interface/data/location_to_prose"
 
 //dependencies
 import * as t_astn_location_to_prose from "astn-core/implementation/manual/transformers/location/prose"

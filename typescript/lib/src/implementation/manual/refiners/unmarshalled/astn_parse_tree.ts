@@ -4,10 +4,10 @@ import * as p_i from 'pareto-core/interface/refiner'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
-import * as d_in from "astn-core/interface/generated/liana/schemas/parse_tree/data"
-import * as d_out from "../../../../interface/data/unmarshalled.js"
-import * as d_function from "../../../../interface/data/unmarshall.js"
-import * as d_function_loc from "../../../../interface/data/document_and_location.js"
+import type * as d_in from "astn-core/interface/generated/liana/schemas/parse_tree/data"
+import type * as d_out from "../../../../interface/data/unmarshalled.js"
+import type * as d_function from "../../../../interface/data/unmarshall.js"
+import type * as d_function_loc from "../../../../interface/data/document_and_location.js"
 
 
 //dependencies
