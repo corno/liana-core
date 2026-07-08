@@ -193,7 +193,7 @@ export const Number: Number = ($, abort, $p) => {
                         'precision': $.precision
                     }
                 ))
-                default: return p_.au($[0])
+                default: return p_.exhaustive($[0])
             }
         })
 
@@ -222,7 +222,7 @@ export const Boolean: Boolean = ($, abort, $p) => {
                         range: t_parse_tree_to_location.Value(value, { 'subdocument context': $p['subdocument context'] })
                     }]),
                 ))
-                default: return p_.au($[0])
+                default: return p_.exhaustive($[0])
             }
         })
 

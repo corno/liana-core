@@ -50,7 +50,7 @@ export const Error: interface_.Error = ($) => sh.ph.composed([
                                                 sh.ph.literal("'")
                                             ]))
 
-                                            default: return p_.au($[0])
+                                            default: return p_.exhaustive($[0])
                                         }
                                     }))
                                 case 'dictionary': return p_.option($, ($) => p_.from.state($).decide(
@@ -62,7 +62,7 @@ export const Error: interface_.Error = ($) => sh.ph.composed([
                                                 sh.ph.literal("'")
                                             ]))
 
-                                            default: return p_.au($[0])
+                                            default: return p_.exhaustive($[0])
                                         }
                                     }))
                                 case 'type': return p_.option($, ($) => p_.from.state($).decide(
@@ -78,15 +78,15 @@ export const Error: interface_.Error = ($) => sh.ph.composed([
                                                 sh.ph.literal($),
                                                 sh.ph.literal("'")
                                             ]))
-                                            default: return p_.au($[0])
+                                            default: return p_.exhaustive($[0])
                                         }
                                     }))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }),
                 ]))
                 case 'astn': return p_.option($, ($) => t_astn_unmarshall_to_prose.Error($))
-                default: return p_.au($[0])
+                default: return p_.exhaustive($[0])
             }
         }),
 

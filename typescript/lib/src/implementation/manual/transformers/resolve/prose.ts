@@ -31,7 +31,7 @@ export const Error: Error = ($) => sh.ph.composed([
                                 sh.ph.literal($),
                                 sh.ph.literal(", not the same node")
                             ]))
-                            default: return p_.au($[0])
+                            default: return p_.exhaustive($[0])
                         }
                     }))
                 case 'lookup': return p_.option($, ($) => p_.from.state($).decide(
@@ -44,7 +44,7 @@ export const Error: Error = ($) => sh.ph.composed([
                                 sh.ph.literal("'")
                             ]))
                             case 'no context lookup': return p_.option($, ($) => sh.ph.literal("there is is no context where this entry can be looked up"))
-                            default: return p_.au($[0])
+                            default: return p_.exhaustive($[0])
                         }
                     }))
                 case 'missing required entries': return p_.option($, ($) => sh.ph.composed([
@@ -57,7 +57,7 @@ export const Error: Error = ($) => sh.ph.composed([
                             ])))
                     )
                 ]))
-                default: return p_.au($[0])
+                default: return p_.exhaustive($[0])
             }
         })
 ])
