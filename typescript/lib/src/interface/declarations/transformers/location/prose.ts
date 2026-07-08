@@ -14,12 +14,12 @@ import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 
 
-    export type Range = p_.Transformer_With_Parameter<
-        d_in.Range,
-        d_out.Phrase,
-        {
-            'character location reporting': d_function.character_location_reporting
-            'document resource identifier': string
-        }
-    >
+export type Range = p_.Transformer_With_Parameter<
+    d_in.Range,
+    d_out.Phrase,
+    {
+        'character location reporting': d_function.character_location_reporting
+        'document resource identifier': string
+    }
+>
 
