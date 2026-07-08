@@ -7,6 +7,7 @@ export namespace interface_ {
         number, number
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/leap_days_before_year/year.js"
 
 export const Year: interface_.Year = ($) => {
     return + p_.from.number($).divide(

@@ -111,6 +111,7 @@ export namespace interface_ {
         }
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/refiners/unmarshalled/astn_parse_tree.js"
 
 export const Number: interface_.Number = ($, abort, $p) => {
     const value = $

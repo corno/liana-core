@@ -11,6 +11,7 @@ export namespace interface_ {
         d_out.Range
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/resolve/location.js"
 
 export const Error: interface_.Error = ($) => p_.from.state($.location).decide(
     ($) => {

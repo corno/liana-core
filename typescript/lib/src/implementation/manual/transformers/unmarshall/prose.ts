@@ -11,6 +11,7 @@ export namespace interface_ {
         d_out.Phrase
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/unmarshall/prose.js"
 
 //dependencies
 import * as t_astn_unmarshall_to_prose from "astn-core/implementation/manual/transformers/unmarshall/prose"

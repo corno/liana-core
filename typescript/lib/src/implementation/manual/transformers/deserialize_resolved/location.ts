@@ -11,6 +11,7 @@ export namespace interface_ {
         d_out.Possible_Range
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/deserialize_resolved/location.js"
 
 //dependencies
 import * as t_resolve_to_location from "../resolve/location.js"

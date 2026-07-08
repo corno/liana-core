@@ -11,6 +11,7 @@ export namespace interface_ {
         d_out.Range
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/unmarshall/location_in_main_document.js"
 
 export const Error: interface_.Error = ($) => p_.from.state($).decide(
     ($) => {

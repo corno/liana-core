@@ -11,6 +11,7 @@ export namespace interface_ {
         d_out.Phrase
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/deserialize_resolved/prose.js"
 
 //dependencies
 import * as t_resolve_to_prose from "../resolve/prose.js"

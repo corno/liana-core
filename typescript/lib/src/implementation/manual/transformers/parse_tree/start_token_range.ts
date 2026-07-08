@@ -19,6 +19,7 @@ export namespace interface_ {
         d_function.Parameters
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/parse_tree/start_token_range.js"
 
 //dependencies
 import * as t_pt_to_str from "astn-core/implementation/manual/transformers/parse_tree/start_token_range"

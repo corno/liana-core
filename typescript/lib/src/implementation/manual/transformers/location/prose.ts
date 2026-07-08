@@ -23,6 +23,7 @@ export namespace interface_ {
         }
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/location/prose.js"
 
 export const Range: interface_.Range = ($, $p) => p_.from.state($).decide(
     ($) => {
