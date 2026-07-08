@@ -1,6 +1,6 @@
 
 import type * as p_di from 'pareto-core/interface/data'
-import type * as p_i from 'pareto-core/interface/refiner'
+import type * as p_ from 'pareto-core/interface/refiner'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
@@ -16,7 +16,7 @@ import * as r_astn_unmarshalled_from_parse_tree from "astn-core/implementation/m
 import * as t_from_loc from "../primitives/list_of_characters.js"
 
 
-    export type Number = p_i.Refiner_With_Parameter<
+    export type Number = p_.Refiner_With_Parameter<
         d_out.Number,
         d_function.Error,
         d_in.Value,
@@ -37,7 +37,7 @@ import * as t_from_loc from "../primitives/list_of_characters.js"
         }
     >
 
-    export type Boolean = p_i.Refiner_With_Parameter<
+    export type Boolean = p_.Refiner_With_Parameter<
         d_out.Boolean,
         d_function.Error,
         d_in.Value,
@@ -49,7 +49,7 @@ import * as t_from_loc from "../primitives/list_of_characters.js"
     >
 
 
-    export type Dictionary = p_i.Refiner_With_Parameter<
+    export type Dictionary = p_.Refiner_With_Parameter<
         d_out.Dictionary,
         d_function.Error,
         d_in.Value,
@@ -58,7 +58,7 @@ import * as t_from_loc from "../primitives/list_of_characters.js"
         }
     >
 
-    export type List = p_i.Refiner_With_Parameter<
+    export type List = p_.Refiner_With_Parameter<
         d_out.List,
         d_function.Error,
         d_in.Value,
@@ -67,19 +67,19 @@ import * as t_from_loc from "../primitives/list_of_characters.js"
         }
     >
 
-    export type Nothing = p_i.Refiner<
+    export type Nothing = p_.Refiner<
         d_out.Nothing,
         d_function.Error,
         d_in.Value
     >
 
-    export type Optional = p_i.Refiner<
+    export type Optional = p_.Refiner<
         d_out.Optional,
         d_function.Error,
         d_in.Value
     >
 
-    export type Property = p_i.Refiner_With_Parameter<
+    export type Property = p_.Refiner_With_Parameter<
         d_out.Property,
         d_function.Error,
         d_out.Verbose_Group,
@@ -89,19 +89,19 @@ import * as t_from_loc from "../primitives/list_of_characters.js"
         }
     >
 
-    export type State = p_i.Refiner<
+    export type State = p_.Refiner<
         d_out.State,
         d_function.Error,
         d_in.Value
     >
 
-    export type Text = p_i.Refiner<
+    export type Text = p_.Refiner<
         d_out.Text,
         d_function.Error,
         d_in.Value
     >
 
-    export type Verbose_Group = p_i.Refiner_With_Parameter<
+    export type Verbose_Group = p_.Refiner_With_Parameter<
         d_out.Verbose_Group,
         d_function.Error,
         d_in.Value,

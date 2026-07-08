@@ -1,5 +1,5 @@
 
-import type * as p_i from 'pareto-core/interface/transformer'
+import type * as p_ from 'pareto-core/interface/transformer'
 
 //data types
 import type * as d_in from "../../../data/document_and_location.js"
@@ -14,7 +14,7 @@ import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 
 
-    export type Range = p_i.Transformer_With_Parameter<
+    export type Range = p_.Transformer_With_Parameter<
         d_in.Range,
         d_out.Phrase,
         {
