@@ -12,7 +12,7 @@ import * as t_astn_location_to_prose from "astn-core/implementation/manual/trans
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-export namespace signatures {
+export namespace interface_ {
 
     export type Range = p_i.Transformer_With_Parameter<
         d_in.Range,
@@ -24,7 +24,7 @@ export namespace signatures {
     >
 }
 
-export const Range: signatures.Range = ($, $p) => p_.from.state($).decide(
+export const Range: interface_.Range = ($, $p) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'in main document': return p_.option($, ($) => sh.ph.composed([
