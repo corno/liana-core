@@ -1,17 +1,9 @@
 import * as p_ from 'pareto-core/implementation/transformer'
-import type * as p_i from 'pareto-core/interface/transformer'
+
+import type * as interface_ from "../../../../interface/declarations/transformers/deserialize_resolved/location.js"
 
 //data types
-import type * as d_in from "../../../../interface/data/deserialize_resolved.js"
 import type * as d_out from "astn-core/interface/generated/liana/schemas/location/data"
-
-export namespace interface_ {
-    export type Error = p_i.Transformer<
-        d_in.Error,
-        d_out.Possible_Range
-    >
-}
-import * as temp_interface_ from "../../../../interface/declarations/transformers/deserialize_resolved/location.js"
 
 //dependencies
 import * as t_resolve_to_location from "../resolve/location.js"
