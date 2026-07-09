@@ -6,7 +6,7 @@ import type * as interface_ from "../../../declarations/transformers/parse_tree/
 import type * as d_out from "../../../interface/data/document_and_location.js"
 
 //dependencies
-import * as t_pt_to_str from "astn-core/implementation/manual/transformers/parse_tree/start_token_range"
+import * as t_pt_to_str from "astn-core/implementation/transformers/parse_tree/start_token_range"
 
 
 export const Value: interface_.Value = ($, $p) => {

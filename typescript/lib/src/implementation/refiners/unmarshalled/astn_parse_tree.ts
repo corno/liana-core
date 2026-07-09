@@ -6,7 +6,7 @@ import type * as interface_ from "../../../declarations/refiners/unmarshalled/as
 
 //dependencies
 import * as t_parse_tree_to_location from "../../transformers/parse_tree/start_token_range.js"
-import * as r_astn_unmarshalled_from_parse_tree from "astn-core/implementation/manual/refiners/unmarshalled/parse_tree"
+import * as r_astn_unmarshalled_from_parse_tree from "astn-core/implementation/refiners/unmarshalled/parse_tree"
 import * as t_from_loc from "../primitives/list_of_characters.js"
 
 export const Number: interface_.Number = ($, abort, $p) => {

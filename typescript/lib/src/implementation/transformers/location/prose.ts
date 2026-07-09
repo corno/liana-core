@@ -3,7 +3,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as interface_ from "../../../declarations/transformers/location/prose.js"
 
 //dependencies
-import * as t_astn_location_to_prose from "astn-core/implementation/manual/transformers/location/prose"
+import * as t_astn_location_to_prose from "astn-core/implementation/transformers/location/prose"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"

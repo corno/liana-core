@@ -3,7 +3,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as interface_ from "../../../declarations/transformers/unmarshall/prose.js"
 
 //dependencies
-import * as t_astn_unmarshall_to_prose from "astn-core/implementation/manual/transformers/unmarshall/prose"
+import * as t_astn_unmarshall_to_prose from "astn-core/implementation/transformers/unmarshall/prose"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
