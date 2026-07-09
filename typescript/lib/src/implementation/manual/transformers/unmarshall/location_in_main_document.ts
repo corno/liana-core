@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../../interface/declarations/transformers/unmarshall/location_in_main_document.js"
+import type * as interface_ from "../../../../declarations/transformers/unmarshall/location_in_main_document.js"
 
 export const Error: interface_.Error = ($) => p_.from.state($).decide(
     ($) => {

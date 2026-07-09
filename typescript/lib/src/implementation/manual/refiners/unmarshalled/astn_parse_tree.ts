@@ -2,7 +2,7 @@ import * as p_ from 'pareto-core/implementation/refiner'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
-import type * as interface_ from "../../../../interface/declarations/refiners/unmarshalled/astn_parse_tree.js"
+import type * as interface_ from "../../../../declarations/refiners/unmarshalled/astn_parse_tree.js"
 
 //dependencies
 import * as t_parse_tree_to_location from "../../transformers/parse_tree/start_token_range.js"

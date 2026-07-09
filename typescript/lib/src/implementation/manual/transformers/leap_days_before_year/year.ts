@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
-import type * as interface_ from "../../../../interface/declarations/transformers/leap_days_before_year/year.js"
+import type * as interface_ from "../../../../declarations/transformers/leap_days_before_year/year.js"
 
 export const Year: interface_.Year = ($) => {
     return + p_.from.number($).divide(

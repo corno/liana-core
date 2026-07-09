@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../../interface/declarations/transformers/parse_tree/start_token_range.js"
+import type * as interface_ from "../../../../declarations/transformers/parse_tree/start_token_range.js"
 
 //data types
 import type * as d_out from "../../../../interface/data/document_and_location.js"
