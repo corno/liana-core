@@ -1,9 +1,9 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../../declarations/transformers/parse_tree/start_token_range.js"
+import type * as interface_ from "../../../declarations/transformers/parse_tree/start_token_range.js"
 
 //data types
-import type * as d_out from "../../../../interface/data/document_and_location.js"
+import type * as d_out from "../../../interface/data/document_and_location.js"
 
 //dependencies
 import * as t_pt_to_str from "astn-core/implementation/manual/transformers/parse_tree/start_token_range"

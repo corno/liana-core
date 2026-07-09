@@ -14,7 +14,7 @@ import * as p_h from 'pareto-host-nodejs/index'
 
 import * as ds_main from "pareto-application-api/interface/data/main"
 
-import * as foo from "lib/implementation/manual/refiners/primitives/list_of_characters"
+import * as foo from "lib/implementation/refiners/primitives/list_of_characters"
 
 
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'

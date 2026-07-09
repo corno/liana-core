@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../../declarations/transformers/unmarshall/prose.js"
+import type * as interface_ from "../../../declarations/transformers/unmarshall/prose.js"
 
 //dependencies
 import * as t_astn_unmarshall_to_prose from "astn-core/implementation/manual/transformers/unmarshall/prose"

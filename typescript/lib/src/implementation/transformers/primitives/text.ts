@@ -6,7 +6,7 @@ import p_list_build_deprecated from 'pareto-core/implementation/refiner/specials
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
-import type * as interface_ from "../../../../declarations/transformers/primitives/text.js"
+import type * as interface_ from "../../../declarations/transformers/primitives/text.js"
 
 //dependencies
 import * as t_to_date_struct from "./date_struct.js"

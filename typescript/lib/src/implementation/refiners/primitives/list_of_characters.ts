@@ -3,8 +3,6 @@ import * as p_t from 'pareto-core/implementation/transformer'
 import type * as p_di from 'pareto-core/interface/data'
 import type * as p_i from 'pareto-core/interface/refiner'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
-import p_iterate from 'pareto-core/implementation/refiner/specials/iterate'
-import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
 //data types
 import type * as d_loc from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
