@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/interface/data'
 
 import type * as d_astn from "astn-core/interface/data/unmarshalled"
-import type * as d_parse_tree from "astn-core/interface/generated/liana/schemas/parse_tree/data"
+import type * as d_parse_tree from "astn-core/interface/data/parse_tree"
 
 export type Number = number
 

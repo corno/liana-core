@@ -1,4 +1,4 @@
-import type * as d_astn_location from "astn-core/interface/generated/liana/schemas/location/data"
+import type * as d_astn_location from "astn-core/interface/data/location"
 
 export type Subdocument = {
     readonly 'range of include in main document': d_astn_location.Range

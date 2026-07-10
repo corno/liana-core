@@ -3,7 +3,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as interface_ from "../../../declarations/transformers/deserialize_resolved/location.js"
 
 //data types
-import type * as d_out from "astn-core/interface/generated/liana/schemas/location/data"
+import type * as d_out from "astn-core/interface/data/location"
 
 //dependencies
 import * as t_resolve_to_location from "../resolve/location.js"
