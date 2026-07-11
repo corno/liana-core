@@ -1,6 +1,6 @@
 
 import type * as d_deserialized_parse_tree from "astn-core/interface/data/deserialize_parse_tree"
-import type * as d_unmarshall from "../data/unmarshall.js"
+import type * as d_unmarshall from "../schemas/unmarshall.js"
 
 
 export type Error_ = 

@@ -3,9 +3,9 @@ import type * as p_di from 'pareto-core/interface/data'
 import type * as p_ from 'pareto-core/interface/refiner'
 
 import type * as d_in from "astn-core/interface/data/parse_tree"
-import type * as d_out from "../../../interface/data/unmarshalled.js"
-import type * as d_function from "../../../interface/data/unmarshall.js"
-import type * as d_function_loc from "../../../interface/data/document_and_location.js"
+import type * as d_out from "../../../interface/schemas/unmarshalled.js"
+import type * as d_function from "../../../interface/schemas/unmarshall.js"
+import type * as d_function_loc from "../../../interface/schemas/document_and_location.js"
 
 export type Number = p_.Refiner_With_Parameter<
     d_out.Number,
