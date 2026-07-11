@@ -2,15 +2,15 @@
 import type * as p_di from 'pareto-core/interface/data'
 import type * as p_ from 'pareto-core/interface/refiner'
 
-import type * as d_in from "astn-core/interface/data/parse_tree"
-import type * as d_out from "../../../interface/schemas/unmarshalled.js"
-import type * as d_function from "../../../interface/schemas/unmarshall.js"
-import type * as d_function_loc from "../../../interface/schemas/document_and_location.js"
+import type * as s_in from "astn-core/interface/data/parse_tree"
+import type * as s_out from "../../../interface/schemas/unmarshalled.js"
+import type * as s_function from "../../../interface/schemas/unmarshall.js"
+import type * as s_function_loc from "../../../interface/schemas/document_and_location.js"
 
 export type Number = p_.Refiner_With_Parameter<
-    d_out.Number,
-    d_function.Error,
-    d_in.Value,
+    s_out.Number,
+    s_function.Error,
+    s_in.Value,
     {
         'type':
         | ['binary', null]
@@ -24,81 +24,81 @@ export type Number = p_.Refiner_With_Parameter<
         | ['scientific notation', {
             'precision': number
         }]
-        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<s_function_loc.Subdocument>
     }
 >
 
 export type Boolean = p_.Refiner_With_Parameter<
-    d_out.Boolean,
-    d_function.Error,
-    d_in.Value,
+    s_out.Boolean,
+    s_function.Error,
+    s_in.Value,
     {
         'type':
         | ['true/false', null]
-        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<s_function_loc.Subdocument>
     }
 >
 
 
 export type Dictionary = p_.Refiner_With_Parameter<
-    d_out.Dictionary,
-    d_function.Error,
-    d_in.Value,
+    s_out.Dictionary,
+    s_function.Error,
+    s_in.Value,
     {
-        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<s_function_loc.Subdocument>
     }
 >
 
 export type List = p_.Refiner_With_Parameter<
-    d_out.List,
-    d_function.Error,
-    d_in.Value,
+    s_out.List,
+    s_function.Error,
+    s_in.Value,
     {
-        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<s_function_loc.Subdocument>
     }
 >
 
 export type Nothing = p_.Refiner<
-    d_out.Nothing,
-    d_function.Error,
-    d_in.Value
+    s_out.Nothing,
+    s_function.Error,
+    s_in.Value
 >
 
 export type Optional = p_.Refiner<
-    d_out.Optional,
-    d_function.Error,
-    d_in.Value
+    s_out.Optional,
+    s_function.Error,
+    s_in.Value
 >
 
 export type Property = p_.Refiner_With_Parameter<
-    d_out.Property,
-    d_function.Error,
-    d_out.Verbose_Group,
+    s_out.Property,
+    s_function.Error,
+    s_out.Verbose_Group,
     {
         'id': string
-        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<s_function_loc.Subdocument>
     }
 >
 
 export type State = p_.Refiner<
-    d_out.State,
-    d_function.Error,
-    d_in.Value
+    s_out.State,
+    s_function.Error,
+    s_in.Value
 >
 
 export type Text = p_.Refiner<
-    d_out.Text,
-    d_function.Error,
-    d_in.Value
+    s_out.Text,
+    s_function.Error,
+    s_in.Value
 >
 
 export type Verbose_Group = p_.Refiner_With_Parameter<
-    d_out.Verbose_Group,
-    d_function.Error,
-    d_in.Value,
+    s_out.Verbose_Group,
+    s_function.Error,
+    s_in.Value,
     {
         'expected properties': p_di.Dictionary<null>
-        'subdocument context': p_di.Optional_Value<d_function_loc.Subdocument>
+        'subdocument context': p_di.Optional_Value<s_function_loc.Subdocument>
     }
 >
 

@@ -1,8 +1,8 @@
-import type * as d_astn_unmarshall from "astn-core/interface/data/unmarshall"
-import type * as d_location from "./document_and_location.js"
+import type * as s_astn_unmarshall from "astn-core/interface/data/unmarshall"
+import type * as s_location from "./document_and_location.js"
 
 export type Error =
-    | readonly ['astn', d_astn_unmarshall.Error]
+    | readonly ['astn', s_astn_unmarshall.Error]
     | readonly ['liana', {
         'type':
         | readonly ['not a valid number', {
@@ -16,7 +16,7 @@ export type Error =
         | ['dictionary', Dictionary_Error]
         | ['type', Type_Error]
 
-        'range': d_location.Range
+        'range': s_location.Range
     }]
 
 

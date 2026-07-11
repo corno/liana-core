@@ -5,13 +5,13 @@ import type * as p_i from 'pareto-core/interface/refiner'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
 //data types
-import type * as d_loc from "pareto-fountain-pen/interface/data/list_of_characters"
+import type * as s_loc from "pareto-fountain-pen/interface/data/list_of_characters"
 
 //dependencies
 import * as t_leap_days_before_year from "../../transformers/leap_days_before_year/year.js"
 
 export const decimal: p_i.Refiner<
-    number, string, d_loc.List_of_Characters
+    number, string, s_loc.List_of_Characters
 > = ($, abort) => {
     const characters = $
     let result = 0
@@ -66,7 +66,7 @@ export const decimal: p_i.Refiner<
     return old_imp
 }
 // export const decimal_new: p_i.Refiner<
-//     number, string, d_loc.List_of_Characters
+//     number, string, s_loc.List_of_Characters
 // > = ($, abort) => {
 
 
@@ -96,7 +96,7 @@ export const decimal: p_i.Refiner<
 
 
 export const scientific_notation: p_i.Refiner_With_Parameter<
-    number, string, d_loc.List_of_Characters, { 'precision': number }
+    number, string, s_loc.List_of_Characters, { 'precision': number }
 > = ($, abort, $p) => {
     const characters = $
     let result = 0
@@ -185,7 +185,7 @@ export const scientific_notation: p_i.Refiner_With_Parameter<
 }
 
 export const true_false: p_i.Refiner<
-    boolean, string, d_loc.List_of_Characters
+    boolean, string, s_loc.List_of_Characters
 > = ($, abort) => {
     const as_string = p_text_from_list(
         $,
@@ -201,7 +201,7 @@ export const true_false: p_i.Refiner<
 
 
 export const binary: p_i.Refiner<
-    number, string, d_loc.List_of_Characters
+    number, string, s_loc.List_of_Characters
 > = ($, abort) => {
     const characters = $
     let result = 0
@@ -258,7 +258,7 @@ export const binary: p_i.Refiner<
 
 
 export const fractional_decimal: p_i.Refiner_With_Parameter<
-    number, string, d_loc.List_of_Characters, { 'number of fractional digits': number }
+    number, string, s_loc.List_of_Characters, { 'number of fractional digits': number }
 > = ($, abort, $p) => {
     const characters = $
     let isNegative = false
@@ -338,7 +338,7 @@ export const fractional_decimal: p_i.Refiner_With_Parameter<
 
 
 export const hexadecimal: p_i.Refiner<
-    number, string, d_loc.List_of_Characters
+    number, string, s_loc.List_of_Characters
 > = ($, abort) => {
     const characters = $
     let result = 0
@@ -409,7 +409,7 @@ export const hexadecimal: p_i.Refiner<
  * This function converts an ISO 8601 date string (YYYY-MM-DD) to a udhr day number
  */
 export const iso_date_udhr: p_i.Refiner<
-    number, string, d_loc.List_of_Characters
+    number, string, s_loc.List_of_Characters
 > = ($, abort) => {
 
     const iso_day_0_offset = - 711471 // the number of days that iso day 1 (0001-01-01) is offset relative to udhr day 0 (1948-12-10)
@@ -517,7 +517,7 @@ export const iso_date_udhr: p_i.Refiner<
 
 
 export const octal: p_i.Refiner<
-    number, string, d_loc.List_of_Characters
+    number, string, s_loc.List_of_Characters
 > = ($, abort) => {
     const characters = $
     let result = 0

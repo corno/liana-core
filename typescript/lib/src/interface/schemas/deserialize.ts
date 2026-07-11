@@ -1,14 +1,14 @@
 
-import type * as d_deserialized_parse_tree from "astn-core/interface/data/deserialize_parse_tree"
-import type * as d_unmarshall from "../schemas/unmarshall.js"
+import type * as s_deserialized_parse_tree from "astn-core/interface/data/deserialize_parse_tree"
+import type * as s_unmarshall from "../schemas/unmarshall.js"
 
 
 export type Error_ = 
-    | ['parse error', d_deserialized_parse_tree.Error]
-    | ['unmarshall error', d_unmarshall.Error]
+    | ['parse error', s_deserialized_parse_tree.Error]
+    | ['unmarshall error', s_unmarshall.Error]
 
 export type { 
     Error_ as Error, 
 }
 
-export type Parameters = d_deserialized_parse_tree.Parameters
+export type Parameters = s_deserialized_parse_tree.Parameters
