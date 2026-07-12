@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/interface/data'
 
-import type * as s_astn from "astn-core/interface/data/unmarshalled"
-import type * as s_parse_tree from "astn-core/interface/data/parse_tree"
+import type * as s_astn from "./astn_unmarshalled.js"
+import type * as s_parse_tree from "./parse_tree.js"
 
 export type Number = number
 

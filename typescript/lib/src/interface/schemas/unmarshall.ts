@@ -1,4 +1,4 @@
-import type * as s_astn_unmarshall from "astn-core/interface/data/unmarshall"
+import type * as s_astn_unmarshall from "./astn_unmarshall.js"
 import type * as s_location from "./document_and_location.js"
 
 export type Error =

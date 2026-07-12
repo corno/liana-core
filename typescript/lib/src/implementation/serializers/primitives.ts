@@ -6,17 +6,53 @@ import p_list_build_deprecated from 'pareto-core/implementation/refiner/specials
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
-import type * as interface_ from "../../../declarations/transformers/primitives/text.js"
+
+namespace declarations {
+    export type true_false = p_.Transformer<
+        boolean,
+        string
+    >
+    export type scientific_notation = p_.Transformer_With_Parameter<
+        number,
+        string,
+        { digits: number }
+    >
+    export type binary = p_.Transformer<
+        number,
+        string
+    >
+    export type decimal = p_.Transformer<
+        number,
+        string
+    >
+    export type hexadecimal = p_.Transformer<
+        number,
+        string
+    >
+    export type fractional_decimal = p_.Transformer_With_Parameter<
+        number,
+        string,
+        { 'number of fractional digits': number }
+    >
+    export type iso_date_udhr = p_.Transformer<
+        number,
+        string
+    >
+    export type octal = p_.Transformer<
+        number,
+        string
+    >
+}
 
 //dependencies
-import * as t_to_date_struct from "./date_struct.js"
+import * as t_to_date_struct from "../transformers/primitives/date_struct.js"
 
 
-export const true_false: interface_.true_false = ($) => {
+export const true_false: declarations.true_false = ($) => {
     return $ ? "true" : "false"
 }
 
-export const scientific_notation: interface_.scientific_notation = ($, $p) => {
+export const scientific_notation: declarations.scientific_notation = ($, $p) => {
     return p_text_from_list(
         p_list_build_deprecated<number>(
             ($i) => {
@@ -169,7 +205,7 @@ export const scientific_notation: interface_.scientific_notation = ($, $p) => {
     )
 }
 
-export const binary: interface_.binary = ($) => p_text_from_list(
+export const binary: declarations.binary = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -209,7 +245,7 @@ export const binary: interface_.binary = ($) => p_text_from_list(
 )
 
 
-export const decimal: interface_.decimal = ($) => p_text_from_list(
+export const decimal: declarations.decimal = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -245,7 +281,7 @@ export const decimal: interface_.decimal = ($) => p_text_from_list(
 )
 
 
-export const hexadecimal: interface_.hexadecimal = ($) => p_text_from_list(
+export const hexadecimal: declarations.hexadecimal = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -291,7 +327,7 @@ export const hexadecimal: interface_.hexadecimal = ($) => p_text_from_list(
 )
 
 
-export const fractional_decimal: interface_.fractional_decimal = ($, $p) => p_text_from_list(
+export const fractional_decimal: declarations.fractional_decimal = ($, $p) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             let value = $
@@ -378,7 +414,7 @@ export const fractional_decimal: interface_.fractional_decimal = ($, $p) => p_te
     ($) => $
 )
 
-export const iso_date_udhr: interface_.iso_date_udhr = (udhr_day) => {
+export const iso_date_udhr: declarations.iso_date_udhr = (udhr_day) => {
 
     const pad_left: p_i.Transformer_With_Parameter<
         string,
@@ -424,7 +460,7 @@ export const iso_date_udhr: interface_.iso_date_udhr = (udhr_day) => {
     )
 }
 
-export const octal: interface_.octal = ($) => p_text_from_list(
+export const octal: declarations.octal = ($) => p_text_from_list(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {

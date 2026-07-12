@@ -1,13 +1,22 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../declarations/transformers/deserialize_resolved/prose.js"
+//schemas
+import type * as s_in from "../../../interface/schemas/deserialize_resolved.js"
+import type * as s_out from "../../../interface/schemas/prose.js"
+
+namespace declarations {
+    export type Error = p_.Transformer<
+        s_in.Error,
+        s_out.Phrase
+    >
+}
 
 //dependencies
 import * as t_resolve_to_prose from "../resolve/prose.js"
 import * as t_deserialize_to_prose from "../deserialize/prose.js"
 
 
-export const Error: interface_.Error = ($) => p_.from.state($).decide(
+export const Error: declarations.Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'deserialize': return p_.option($, ($) => t_deserialize_to_prose.Error($))

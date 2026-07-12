@@ -1,4 +1,4 @@
-import type * as s_astn_location from "astn-core/interface/data/location"
+import type * as s_astn_location from "./location.js"
 
 export type Subdocument = {
     readonly 'range of include in main document': s_astn_location.Range

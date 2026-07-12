@@ -2,7 +2,7 @@
 import type * as p_di from 'pareto-core/interface/data'
 import type * as p_ from 'pareto-core/interface/refiner'
 
-import type * as s_in from "astn-core/interface/data/parse_tree"
+import type * as s_in from "../../../interface/schemas/parse_tree.js"
 import type * as s_out from "../../../interface/schemas/unmarshalled.js"
 import type * as s_function from "../../../interface/schemas/unmarshall.js"
 import type * as s_function_loc from "../../../interface/schemas/document_and_location.js"

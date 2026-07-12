@@ -1,6 +1,15 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../declarations/transformers/unmarshall/prose.js"
+//schemas
+import type * as s_in from "../../../interface/schemas/unmarshall.js"
+import type * as s_out from "../../../interface/schemas/prose.js"
+
+namespace declarations {
+    export type Error = p_.Transformer<
+        s_in.Error,
+        s_out.Phrase
+    >
+}
 
 //dependencies
 import * as t_astn_unmarshall_to_prose from "astn-core/implementation/transformers/unmarshall/prose"
@@ -8,7 +17,7 @@ import * as t_astn_unmarshall_to_prose from "astn-core/implementation/transforme
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-export const Error: interface_.Error = ($) => sh.ph.composed([
+export const Error: declarations.Error = ($) => sh.ph.composed([
     p_.from.state($).decide(
         ($) => {
             switch ($[0]) {

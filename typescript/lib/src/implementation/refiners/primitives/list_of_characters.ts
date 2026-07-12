@@ -5,7 +5,7 @@ import type * as p_i from 'pareto-core/interface/refiner'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
 //schemas
-import type * as s_loc from "pareto-fountain-pen/interface/data/list_of_characters"
+import type * as s_loc from "../../../interface/schemas/list_of_characters.js"
 
 //dependencies
 import * as t_leap_days_before_year from "../../transformers/leap_days_before_year/year.js"

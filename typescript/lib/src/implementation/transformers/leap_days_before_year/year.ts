@@ -1,9 +1,14 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
-import type * as interface_ from "../../../declarations/transformers/leap_days_before_year/year.js"
+namespace declarations {
+    export type Year = p_.Transformer<
+        number,
+        number
+    >
+}
 
-export const Year: interface_.Year = ($) => {
+export const Year: declarations.Year = ($) => {
     return + p_.from.number($).divide(
         4,
         ['towards zero', null],
