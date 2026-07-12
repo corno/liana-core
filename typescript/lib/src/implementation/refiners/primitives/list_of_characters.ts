@@ -4,7 +4,7 @@ import type * as p_di from 'pareto-core/interface/data'
 import type * as p_i from 'pareto-core/interface/refiner'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
-//data types
+//schemas
 import type * as s_loc from "pareto-fountain-pen/interface/data/list_of_characters"
 
 //dependencies

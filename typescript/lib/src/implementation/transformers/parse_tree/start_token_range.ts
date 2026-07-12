@@ -2,7 +2,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 
 import type * as interface_ from "../../../declarations/transformers/parse_tree/start_token_range.js"
 
-//data types
+//schemas
 import type * as s_out from "../../../interface/schemas/document_and_location.js"
 
 //dependencies
