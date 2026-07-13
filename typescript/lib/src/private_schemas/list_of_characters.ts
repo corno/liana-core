@@ -1,0 +1,1 @@
+export * from "astn-core/interface/schemas/list_of_characters"

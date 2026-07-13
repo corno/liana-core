@@ -14,7 +14,7 @@ import * as p_h from 'pareto-host-nodejs/index'
 
 import * as ds_main from "pareto-application-api/interface/schemas/main"
 
-import * as foo from "lib/implementation/refiners/primitives/list_of_characters"
+// import * as foo from "lib/implementation/refiners/primitives/list_of_characters"
 
 
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
@@ -23,22 +23,22 @@ import p_create_refine_context from 'pareto-core/implementation/__internal/sync/
 import p_log_debug_message from 'pareto-core-dev/log_debug_message'
 
 
-p_create_refine_context<number, string>(
-    (abort) => foo.decimal(
-        p_list_from_text(
-            "1234567890",
-            ($) => $
-        ),
-        ($) => abort($)
-    )
-).__extract_data(
-    ($) => {
-        p_log_debug_message(`parsed: ${$}`, () => {})
-    },
-    ($) => {
-        p_log_debug_message(`error: ${$}`, () => {})
-    }
-)
+// p_create_refine_context<number, string>(
+//     (abort) => foo.decimal(
+//         p_list_from_text(
+//             "1234567890",
+//             ($) => $
+//         ),
+//         ($) => abort($)
+//     )
+// ).__extract_data(
+//     ($) => {
+//         p_log_debug_message(`parsed: ${$}`, () => {})
+//     },
+//     ($) => {
+//         p_log_debug_message(`error: ${$}`, () => {})
+//     }
+// )
 
 // Import test data
 // import { TEST_DATA } from "../data/test_data.js"
