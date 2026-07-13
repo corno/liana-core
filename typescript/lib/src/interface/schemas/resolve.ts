@@ -1,5 +1,5 @@
 
-import * as p_ from 'pareto-core/interface/data'
+import * as p_ from 'pareto-core/interface/schema'
 
 import * as i_location from "./document_and_location.js"
 
