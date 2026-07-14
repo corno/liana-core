@@ -12,7 +12,7 @@ namespace declarations {
 //dependencies
 import * as api_astn_core from "astn-core/api"
 
-import * as t_unmarshall_to_prose from "./unmarshall.js"
+import * as t_unmarshall_to_prose from "./unmarshalling.js"
 
 export const Error: declarations.Error = ($) => p_.from.state($).decide(
     ($) => {
