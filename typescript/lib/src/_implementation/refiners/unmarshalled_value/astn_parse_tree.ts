@@ -5,7 +5,7 @@ import p_change_context from 'pareto-core/implementation/refiner/specials/change
 
 import type * as s_in from "../../../interface/schemas/parse_tree.js"
 import type * as s_out from "../../../private_schemas/unmarshalled_value.js"
-import type * as s_function from "../../../interface/schemas/value_unmarshalling.js"
+import type * as s_function from "../../../interface/schemas/unmarshalling.js"
 
 
 namespace declarations {

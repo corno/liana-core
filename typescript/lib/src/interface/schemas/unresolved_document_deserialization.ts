@@ -1,11 +1,11 @@
 
 import type * as s_parse_tree_deserialization from "../../private_schemas/parse_tree_deserialization.js"
-import type * as s_value_unmarshalling from "./value_unmarshalling.js"
+import type * as s_unmarshalling from "./unmarshalling.js"
 
 
 export type Error_ = 
     | ['parse tree deserialization', s_parse_tree_deserialization.Error]
-    | ['value unmarshalling', s_value_unmarshalling.Error]
+    | ['unmarshalling', s_unmarshalling.Error]
 
 export type { 
     Error_ as Error, 
