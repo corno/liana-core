@@ -5,7 +5,7 @@ import * as p_s from 'pareto-core/implementation/serializer'
 
 export type API = {
     'serializers': {
-        'deserialization to resolved': p_s.Serializer<
+        'deserialization to resolved': p_s.Phrase_Serializer<
             import("./schemas/deserialization_to_resolved.js").Error
         >
     },

@@ -8,34 +8,34 @@ import p_unreachable_code_path from 'pareto-core/implementation/transformer/spec
 
 
 namespace declarations {
-    export type true_false = p_.Serializer<
+    export type true_false = p_.Phrase_Serializer<
         boolean
     >
-    export type scientific_notation = p_.Serializer_With_Parameter<
+    export type scientific_notation = p_.Phrase_Serializer_With_Parameter<
         number,
         {
             digits: number
         }
     >
-    export type binary = p_.Serializer<
+    export type binary = p_.Phrase_Serializer<
         number
     >
-    export type decimal = p_.Serializer<
+    export type decimal = p_.Phrase_Serializer<
         number
     >
-    export type hexadecimal = p_.Serializer<
+    export type hexadecimal = p_.Phrase_Serializer<
         number
     >
-    export type fractional_decimal = p_.Serializer_With_Parameter<
+    export type fractional_decimal = p_.Phrase_Serializer_With_Parameter<
         number,
         {
             'number of fractional digits': number
         }
     >
-    export type iso_date_udhr = p_.Serializer<
+    export type iso_date_udhr = p_.Phrase_Serializer<
         number
     >
-    export type octal = p_.Serializer<
+    export type octal = p_.Phrase_Serializer<
         number
     >
 }
