@@ -8,34 +8,34 @@ import p_unreachable_code_path from 'pareto-core/implementation/transformer/spec
 
 
 namespace declarations {
-    export type true_false = p_.Phrase_Serializer<
+    export type true_false = p_.Serializer<
         boolean
     >
-    export type scientific_notation = p_.Phrase_Serializer_With_Parameter<
+    export type scientific_notation = p_.Serializer_With_Parameter<
         number,
         {
             digits: number
         }
     >
-    export type binary = p_.Phrase_Serializer<
+    export type binary = p_.Serializer<
         number
     >
-    export type decimal = p_.Phrase_Serializer<
+    export type decimal = p_.Serializer<
         number
     >
-    export type hexadecimal = p_.Phrase_Serializer<
+    export type hexadecimal = p_.Serializer<
         number
     >
-    export type fractional_decimal = p_.Phrase_Serializer_With_Parameter<
+    export type fractional_decimal = p_.Serializer_With_Parameter<
         number,
         {
             'number of fractional digits': number
         }
     >
-    export type iso_date_udhr = p_.Phrase_Serializer<
+    export type iso_date_udhr = p_.Serializer<
         number
     >
-    export type octal = p_.Phrase_Serializer<
+    export type octal = p_.Serializer<
         number
     >
 }
@@ -43,12 +43,9 @@ namespace declarations {
 //dependencies
 import * as t_to_date_struct from "../refiners/date/primitives.js"
 
-//shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose_simple/deprecated"
+export const true_false: declarations.true_false = ($) => p_.ph.literal($ ? "true" : "false")
 
-export const true_false: declarations.true_false = ($) => sh.ph.literal($ ? "true" : "false")
-
-export const scientific_notation: declarations.scientific_notation = ($, $p) => sh.ph.list_of_characters(
+export const scientific_notation: declarations.scientific_notation = ($, $p) => p_.ph.list_of_characters(
     p_list_build_deprecated<number>(
         ($i) => {
             // Handle special case for zero in scientific notation
@@ -199,7 +196,7 @@ export const scientific_notation: declarations.scientific_notation = ($, $p) => 
     )
 )
 
-export const binary: declarations.binary = ($) => sh.ph.list_of_characters(
+export const binary: declarations.binary = ($) => p_.ph.list_of_characters(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -271,12 +268,12 @@ export const decimal_imp = ($: number) => p_list_build_deprecated<number>(
         }
     )
 
-export const decimal: declarations.decimal = ($) => sh.ph.list_of_characters(
+export const decimal: declarations.decimal = ($) => p_.ph.list_of_characters(
     decimal_imp($),
 )
 
 
-export const hexadecimal: declarations.hexadecimal = ($) => sh.ph.list_of_characters(
+export const hexadecimal: declarations.hexadecimal = ($) => p_.ph.list_of_characters(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
@@ -322,7 +319,7 @@ export const hexadecimal: declarations.hexadecimal = ($) => sh.ph.list_of_charac
 )
 
 
-export const fractional_decimal: declarations.fractional_decimal = ($, $p) => sh.ph.list_of_characters(
+export const fractional_decimal: declarations.fractional_decimal = ($, $p) => p_.ph.list_of_characters(
     p_list_build_deprecated<number>(
         ($i) => {
             let value = $
@@ -436,7 +433,7 @@ export const iso_date_udhr: declarations.iso_date_udhr = (udhr_day) => {
     const month_str = pad_left(decimal_imp(iso_date.month), { 'desired length': 2, 'pad character': 48 }) // '0'  
     const day_str = pad_left(decimal_imp(iso_date.day), { 'desired length': 2, 'pad character': 48 }) // '0'
 
-    return sh.ph.list_of_characters(
+    return p_.ph.list_of_characters(
         p_.literal.segmented_list([
             year_str,
             p_.literal.list([
@@ -451,7 +448,7 @@ export const iso_date_udhr: declarations.iso_date_udhr = (udhr_day) => {
     )
 }
 
-export const octal: declarations.octal = ($) => sh.ph.list_of_characters(
+export const octal: declarations.octal = ($) => p_.ph.list_of_characters(
     p_list_build_deprecated<number>(
         ($i) => {
             if ($ < 0) {
