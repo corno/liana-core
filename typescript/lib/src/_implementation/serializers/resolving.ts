@@ -10,7 +10,7 @@ namespace declarations {
 }
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_simple/deprecated"
 
 export const Error: declarations.Error = ($) => sh.ph.composed([
     p_.from.state($.type).decide(
@@ -49,12 +49,12 @@ export const Error: declarations.Error = ($) => sh.ph.composed([
                     }))
                 case 'missing required entries': return p_.option($, ($) => sh.ph.composed([
                     sh.ph.literal("missing required entries:"),
-                    sh.ph.indent(
-                        sh.pg.sentences(p_.from.dictionary($).convert_to_list(
-                            ($, id) => sh.sentence([
-                                sh.ph.literal("- "),
+                    sh.ph.composed(
+                        p_.from.dictionary($).convert_to_list(
+                            ($, id) => sh.ph.composed([
+                                sh.ph.literal(" -"),
                                 sh.ph.literal(id)
-                            ])))
+                            ]))
                     )
                 ]))
                 default: return p_.exhaustive($[0])

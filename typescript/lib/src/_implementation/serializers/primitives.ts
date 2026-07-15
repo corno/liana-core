@@ -44,7 +44,7 @@ namespace declarations {
 import * as t_to_date_struct from "../refiners/date/primitives.js"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_simple/deprecated"
 
 export const true_false: declarations.true_false = ($) => sh.ph.literal($ ? "true" : "false")
 

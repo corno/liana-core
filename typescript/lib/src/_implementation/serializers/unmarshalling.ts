@@ -13,7 +13,7 @@ namespace declarations {
 import * as api_astn_core from "astn-core/api"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_simple/deprecated"
 
 export const Error: declarations.Error = ($) => sh.ph.composed([
     p_.from.state($).decide(
