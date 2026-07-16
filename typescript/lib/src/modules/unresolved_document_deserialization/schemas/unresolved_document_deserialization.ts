@@ -1,5 +1,5 @@
 
-import type * as s_parse_tree_deserialization from "../../value_unmarshalling/schemas/parse_tree_deserialization.js"
+import type * as s_parse_tree_deserialization from "./parse_tree_deserialization.js"
 import type * as s_unmarshalling from "../../value_unmarshalling/schemas/unmarshalling.js"
 
 
