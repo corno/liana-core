@@ -4,7 +4,7 @@ import * as sh_helpers from 'pareto-core-shorthands/unconstrained_deprecated'
 
 import get_location_info from 'pareto-core-shorthands/get_location_info'
 
-import * as liana_core_location from "../interface/schemas/location.js"
+import * as liana_core_location from "../modules/value_unmarshalling/schemas/location.js"
 
 const get_location_info_3_deep = (): liana_core_location.Range => {
     const loc = get_location_info(3) //3 because we want the caller of the caller (in the shorthands file) of the caller (in this file) of this function, which is the one that is creating the data structure
