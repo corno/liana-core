@@ -6,7 +6,7 @@ import * as p_s from 'pareto-core/implementation/serializer'
 export type API = {
     'serializers': {
         'deserialization to resolved': p_s.Serializer<
-            import("../modules/resolving/schemas/resolved_document_deserialization.js").Error
+            import("../modules/resolved_document_deserialization/schemas/resolved_document_deserialization.js").Error
         >
     },
     'transformers': {

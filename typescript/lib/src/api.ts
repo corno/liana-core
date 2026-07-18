@@ -2,7 +2,7 @@ import * as interface_ from "./interface/api.js"
 
 
 import * as r_unmarshalled_from_parse_tree from "./modules/value_unmarshalling/implementation/refiners/unmarshalled_value/astn_parse_tree.js"
-import * as ser_deserialization_to_resolved from "./modules/resolving/implementation/serializers/resolved_document_deserialization.js"
+import * as ser_deserialization_to_resolved from "./modules/resolved_document_deserialization/implementation/serializers/resolved_document_deserialization.js"
 
 export const api: interface_.API = {
     'serializers': {
