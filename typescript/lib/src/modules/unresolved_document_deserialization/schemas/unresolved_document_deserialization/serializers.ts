@@ -12,13 +12,13 @@ namespace declarations {
 //dependencies
 import * as ser_parse_tree_deserialization from "astn-core/modules/deserialization/schemas/parse_tree_deserialization/serializers"
 
-import * as t_unmarshall_to_prose from "../../../value_unmarshalling/schemas/unmarshalling/serializers.js"
+import * as ser_unmarshalling from "../../../value_unmarshalling/schemas/unmarshalling/serializers.js"
 
 export const Error: declarations.Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'parse tree deserialization': return p_.option($, ($) => ser_parse_tree_deserialization.Error($))
-            case 'unmarshalling': return p_.option($, ($) => t_unmarshall_to_prose.Error($))
+            case 'unmarshalling': return p_.option($, ($) => ser_unmarshalling.Error($))
             default: return p_.exhaustive($[0])
         }
     })

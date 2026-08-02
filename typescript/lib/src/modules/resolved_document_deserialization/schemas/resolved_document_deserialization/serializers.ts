@@ -10,15 +10,15 @@ namespace declarations {
 }
 
 //dependencies
-import * as t_resolve_to_prose from "../resolving/serializers.js"
-import * as t_deserialize_to_prose from "../../../unresolved_document_deserialization/schemas/unresolved_document_deserialization/serializers.js"
+import * as ser_resolving from "../resolving/serializers.js"
+import * as ser_unresolved_document_deserialization from "../../../unresolved_document_deserialization/schemas/unresolved_document_deserialization/serializers.js"
 
 
 export const Error: declarations.Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'unresolved document deserialization': return p_.option($, ($) => t_deserialize_to_prose.Error($))
-            case 'resolving': return p_.option($, ($) => t_resolve_to_prose.Error($))
+            case 'unresolved document deserialization': return p_.option($, ($) => ser_unresolved_document_deserialization.Error($))
+            case 'resolving': return p_.option($, ($) => ser_resolving.Error($))
             default: return p_.exhaustive($[0])
         }
     })
