@@ -218,9 +218,7 @@ export const Dictionary: declarations.Dictionary = ($, abort) => {
     )
 }
 
-export const List: declarations.List = ($, abort) => {
-    return r_unmarshalled_value_from_parse_tree.List($, ($) => abort(['astn value unmarshalling', $]))
-}
+export const List: declarations.List = ($, abort) => r_unmarshalled_value_from_parse_tree.List($, ($) => abort(['astn value unmarshalling', $]))
 
 export const Nothing: declarations.Nothing = ($, abort) => r_unmarshalled_value_from_parse_tree.Nothing($, ($) => abort(['astn value unmarshalling', $])).null
 
@@ -240,29 +238,27 @@ export const State: declarations.State = ($, abort) => r_unmarshalled_value_from
 
 export const Text: declarations.Text = ($, abort) => r_unmarshalled_value_from_parse_tree.Text($, ($) => abort(['astn value unmarshalling', $])).token.value
 
-export const Verbose_Group: declarations.Verbose_Group = ($, abort, $p) => {
-    return p_change_context(
-        r_unmarshalled_value_from_parse_tree.Verbose_Group($, ($) => abort(['astn value unmarshalling', $]), $p),
-        ($) => {
-            const value = $.value
-            return {
-                'value': $.value,
-                'properties': p_.from.dictionary($.properties).map(
-                    ($, id) => p_.from.optional($.assignment).decide(
-                        ($) => p_.from.optional($.value).decide(
-                            ($) => $,
-                            () => abort(['liana', {
-                                'range': t_parse_tree_to_start_token_range.Value(value),
-                                'type': ['dictionary', ['entry not set', id]]
-                            }])
-                        ),
+export const Verbose_Group: declarations.Verbose_Group = ($, abort, $p) => p_change_context(
+    r_unmarshalled_value_from_parse_tree.Verbose_Group($, ($) => abort(['astn value unmarshalling', $]), $p),
+    ($) => {
+        const value = $.value
+        return {
+            'value': $.value,
+            'properties': p_.from.dictionary($.properties).map(
+                ($, id) => p_.from.optional($.assignment).decide(
+                    ($) => p_.from.optional($.value).decide(
+                        ($) => $,
                         () => abort(['liana', {
                             'range': t_parse_tree_to_start_token_range.Value(value),
                             'type': ['dictionary', ['entry not set', id]]
                         }])
-                    )
+                    ),
+                    () => abort(['liana', {
+                        'range': t_parse_tree_to_start_token_range.Value(value),
+                        'type': ['dictionary', ['entry not set', id]]
+                    }])
                 )
-            }
+            )
         }
-    )
-}
+    }
+)

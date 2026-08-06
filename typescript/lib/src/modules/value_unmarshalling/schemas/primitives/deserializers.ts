@@ -357,14 +357,12 @@ export const hexadecimal: p_i.Refiner<
         abort("Empty string is not a valid hexadecimal number")
     }
 
-    const get_character_at = (index: number): number => {
-        return characters.__deprecated_get_item_at(
+    const get_character_at = (index: number): number => characters.__deprecated_get_item_at(
             index,
             {
                 out_of_bounds: () => abort("index out of bounds")
             }
         )
-    }
 
     // Check for negative sign
     if (p_t.from.list(characters).amount_of_items() > 0 && get_character_at(0) === 45) { // '-'
