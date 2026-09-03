@@ -18,7 +18,6 @@ import * as ds_main from "pareto-application-api/schemas/main/schema"
 
 
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
-import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 import p_create_refine_context from 'pareto-core/implementation/__internal/sync/create_refinement_context'
 import p_log_debug_message from 'pareto-core-dev/log_debug_message'
 
