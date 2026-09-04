@@ -14,8 +14,8 @@ namespace declarations {
 export const Error: declarations.Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'liana': return p_.ss($, ($) => $.range)
-            case 'astn value unmarshalling': return p_.ss($, ($) => $.range)
+            case 'liana': return p_.option($, ($) => $.range)
+            case 'astn value unmarshalling': return p_.option($, ($) => $.range)
             default: return p_.exhaustive($[0])
         }
     })
