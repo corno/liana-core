@@ -1,8 +1,8 @@
-import * as p_ from 'pareto-core/implementation/serializer'
-import type * as p_t from 'pareto-core/interface/transformer'
-import type * as p_di from 'pareto-core/interface/schema'
-import p_list_build_deprecated from 'pareto-core/implementation/refiner/specials/list_build_deprecated'
-import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
+import * as p_ from 'pareto-core/serializer'
+import type * as p_t from 'pareto-core/transformer'
+import type * as p_di from 'pareto-core/schema'
+import p_list_build_deprecated from 'pareto-core/refiner/specials/list_build_deprecated'
+import p_unreachable_code_path from 'pareto-core/transformer/specials/unreachable_code_path'
 
 import type * as s_date from "../date/schema.js"
 

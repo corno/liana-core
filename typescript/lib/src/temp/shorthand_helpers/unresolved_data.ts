@@ -1,5 +1,5 @@
-import * as p_ from 'pareto-core/implementation/transformer'
-import * as p_di from 'pareto-core/interface/data'
+import * as p_ from 'pareto-core/transformer'
+import * as p_di from 'pareto-core/schema'
 import * as sh_helpers from 'pareto-core-shorthands/unconstrained_deprecated'
 
 import get_location_info from 'pareto-core-shorthands/get_location_info'

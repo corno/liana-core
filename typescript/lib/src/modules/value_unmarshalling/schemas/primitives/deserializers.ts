@@ -1,9 +1,9 @@
-import * as p_ from 'pareto-core/implementation/refiner'
-import * as p_t from 'pareto-core/implementation/transformer'
-import type * as p_di from 'pareto-core/interface/schema'
-import type * as p_i from 'pareto-core/interface/refiner'
-import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
-import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
+import * as p_ from 'pareto-core/refiner'
+import * as p_t from 'pareto-core/transformer'
+import type * as p_di from 'pareto-core/schema'
+import type * as p_i from 'pareto-core/refiner'
+import p_list_from_text from 'pareto-core/refiner/specials/list_from_text'
+import p_unreachable_code_path from 'pareto-core/transformer/specials/unreachable_code_path'
 
 export const decimal: p_i.Refiner<
     number, string, string

@@ -17,8 +17,8 @@ import * as ds_main from "pareto-application-api/schemas/main/schema"
 // import * as foo from "lib/implementation/refiners/primitives/list_of_characters"
 
 
-import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
-import p_create_refine_context from 'pareto-core/implementation/__internal/sync/create_refinement_context'
+import p_text_from_list from 'pareto-core/transformer/specials/text_from_list'
+import p_create_refine_context from 'pareto-core/__internal/sync/create_refinement_context'
 import p_log_debug_message from 'pareto-core-dev/log_debug_message'
 
 
