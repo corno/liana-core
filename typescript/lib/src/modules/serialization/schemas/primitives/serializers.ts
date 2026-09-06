@@ -6,37 +6,38 @@ import p_unreachable_code_path from 'pareto-core/transformer/specials/unreachabl
 
 import type * as s_date from "../date/schema.js"
 
+import type * as s_in from "./schema.js"
 
 namespace declarations {
     export type true_false = p_.Serializer<
-        boolean
+        s_in.Boolean
     >
     export type scientific_notation = p_.Serializer_With_Parameter<
-        number,
+        s_in.Number,
         {
             digits: number
         }
     >
     export type binary = p_.Serializer<
-        number
+        s_in.Number
     >
     export type decimal = p_.Serializer<
-        number
+        s_in.Number
     >
     export type hexadecimal = p_.Serializer<
-        number
+        s_in.Number
     >
     export type fractional_decimal = p_.Serializer_With_Parameter<
-        number,
+        s_in.Number,
         {
             'number of fractional digits': number
         }
     >
     export type iso_date_udhr = p_.Serializer<
-        number
+        s_in.Number
     >
     export type octal = p_.Serializer<
-        number
+        s_in.Number
     >
 }
 
