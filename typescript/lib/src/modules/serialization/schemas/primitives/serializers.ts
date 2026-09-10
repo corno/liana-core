@@ -529,9 +529,9 @@ export const iso_date_udhr: declarations.iso_date_udhr = (udhr_day) => {
         const day = $v_days_in_current_year - month_day_table[month - 1]!
 
         return {
-            year,
-            month,
-            day,
+           'year':  year,
+           'month': month,
+           'day':   day,
         }
     }
 
