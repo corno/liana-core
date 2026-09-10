@@ -1,12 +1,12 @@
-import * as p_ from 'pareto-core/refiner'
+import * as p_ from 'pareto-core/deserializer'
 import * as p_t from 'pareto-core/transformer'
 import type * as p_di from 'pareto-core/schema'
-import type * as p_i from 'pareto-core/refiner'
+import * as p_r from 'pareto-core/refiner'
 import p_list_from_text from 'pareto-core/refiner/specials/list_from_text'
 import p_unreachable_code_path from 'pareto-core/transformer/specials/unreachable_code_path'
 
-export const decimal: p_i.Refiner<
-    number, string, string
+export const decimal: p_.Deserializer<
+    number, string
 > = ($, abort) => {
     const characters = p_list_from_text($, ($) => $)
     let result = 0
@@ -90,7 +90,7 @@ export const decimal: p_i.Refiner<
 // }
 
 
-export const scientific_notation: p_i.Refiner_With_Parameter<
+export const scientific_notation: p_r.Refiner_With_Parameter<
     number,
     string,
     string,
@@ -184,7 +184,7 @@ export const scientific_notation: p_i.Refiner_With_Parameter<
     return isNegative ? -finalResult : finalResult
 }
 
-export const true_false: p_i.Refiner<
+export const true_false: p_r.Refiner<
     boolean,
     string,
     string
@@ -198,7 +198,7 @@ export const true_false: p_i.Refiner<
 
 
 
-export const binary: p_i.Refiner<
+export const binary: p_r.Refiner<
     number,
     string,
     string
@@ -257,7 +257,7 @@ export const binary: p_i.Refiner<
 }
 
 
-export const fractional_decimal: p_i.Refiner_With_Parameter<
+export const fractional_decimal: p_r.Refiner_With_Parameter<
     number,
     string,
     string,
@@ -342,7 +342,7 @@ export const fractional_decimal: p_i.Refiner_With_Parameter<
 }
 
 
-export const hexadecimal: p_i.Refiner<
+export const hexadecimal: p_r.Refiner<
     number,
     string,
     string
@@ -413,7 +413,7 @@ export const hexadecimal: p_i.Refiner<
  * 
  * This function converts an ISO 8601 date string (YYYY-MM-DD) to a udhr day number
  */
-export const iso_date_udhr: p_i.Refiner<
+export const iso_date_udhr: p_r.Refiner<
     number,
     string,
     string
@@ -442,7 +442,7 @@ export const iso_date_udhr: p_i.Refiner<
 
 
         const get_certain_character_at = (characters: p_di.List<number>, index: number): number => {
-            return p_.from.optional(characters.__deprecated_get_possible_item_at(index)).decide(
+            return p_r.from.optional(characters.__deprecated_get_possible_item_at(index)).decide(
                 ($) => $,
                 () => abort("index out of bounds")
             )
@@ -551,7 +551,7 @@ export const iso_date_udhr: p_i.Refiner<
 }
 
 
-export const octal: p_i.Refiner<
+export const octal: p_r.Refiner<
     number,
     string,
     string
